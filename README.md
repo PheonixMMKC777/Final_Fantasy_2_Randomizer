@@ -1,4 +1,4 @@
-# Final_Fantasy_2_Randomizer
+# Final_Fantasy_2_Randomizer 1.0
 
 Currently can Randomize the following 
 
@@ -25,15 +25,5 @@ Using the Offhand Randomizer will overwrite Party Select/Random Party Randomizat
 # Other
 
 Major shoutout to the fine people at Slickproductions.com for their ff2 documents and utilities
-
-___________.__              .__    ___________              __                         .___.___ 
-
-\_   _____/|__| ____ _____  |  |   \_   _____/____    _____/  |______    _________.__. |   |   |
-
- |    __)  |  |/    \\__  \ |  |    |    __) \__  \  /    \   __\__  \  /  ___<   |  | |   |   |
- 
- |     \   |  |   |  \/ __ \|  |__  |     \   / __ \|   |  \  |  / __ \_\___ \ \___  | |   |   |
- 
- \___  /   |__|___|  (____  /____/  \___  /  (____  /___|  /__| (____  /____  >/ ____| |___|___|
- 
-     \/            \/     \/            \/        \/     \/          \/     \/ \/               
+             
+𝔽𝕚𝕟𝕒𝕝 𝔽𝕒𝕟𝕥𝕒𝕤𝕪 𝕀𝕀 ℝ𝕒𝕟𝕕𝕠𝕞𝕚𝕫𝕖𝕣 1.0
