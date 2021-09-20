@@ -22,9 +22,13 @@ Using the Offhand Randomizer will overwrite Party Select/Random Party Randomizat
 
 # Possible Future Features
 Randomize Chests 
+
 Randomize Key Items
+
 Set Airship Location next to Altea
+
 Increase Walk Speed
+
 Increase Battle Speed??
 
 # Other
