@@ -18,3 +18,5 @@ If you get an error saying "Scripts are disbled on this machine"
       Powershell Scripts should now be enabled to run on your machine.
       
 TODO: Randomize Chests & Key Items, Set Airship Location next to Altea
+
+Major shoutout to the fine people at Slickproductions.com for their ff2 documents and utilities
