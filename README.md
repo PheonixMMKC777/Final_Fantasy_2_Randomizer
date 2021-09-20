@@ -13,3 +13,5 @@ If you get an error saying "Scripts are disbled on this machine"
       3. Press Enter
       4. Press "Y" or "A" then press enter
       Powershell Scripts should now be enabled to run on your machine.
+      
+TODO: Randomize Chests & Key Items, Set Airship Location next to Altea
