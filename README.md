@@ -16,13 +16,13 @@ If you get an error saying "Scripts are disbled on this machine"
       
 TODO: Randomize Chests & Key Items, Set Airship Location next to Altea
 
-#Current Bugs
+# Current Bugs
 
 Random player party crashes sometimes, so if it dont work the first time, give it another try
 
 Using the Offhand Randomizer will overwrite Party Select/Random Party Randomization, so dont use them together.
 
-#Other
+# Other
 
 Major shoutout to the fine people at Slickproductions.com for their ff2 documents and utilities
 
