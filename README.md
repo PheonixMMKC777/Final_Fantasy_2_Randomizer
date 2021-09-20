@@ -27,8 +27,13 @@ Using the Offhand Randomizer will overwrite Party Select/Random Party Randomizat
 Major shoutout to the fine people at Slickproductions.com for their ff2 documents and utilities
 
 ___________.__              .__    ___________              __                         .___.___ 
+
 \_   _____/|__| ____ _____  |  |   \_   _____/____    _____/  |______    _________.__. |   |   |
+
  |    __)  |  |/    \\__  \ |  |    |    __) \__  \  /    \   __\__  \  /  ___<   |  | |   |   |
+ 
  |     \   |  |   |  \/ __ \|  |__  |     \   / __ \|   |  \  |  / __ \_\___ \ \___  | |   |   |
+ 
  \___  /   |__|___|  (____  /____/  \___  /  (____  /___|  /__| (____  /____  >/ ____| |___|___|
+ 
      \/            \/     \/            \/        \/     \/          \/     \/ \/               
