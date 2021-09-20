@@ -4,9 +4,7 @@ Currently can Randomize the following
 
 **Shop Items, Tiered Shops, Player Party, Base Stats, Main/Offhands, Party Select**
 
-**Also Random player party crashes sometimes :(**
- 
-**so if it dont work the first time, give it another try**
+**Also Random player party crashes sometimes, so if it dont work the first time, give it another try :(**
 
 
 If your not powershell savvy run the RUNME.exe
