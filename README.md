@@ -1,5 +1,4 @@
 # Final_Fantasy_2_Randomizer
-A WIP FF2 (NES) Randomizer
 
 Currently can Randomize the following 
 
