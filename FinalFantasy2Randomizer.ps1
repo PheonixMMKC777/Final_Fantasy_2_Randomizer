@@ -22,6 +22,13 @@ $WeaponByteList = 49..111
 $ArmorByteList = 112..152
 $SpellByteList = 153..191
 $MagicByteList = 192..231
+
+$RandomBaseHp = 32..80
+$RandomBaseStat = 5..15
+$RandomPlayerSprite = 0..8
+
+
+
 #Rest is BS pretty sure
 
 # Armor Bytes     70 - 98
@@ -88,10 +95,36 @@ function main {
 
 
 
+    $Randomize_Player_Sprite = New-Object System.Windows.Forms.Button
+    $Randomize_Player_Sprite.Size = "75,50"
+    $Randomize_Player_Sprite.Location = "40,180"
+    $Randomize_Player_Sprite.Text = "Randomize `nPlayer"
+    $Randomize_Player_Sprite.Add_Click({RandomizeSprites})
+
+    $Randomize_Player_Sprite_Complete = New-Object System.windows.forms.Label
+    $Randomize_Player_Sprite_Complete.Size = "75,24"
+    $Randomize_Player_Sprite_Complete.Location = "42,235"
+    $Randomize_Player_Sprite_Complete.Text = "Randomized!"
+
+    $Randomize_Base_Stats = New-Object System.Windows.Forms.Button
+    $Randomize_Base_Stats.Size = "75,50"
+    $Randomize_Base_Stats.Location = "200,100"
+    $Randomize_Base_Stats.Text = "Randomize `nBase Stats"
+    $Randomize_Base_Stats.Add_Click({RandomizeBaseStats})
+
+    $Randomize_Base_Stats_Complete = New-Object System.windows.forms.Label
+    $Randomize_Base_Stats_Complete.Size = "75,24"
+    $Randomize_Base_Stats_Complete.Location = "200,158"
+    $Randomize_Base_Stats_Complete.Text = "Randomized!"
+
+
+
     #Kimochiwa
 
     $main_Window.controls.Add($Randomize_Shops_Button)
     $main_Window.controls.Add($Randomize_Dominant_Hand)
+    $main_Window.controls.Add($Randomize_Player_Sprite)
+    $main_Window.controls.Add($Randomize_Base_Stats)
 
 
 
@@ -964,5 +997,504 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
 }
+
+
+
+
+function RandomizeSprites {
+
+
+    $FirionSprite = $RandomPlayerSprite | Get-Random
+
+
+    $MariaSprite = $RandomPlayerSprite | Get-Random
+    While ($MariaSprite -eq $FirionSprite) {$MariaSprite = $RandomPlayerSprite | Get-Random}
+
+    $GuySprite = $RandomPlayerSprite | Get-Random
+    While ($GuySprite -eq $FirionSprite) {
+            While ($GuySprite = $MariaSprite) {
+                $GuySprite = $RandomPlayerSprite | Get-Random
+            }
+        }
+
+
+    $MinwuSprite = $RandomPlayerSprite | Get-Random
+    While ($MinwuSprite -eq $FirionSprite) {
+        While ($MinwuSprite -eq $MariaSprite) {
+            While ($MinwuSprite -eq $GuySprite) {
+            $MinwuSprite = $RandomPlayerSprite | Get-Random        
+            }        
+        }
+    }
+
+    $JosefSprite = $RandomPlayerSprite | Get-Random
+    While ($JosefSprite -eq $FirionSprite) {
+        While ($JosefSprite -eq $MariaSprite) {
+            While ($JosefSprite -eq $GuySprite) {
+                While ($JosefSprite -eq $MinwuSprite) {
+                $JosefSprite = $RandomPlayerSprite | Get-Random        
+                }        
+            }
+        }
+    } 
+
+    $GordonSprite = $RandomPlayerSprite | Get-Random
+    While ($GordonSprite -eq $FirionSprite) {
+        While ($GordonSprite -eq $MariaSprite) {
+            While ($GordonSprite -eq $GuySprite) {
+                While ($GordonSprite -eq $MinwuSprite) {
+                    While ($GordonSprite -eq $JosefSprite) {
+                        $GordonSprite = $RandomPlayerSprite | Get-Random  
+                     }      
+                }        
+            }
+        }
+    } 
+
+
+    $LaylaSprite = $RandomPlayerSprite | Get-Random
+    While ($LaylaSprite -eq $FirionSprite) {
+        While ($LaylaSprite -eq $MariaSprite) {
+            While ($LaylaSprite -eq $GuySprite) {
+                While ($LaylaSprite -eq $MinwuSprite) {
+                    While ($LaylaSprite -eq $JosefSprite) {
+                        While ($LaylaSprite -eq $GordonSprite) {
+                            $LaylaSprite = $RandomPlayerSprite | Get-Random  
+                        }
+                     }      
+                }        
+            }
+        }
+    } 
+
+
+     $RichardSprite = $RandomPlayerSprite | Get-Random
+    While ($RichardSprite -eq $FirionSprite) {
+        While ($RichardSprite -eq $MariaSprite) {
+            While ($RichardSprite -eq $GuySprite) {
+                While ($RichardSprite -eq $MinwuSprite) {
+                    While ($RichardSprite -eq $JosefSprite) {
+                        While ($RichardSprite -eq $GordonSprite) {
+                            While ($RichardSprite -eq $LaylaSprite) {
+                                $RichardSprite = $RandomPlayerSprite | Get-Random  
+                            }
+                        }
+                     }      
+                }        
+            }
+        }
+    } 
+    
+
+
+
+    $LeonSprite = $RandomPlayerSprite | Get-Random
+    While ($LeonSprite -eq $FirionSprite) {
+        While ($LeonSprite -eq $MariaSprite) {
+            While ($LeonSprite -eq $GuySprite) {
+                While ($LeonSprite -eq $MinwuSprite) {
+                    While ($LeonSprite -eq $JosefSprite) {
+                        While ($LeonSprite -eq $GordonSprite) {
+                            While ($LeonSprite -eq $LaylaSprite) {
+                                While ($LeonSprite -eq $RichardSprite) {
+                                    $LeonSprite = $RandomPlayerSprite | Get-Random  
+                                }
+                            }
+                        }
+                     }      
+                }        
+            }
+        }
+    } 
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Firion 
+
+    $Address = 0xF90
+
+
+    $HexValue = $FirionSprite 
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Maria 
+
+    $Address = 0x1010
+
+
+    $HexValue = $MariaSprite 
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Guy 
+
+    $Address = 0x1090
+
+
+    $HexValue = $GuySprite 
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Minwu 
+
+    $Address = 0x1110
+
+
+    $HexValue = $MinwuSprite 
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Josef 
+
+    $Address = 0x1190
+
+
+    $HexValue = $JosefSprite 
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Gordon 
+
+    $Address = 0x1210
+
+
+    $HexValue = $GordonSprite 
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Layla 
+
+    $Address = 0x1290
+
+
+    $HexValue = $LaylaSprite 
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Richard 
+
+    $Address = 0x1310
+
+
+    $HexValue = $RichardSprite 
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Leon 
+
+    $Address = 0x1390
+
+
+    $HexValue = $LeonSprite 
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+
+
+
+
+$main_window.Controls.Add($Randomize_Player_Sprite_Complete)
+
+
+}
+
+
+
+function RandomizeBaseStats {
+
+
+    #region Firion 
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Firion HP 
+
+    $RandomizedBaseHP = $RandomBaseHP | Get-Random
+    $Address = 0xF98    # current
+    $HexValue = $RandomizedBaseHP
+    $Romfile[$Address] = $HexValue 
+
+    $Address = 0xF9A    # Max
+    $HexValue = $RandomizedBaseHP
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+ 
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Firion Attack 
+
+
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0xFA0
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Firion Agility 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0xFA1
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Firion Vitality 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0xFA2
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Firion Intelligence 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0xFA3
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Firion Soul 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0xFA4
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+    $main_Window.controls.Add($Randomize_Base_Stats_Complete)
+
+
+
+    #endregion Firion
+
+
+
+    #region Maria
+
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Maria HP 
+
+    $RandomizedBaseHP = $RandomBaseHP | Get-Random
+    $Address = 0x1018    # current
+    $HexValue = $RandomizedBaseHP
+    $Romfile[$Address] = $HexValue 
+
+    $Address = 0x101A    # Max
+    $HexValue = $RandomizedBaseHP
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+ 
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Maria Attack 
+
+
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0x1020
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Maria Agility 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0x1021
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Maria Vitality 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0x1022
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Maria Intelligence 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0x1023
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Maria Soul 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0x1024
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+    $main_Window.controls.Add($Randomize_Base_Stats_Complete)
+
+
+    #endregion Maria
+
+
+
+    #region Guy
+
+    
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Guy HP 
+
+    $RandomizedBaseHP = $RandomBaseHP | Get-Random
+    $Address = 0x1098    # current
+    $HexValue = $RandomizedBaseHP
+    $Romfile[$Address] = $HexValue 
+
+    $Address = 0x109A    # Max
+    $HexValue = $RandomizedBaseHP
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+ 
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Guy Attack 
+
+
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0x10A0
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Guy Agility 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0x10A1
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Guy Vitality 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0x10A2
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Guy Intelligence 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0x10A3
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Guy Soul 
+    $RandomizedBaseStat = $RandomBaseStat | Get-Random
+    $Address = 0x10A4
+    $HexValue = $RandomizedBaseStat
+    $Romfile[$Address] = $HexValue
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+    $main_Window.controls.Add($Randomize_Base_Stats_Complete)
+
+
+
+    #endregion Guy
+
+
+}
+
+
+
 
 main
