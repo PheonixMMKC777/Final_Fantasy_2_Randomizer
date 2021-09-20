@@ -4,9 +4,6 @@ Currently can Randomize the following
 
 **Shop Items, Tiered Shops, Player Party, Base Stats, Main/Offhands, Party Select**
 
-**Also Random player party crashes sometimes, so if it dont work the first time, give it another try :(**
-
-
 If your not powershell savvy run the RUNME.exe
 
 If you get an error saying "Scripts are disbled on this machine"
@@ -19,4 +16,19 @@ If you get an error saying "Scripts are disbled on this machine"
       
 TODO: Randomize Chests & Key Items, Set Airship Location next to Altea
 
+#Current Bugs
+
+Random player party crashes sometimes, so if it dont work the first time, give it another try
+
+Using the Offhand Randomizer will overwrite Party Select/Random Party Randomization, so dont use them together.
+
+#Other
+
 Major shoutout to the fine people at Slickproductions.com for their ff2 documents and utilities
+
+___________.__              .__    ___________              __                         .___.___ 
+\_   _____/|__| ____ _____  |  |   \_   _____/____    _____/  |______    _________.__. |   |   |
+ |    __)  |  |/    \\__  \ |  |    |    __) \__  \  /    \   __\__  \  /  ___<   |  | |   |   |
+ |     \   |  |   |  \/ __ \|  |__  |     \   / __ \|   |  \  |  / __ \_\___ \ \___  | |   |   |
+ \___  /   |__|___|  (____  /____/  \___  /  (____  /___|  /__| (____  /____  >/ ____| |___|___|
+     \/            \/     \/            \/        \/     \/          \/     \/ \/               
