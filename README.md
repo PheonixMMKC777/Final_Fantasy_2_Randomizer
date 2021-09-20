@@ -1,7 +1,9 @@
 # Final_Fantasy_2_Randomizer
 A WIP FF2 (NES) Randomizer
 
-Currently supports shop randomizing and offhand randomizing
+Currently can Randomize the following 
+
+**Shop Items, Tiered Shops, Player Party, Base Stats, Main/Offhands, Party Select**
 
 If your not powershell savvy run the RUNME.exe
 
