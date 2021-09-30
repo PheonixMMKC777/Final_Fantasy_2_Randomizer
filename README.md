@@ -10,9 +10,7 @@ If you get an error saying
 File cannot be loaded because running scripts is disabled on this system. For more information, see
 about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
     + CategoryInfo          : SecurityError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : UnauthorizedAccess
-
-!! 
+    + FullyQualifiedErrorId : UnauthorizedAccess!! 
 
       1. Click the windows button and type powershell.
       2. In the little menu on tthe right, click run as administrator.
