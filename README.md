@@ -6,13 +6,19 @@ Currently can Randomize the following
 
 If your not powershell savvy run the RUNME.exe
 
-If you get an error saying "Scripts are disbled on this machine"
+If you get an error saying 
+File cannot be loaded because running scripts is disabled on this system. For more information, see
+about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+    + CategoryInfo          : SecurityError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnauthorizedAccess
 
-      1. Run powershell as an administrator
-      2. Enter this command: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
-      3. Press Enter
-      4. Press "Y" or "A" then press enter
-      Powershell Scripts should now be enabled to run on your machine.
+!! 
+
+      1. Click the windows button and type powershell.
+      2. In the little menu on tthe right, click run as administrator.
+      3. type this commmand:	set-executionpolicy unrestricted
+      4. At the prompt press Y to enable the script.
+      5. Now the script will run
      
 # Current Bugs
 
