@@ -1,4 +1,8 @@
 ﻿
+#Final Fantasy II Randomizer
+#Programmed by PheonixMMKC777
+#Version 1.1
+
 
 Add-Type -assembly System.Windows.Forms
 
@@ -53,7 +57,7 @@ $RandomPlayerSprite = 0..8
 
 
 
-#Rest is BS pretty sure
+#Rest is bs pretty sure
 
 # Armor Bytes     70 - 98
 
@@ -85,74 +89,91 @@ function FindRom
 
 function main {
 
-
+    #Main Gui elements
+    
     $main_Window = New-object System.Windows.Forms.Form
-    $main_Window.Size = "300,300"
-    $main_Window.Text = "Main"
+    $main_Window.Size = "440,330"
+    $main_Window.Text = "Final Fantasy II (NES) Randomizer v1.1"
+
+    $PartySelectMenu = New-Object System.Windows.Forms.Form
+    $PartySelectMenu.Size = "230,170"
+    $PartySelectMenu.Text = "Party"
+
+    $FlagList = New-Object System.Windows.Forms.Label
+    $FlagList.text = "Flags *: "
+    $FlagList.Location = "170,248"
+    $FLaglist.Size = "300, 60"
+
+    $RandomizeButton = New-Object System.windows.forms.button
+    $RandomizeButton.Text = "Import!"
+    $RandomizeButton.Location = "30,240"
+    $RandomizeButton.Size = "50,35"
+    $RandomizeButton.ADD_CLICK({EvaluateRandomizer})
 
 
-    $Randomize_Shops_Button = New-Object System.Windows.Forms.Button
-    $Randomize_Shops_Button.Size = "75,50"
-    $Randomize_Shops_Button.Location = "200,180"
-    $Randomize_Shops_Button.Text = "Randomize `nShops"
-    $Randomize_Shops_Button.Add_Click({RandomizeShops})
+    #region Tabs
+
+    $TabControl = new-Object System.Windows.Forms.TabControl
+    $TabControl.Size = "223,200"
+    $TabControl.Location = "170,30"
+    $TabControl.Text = "Tab?"
+
+    $TabPlayerPage = New-Object System.Windows.Forms.TabPage
+    $TabPlayerPage.Text = "Player"
+    
+    $TabShopPage = New-Object System.Windows.Forms.TabPage
+    $TabShopPage.Text = "Shop"
+
+    $TabGamePage = New-Object System.Windows.Forms.TabPage
+    $TabGamePage.Text = "Game"
+
+    $TabChaosPage = New-Object System.Windows.Forms.TabPage
+    $TabChaosPage.Text = "Chaos"
+
+    $RandomizePlayerSprite = New-Object System.Windows.Forms.CheckBox
+    $RandomizePlayerSprite.Text = "Randomize Player Sprites"
+    $RandomizePlayerSprite.Size = "200,30"
+    $RandomizePlayerSprite.Location = "20,20"
+
+    $RandomizePlayerHand = New-Object System.Windows.Forms.CheckBox
+    $RandomizePlayerHand.Text = "Randomize OffHands"
+    $RandomizePlayerHand.Size = "200,30"
+    $RandomizePlayerHand.Location = "20,50"
+
+    $RandomizePlayerStats = New-Object System.Windows.Forms.CheckBox
+    $RandomizePlayerStats.Text = "Randomize Base Stats"
+    $RandomizePlayerStats.Size = "200,30"
+    $RandomizePlayerStats.Location = "20,80"
+
+    $RandomizeShops = New-Object System.Windows.Forms.CheckBox
+    $RandomizeShops.Text = "Randomize Shops"
+    $RandomizeShops.Size = "200,30"
+    $RandomizeShops.Location = "20,20"
+
+    $TieredShops = New-Object System.Windows.Forms.CheckBox
+    $TieredShops.Text = "Tiered Shops"
+    $TieredShops.Size = "200,30"
+    $TieredShops.Location = "20,50"
+
+    $StartWithSpells = New-Object System.Windows.Forms.CheckBox
+    $StartWithSpells.Text = "Start With 2 Spells"
+    $StartWithSpells.Location = "20,50"
+    $StartWithSpells.Size = "200,30"
 
 
+    $GenerateSpoilerLog = New-Object System.Windows.Forms.CheckBox
+    $GenerateSpoilerLog.Text = "Generate Spoiler Log *"
+    $GenerateSpoilerLog.Location = "20,20"
+    $GenerateSpoilerLog.Size = "200,30"
 
 
-    $Randomize_Shops_Complete = New-Object System.windows.forms.Label
-    $Randomize_Shops_Complete.Size = "75,24"
-    $Randomize_Shops_Complete.Location = "202,235"
-    $Randomize_Shops_Complete.Text = "Randomized!"
+    # BROKEN Player Select Menu
 
-    $Tiered_Shops_Button = New-Object System.Windows.Forms.Button
-    $Tiered_Shops_Button.Size = "75,50"
-    $Tiered_Shops_Button.Location = "120,180"
-    $Tiered_Shops_Button.Text = "Tiered `nShops"
-    $Tiered_Shops_Button.Add_Click({TieredShops})
-
-    $Tiered_Shops_Complete = New-Object System.windows.forms.Label
-    $Tiered_Shops_Complete.Size = "55,24"
-    $Tiered_Shops_Complete.Location = "135,235"
-    $Tiered_Shops_Complete.Text = "Tiered!"
-
-
-    $Randomize_Dominant_Hand = New-Object System.Windows.Forms.Button
-    $Randomize_Dominant_Hand.Size = "75,50"
-    $Randomize_Dominant_Hand.Location = "120,100"
-    $Randomize_Dominant_Hand.Text = "Randomize `Offhand"
-    $Randomize_Dominant_Hand.Add_Click({RandomizeHands})
-
-    $Randomize_Dominant_Hand_Complete = New-Object System.windows.forms.Label
-    $Randomize_Dominant_Hand_Complete.Size = "75,24"
-    $Randomize_Dominant_Hand_Complete.Location = "122,155"
-    $Randomize_Dominant_Hand_Complete.Text = "Randomized!"
-
-
-
-    $Randomize_Player_Sprite = New-Object System.Windows.Forms.Button
-    $Randomize_Player_Sprite.Size = "75,50"
-    $Randomize_Player_Sprite.Location = "40,180"
-    $Randomize_Player_Sprite.Text = "Randomize `nCharacters"
-    $Randomize_Player_Sprite.Add_Click({RandomizeSprites})
-
-    $Randomize_Player_Sprite_Complete = New-Object System.windows.forms.Label
-    $Randomize_Player_Sprite_Complete.Size = "75,24"
-    $Randomize_Player_Sprite_Complete.Location = "42,235"
-    $Randomize_Player_Sprite_Complete.Text = "Randomized!"
-
-    $Randomize_Base_Stats = New-Object System.Windows.Forms.Button
-    $Randomize_Base_Stats.Size = "75,50"
-    $Randomize_Base_Stats.Location = "200,100"
-    $Randomize_Base_Stats.Text = "Randomize `nBase Stats"
-    $Randomize_Base_Stats.Add_Click({RandomizeBaseStats})
-
-    $Randomize_Base_Stats_Complete = New-Object System.windows.forms.Label
-    $Randomize_Base_Stats_Complete.Size = "75,24"
-    $Randomize_Base_Stats_Complete.Location = "200,158"
-    $Randomize_Base_Stats_Complete.Text = "Randomized!"
-
-
+    $PlayerSelectButton = New-Object System.Windows.Forms.Button
+    $PlayerSelectButton.Text = "Party `nSelect"
+    $PlayerSelectButton.Size = "60,40"
+    $PlayerSelectButton.Location = "20,120"
+    $PlayerSelectButton.ADD_CLICK({PickParty})
 
     $Player_Label = New-Object System.Windows.Forms.Label
     $Player_Label.Location = "10,15"
@@ -189,13 +210,6 @@ function main {
     $Character_Import_Button.add_Click({CharacterSelect})
 
 
-
-    $Character_Select_Button = New-Object System.Windows.Forms.Button
-    $Character_Select_Button.Size = "75,50"
-    $Character_Select_Button.Location = "200,20"
-    $Character_Select_Button.Text = "Character `nSelect"
-    $Character_Select_Button.Add_Click({$Character_Select_Menu.ShowDialog()})
-
     $Character_Select_Complete = New-Object System.windows.forms.Label
     $Character_Select_Complete.Size = "100,24"
     $Character_Select_Complete.Location = "200,78"
@@ -203,22 +217,45 @@ function main {
 
 
 
+
+
+
+
+
+
     #Kimochiwa
 
-    $main_Window.controls.Add($Randomize_Shops_Button)
-    $main_Window.controls.Add($Randomize_Dominant_Hand)
-    $main_Window.controls.Add($Randomize_Player_Sprite)
-    $main_Window.controls.Add($Randomize_Base_Stats)
-    $main_Window.Controls.Add($Character_Select_Button)
-    $main_Window.Controls.Add($Tiered_Shops_Button)
 
+    $main_Window.Controls.Add($RandomizeButton)
 
-    $Character_Select_Menu.Controls.Add($Player_Label)
-    $Character_Select_Menu.Controls.Add($Player1_Textbox)
-    $Character_Select_Menu.Controls.Add($Player2_Textbox)
-    $Character_Select_Menu.Controls.Add($Player3_Textbox)
-    $Character_Select_Menu.Controls.Add($Character_Import_Button)
-    $Character_Select_Menu.Controls.Add($Player_Tips)
+    $main_Window.Controls.Add($TabControl)
+    $main_Window.Controls.Add($Flaglist)
+
+    $TabControl.Controls.Add($TabGamePage)
+    $TabControl.Controls.Add($TabShopPage)
+    $TabControl.Controls.Add($TabPlayerPage)
+    $TabControl.Controls.Add($TabBalancePage)
+    $TabControl.Controls.Add($TabChaosPage)
+
+    $TabPlayerPage.Controls.Add($RandomizePlayerSprite)
+    $TabPlayerPage.Controls.Add($RandomizePlayerHand)
+    $TabPlayerPage.Controls.Add($RandomizePlayerStats)
+    $TabPlayerPage.Controls.Add($PlayerSelectButton)
+
+    $TabShopPage.Controls.Add($RandomizeShops)
+    $TabShopPage.Controls.Add($TieredShops)
+
+    $TabGamePage.Controls.Add($GenerateSpoilerLog)
+
+    $TabGamePage.Controls.Add($StartWithSpells)
+
+    $PartySelectMenu.Controls.Add($Player_Label)
+    $PartySelectMenu.Controls.Add($Player1_Textbox)
+    $PartySelectMenu.Controls.Add($Player2_Textbox)
+    $PartySelectMenu.Controls.Add($Player3_Textbox)
+    $PartySelectMenu.Controls.Add($Character_Import_Button)
+    $PartySelectMenu.Controls.Add($Player_Tips)
+
 
 
     #asdassa
@@ -226,15 +263,28 @@ function main {
 
 
 
+}
 
-
-
-
-
-
+Function PickParty {
+$PartySelectMenu.ShowDialog()
 }
 
 
+
+Function EvaluateRandomizer {
+
+
+    If ($RandomizeShops.checked -eq $true) {RandomizeShops}
+    If ($TieredShops.checked -eq $true) {TieredShops}
+    If ($RandomizePlayerStats.checked -eq $true) {RandomizeBaseStats}
+    If ($RandomizePlayerHand.checked -eq $true) {RandomizeHands}
+    If ($RandomizePlayerSprite.checked -eq $true) {RandomizeSprites}
+    If ($GenerateSpoilerLog.checked -eq $true) {<#function#>}
+    If ($StartWithSpells.checked -eq $true) {SpellSelect}
+
+    Write-Host "Imported"
+
+}
 
 
 
@@ -2347,5 +2397,239 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $main_window.Controls.Add($Character_Select_Complete)
 
 }
+
+
+function SpellSelect {
+
+                # # # Firion # # #
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Spell 1 
+
+
+    $Address = 0xFC0    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        # Spell 2 
+
+
+    $Address = 0xFC1    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+                # # # Maria # # #
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+                # Spell 1 
+
+
+    $Address = 0x1040    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+               # Spell 2 
+
+
+    $Address = 0x1041    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+                # # # Guy # # #
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Spell 1 
+
+
+    $Address = 0x10C0    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Spell 2 
+
+
+    $Address = 0x10C1    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+                # # # Minwu # # #
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+                # Spell 1 
+
+
+    $Address = 0x1140    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+               # Spell 2 
+
+
+    $Address = 0x1141    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+                # # # Josef # # #
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Spell 1 
+
+
+    $Address = 0x11C0    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Spell 2 
+
+
+    $Address = 0x11C1    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+
+                # # # Gordon # # #
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+                # Spell 1 
+
+
+    $Address = 0x1240    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+               # Spell 2 
+
+
+    $Address = 0x1241    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+
+               # # # Layla # # #
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Spell 1 
+
+
+    $Address = 0x12C0    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Spell 2 
+
+
+    $Address = 0x12C1    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+
+               # # # Richard # # #
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+                # Spell 1 
+
+
+    $Address = 0x1340    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+               # Spell 2 
+
+
+    $Address = 0x1341    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+               # # # Leon # # #
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Spell 1 
+
+
+    $Address = 0x13C0    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    
+        #Spell 2 
+
+
+    $Address = 0x13C1    # current
+    $HexValue = $MagicByteList | Get-Random
+    $Romfile[$Address] = $HexValue 
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+}
+
+
 
 main
