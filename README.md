@@ -1,8 +1,9 @@
-# Final Fantasy II Randomizer 1.0
+# Final Fantasy II Randomizer 1.1
 
 Currently can Randomize the following 
 
-**Shop Items, Tiered Shops, Player Party, Base Stats, Main/Offhands, Party Select**
+**GAME**
+**Random Shops, Tiered Shops, Player Party, Base Stats, Main/Offhands, Party Select, and a bunch of fun modes!**
 
 If your not powershell savvy run the RUNME.exe
 
@@ -32,12 +33,10 @@ Randomize Key Items
 
 Set Airship Location next to Altea
 
-Increase Walk Speed
-
 Increase Battle Speed??
 
 # Other
 
-Major shoutout to the fine people at Slickproductions.com for their ff2 documents and utilities
+Major shoutout to Lenophis and the fine people at Slickproductions.com for their ff2 documents and utilities
              
 𝔽𝕚𝕟𝕒𝕝 𝔽𝕒𝕟𝕥𝕒𝕤𝕪 𝕀𝕀 ℝ𝕒𝕟𝕕𝕠𝕞𝕚𝕫𝕖𝕣
