@@ -65,6 +65,34 @@ $RandomWeaponAddress = 0x0,0x2,0x4,0x6,0x8,0xA,0xC,0xE
 # Armor Bytes     70 - 98
 
 
+<#
+
+    Flag names as follows
+
+    DoubleWalkSpeed     = DW
+    StartWith2Spell     = 2S
+    Randomizeenemyloot  = RL
+    RandomizePlayerPal  = RP
+    RandomizedShops     = RS
+    TieredShops         = TS
+    RandomizeSprites    = RC
+    RandomizeOffhand    = RH
+    RandomizeBaseStat   = BS
+    LockWeaponTypes     = LW
+    SoloChallenges      = SC
+
+
+
+
+
+
+
+
+
+
+#>
+
+
 
 #endregion Init Variables
 
@@ -197,10 +225,6 @@ function main {
     $StartWithSpells.Size = "200,30"
 
 
-    $GenerateSpoilerLog = New-Object System.Windows.Forms.CheckBox
-    $GenerateSpoilerLog.Text = "Generate Spoiler Log *"
-    $GenerateSpoilerLog.Location = "20,20"
-    $GenerateSpoilerLog.Size = "200,30"
 
     $SoloChallenge = New-Object System.Windows.Forms.CheckBox
     $SoloChallenge.Text = "SoloChallenge *"
@@ -296,7 +320,6 @@ function main {
     $TabChaosPage.Controls.Add($WeaponLock)
     $TabChaosPage.Controls.Add($SoloChallenge)
 
-    $TabOtherPage.Controls.Add($GenerateSpoilerLog)
 
 
     $PartySelectMenu.Controls.Add($Player_Label)
@@ -323,19 +346,19 @@ $PartySelectMenu.ShowDialog()
 
 Function EvaluateRandomizer {
 
-
+    LogFile 
     If ($RandomizeShops.checked -eq $true) {RandomizeShops}
     If ($TieredShops.checked -eq $true) {TieredShops}
     If ($RandomizePlayerStats.checked -eq $true) {RandomizeBaseStats}
     If ($RandomizePlayerHand.checked -eq $true) {RandomizeHands}
     If ($RandomizePlayerSprite.checked -eq $true) {RandomizeSprites}
-    If ($GenerateSpoilerLog.checked -eq $true) {<#function#>}
     If ($StartWithSpells.checked -eq $true) {SpellSelect}
     If ($RandomizeLootTable.checked -eq $true) {RandomizeEnemyLoot}
     If ($WeaponLock.checked -eq $true) {LockWeaponType}
     If ($SoloChallenge.checked -eq $true) {KillTheParty}
     If ($CustomPlayerPal.checked -eq $true) {CustomPlayerColor}
     IF ($DoubleWalkSpeed.checked -eq $true) {DoublePlayerSpeed}
+    
 
     Write-Host "Imported" #Verify to console
     
@@ -1062,6 +1085,8 @@ Function TieredShops {
         $main_Window.Controls.Add($Tiered_Shops_Complete)
 
 
+        Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " TS"
+
 
 }
 
@@ -1781,6 +1806,8 @@ Function RandomizeShops {
 
         $main_Window.Controls.Add($Randomize_Shops_Complete)
 
+        Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " RS"
+
 }
 
 
@@ -1908,10 +1935,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
 
-    $Main_window.Controls.Add($Randomize_Dominant_Hand_Complete)
+    $Main_window.Controls.Add($Randomize_Dominant_Hand_Complete)  #does this do anything
 
 
-
+    Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " RH"
 
 }
 
@@ -2150,6 +2177,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 $main_window.Controls.Add($Randomize_Player_Sprite_Complete)
 
+
+Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " RC"
 
 }
 
@@ -2407,6 +2436,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     #endregion Guy
+
+    Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " BS"
 
 
 }
@@ -2689,6 +2720,9 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
+
+    Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " 2S"
+
 }
 
 
@@ -2712,7 +2746,7 @@ $Address = 0x17810    # current
        
        }
 
-
+    Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " RL"
 
 }
 
@@ -3083,6 +3117,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
+
+Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " LW"
+
+
 }
 
 #hit 3000 lines holy crap 10/18/2021
@@ -3213,6 +3251,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
+    Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " SC"
+
 }
 
 function CustomPlayerColor {
@@ -3235,7 +3275,7 @@ function CustomPlayerColor {
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
     
 
-
+    Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " RP"
 
 
 }
@@ -3258,6 +3298,36 @@ function DoublePlayerSpeed {
 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+    Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " DW"
+
+
+}
+
+
+
+
+
+
+
+function LogFile {
+
+    
+    $LogExists = Test-Path "$CurrentDir/Spoilers.Txt"
+
+    If ($LogExists -eq $true) {
+        Remove-Item -Path "$CurrentDir/Spoilers.Txt"
+        }
+    
+
+    New-Item -Path $CurrentDir -Name "Spoilers.Txt" -ItemType "File" -Value "Current Flags:"
+
+
+
+
+
+
+
 
 
 }
