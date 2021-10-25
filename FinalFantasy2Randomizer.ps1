@@ -1,4 +1,4 @@
-﻿
+﻿ 
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
 #Version 1.1
@@ -153,9 +153,8 @@ function main {
     #region Tabs
 
     $TabControl = new-Object System.Windows.Forms.TabControl
-    $TabControl.Size = "223,200"
+    $TabControl.Size = "235,200"
     $TabControl.Location = "170,30"
-    $TabControl.Text = "Tab?"
 
     $TabPlayerPage = New-Object System.Windows.Forms.TabPage
     $TabPlayerPage.Text = "Player"
