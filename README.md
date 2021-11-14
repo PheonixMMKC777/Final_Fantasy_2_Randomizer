@@ -30,8 +30,6 @@ Randomize Chests
 
 Randomize Key Items
 
-Set Airship Location next to Altea
-
 Increase Battle Speed??
 
 # Other
