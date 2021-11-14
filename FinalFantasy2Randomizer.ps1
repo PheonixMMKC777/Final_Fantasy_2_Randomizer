@@ -1,13 +1,15 @@
-﻿ 
+﻿
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
-#Version 1.1
+$VersionNumber = "v1.2"
 
 
 Add-Type -assembly System.Windows.Forms
 
 
 #region Init Variables
+
+
 
 $CurrentDir = Get-Location
 $RandomByteList = 0..255
@@ -123,11 +125,18 @@ function FindRom
 
 function main {
 
+    #icon but base64-ified
+    $iconBase64      = 'iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAElBMVEUAAAAAAACBUTbw0LA/SMz////WgOHMAAAAAXRSTlMAQObYZgAAAAFiS0dEBfhv6ccAAAAHdElNRQflChwDAgzj5EDnAAAAAW9yTlQBz6J3mgAAAIxJREFUSMfF1d0NgDAIBOCuwAquwArdfya9XBBqqk8C96CNfDHnXxzjjoSMXdKByBGyIelgHXcAjD9JAXiWVK0HPsZItQPYrUJUsa0HPkJBQ4GkA5F5hYTBmseqAEsa4ppsuYpUwHJzGsG+B3DgbLmGdOAvDMva46oF/tqgoNXsBC+/tQIQP6DPc/wPTgRisoEQucWoAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIxLTEwLTI4VDAzOjAyOjExKzAwOjAwCh6BJQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMS0xMC0yOFQwMzowMjoxMSswMDowMHtDOZkAAAAASUVORK5CYII='
+    $iconBytes       = [Convert]::FromBase64String($iconBase64)
+    $stream          = New-Object IO.MemoryStream($iconBytes, 0, $iconBytes.Length)
+    $stream.Write($iconBytes, 0, $iconBytes.Length)
+
     #Main Gui elements
     
     $main_Window = New-object System.Windows.Forms.Form
     $main_Window.Size = "440,330"
-    $main_Window.Text = "Final Fantasy II (NES) Randomizer v1.1"
+    $main_Window.Text = "Final Fantasy II (NES) Randomizer $versionnumber"
+    $Main_Window.Icon = [System.Drawing.Icon]::FromHandle((New-Object System.Drawing.Bitmap -Argument $stream).GetHIcon())
 
     $PartySelectMenu = New-Object System.Windows.Forms.Form
     $PartySelectMenu.Size = "230,170"
@@ -153,8 +162,9 @@ function main {
     #region Tabs
 
     $TabControl = new-Object System.Windows.Forms.TabControl
-    $TabControl.Size = "235,200"
+    $TabControl.Size = "223,200"
     $TabControl.Location = "170,30"
+    $TabControl.Text = "Tab?"
 
     $TabPlayerPage = New-Object System.Windows.Forms.TabPage
     $TabPlayerPage.Text = "Player"
@@ -230,6 +240,10 @@ function main {
     $SoloChallenge.Size = "200,30"
     $SoloChallenge.Location = "20,50"
 
+    $MaxFirionStat = New-Object System.Windows.Forms.CheckBox
+    $MaxFirionStat.Text = "Max Firion's Stats (Debug)"
+    $MaxFirionStat.Size = "200,30"
+    $MaxFirionStat.Location = "20,20"
 
     # BROKEN Player Select Menu
 
@@ -319,7 +333,7 @@ function main {
     $TabChaosPage.Controls.Add($WeaponLock)
     $TabChaosPage.Controls.Add($SoloChallenge)
 
-
+    $TabOtherPage.Controls.Add($MaxFirionStat)
 
     $PartySelectMenu.Controls.Add($Player_Label)
     $PartySelectMenu.Controls.Add($Player1_Textbox)
@@ -346,6 +360,8 @@ $PartySelectMenu.ShowDialog()
 Function EvaluateRandomizer {
 
     LogFile 
+    Dressup
+    SetupAirship
     If ($RandomizeShops.checked -eq $true) {RandomizeShops}
     If ($TieredShops.checked -eq $true) {TieredShops}
     If ($RandomizePlayerStats.checked -eq $true) {RandomizeBaseStats}
@@ -357,6 +373,7 @@ Function EvaluateRandomizer {
     If ($SoloChallenge.checked -eq $true) {KillTheParty}
     If ($CustomPlayerPal.checked -eq $true) {CustomPlayerColor}
     IF ($DoubleWalkSpeed.checked -eq $true) {DoublePlayerSpeed}
+    If ($MaxFirionStat.Checked -eq $true) {MaxOutStats}
     
 
     Write-Host "Imported" #Verify to console
@@ -3257,20 +3274,46 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 function CustomPlayerColor {
 
 
-    #Firion and Gordon
-    $FirstByte = 00,06,16,20,22,23,33,34,35,36,41,49,57,58,60
-    $SecondByte = "17","27","16"
     
+    $FirstByte =  0x05, 0x11,0x12, 0x13,0x14,0x1c,0x17,0x21,0x22,0x23,0x2a,0x2c
+    $SecondByte = 0x17,0x27,0x16
+    
+    $MariaByte1 = 0x26
+    $MariaByte2 = 0x13,0x15,0x24
+    $MariaByte3 = 0x36
+
+
+    #find better one
+    $GuyByte1 = 0x17
+    $GuyByte2 = 0x27
+    $GuyByte3 = 0x30
+
+
     $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
 
 
-    $Address = 0x3CB    # current
+    $Address = 0x3CB    #Firion and Gordon
     $HexValue = $FirstByte | Get-Random
     $Romfile[$Address] = $HexValue 
-
     $HexValue2 = $SecondByte | Get-Random
     $Romfile[$Address+1] = $HexValue2
 
+    $Address = 0x3C3    # Maria/Layla/Richard
+    $HexValue = $MariaByte1 | Get-Random
+    $Romfile[$Address] = $HexValue 
+    $HexValue2 = $MariaByte2 | Get-Random
+    $Romfile[$Address+1] = $HexValue2
+    $HexValue3 = $MariaByte3 | Get-Random
+    $Romfile[$Address+2] = $HexValue3
+
+    $Address = 0x3C7    # Leon/Guy/Josef
+    $HexValue = $GuyByte1 | Get-Random
+    $Romfile[$Address] = $HexValue 
+    $HexValue2 = $GuyByte2 | Get-Random
+    $Romfile[$Address+1] = $HexValue2
+    $HexValue3 = $GuyByte3 | Get-Random
+    $Romfile[$Address+2] = $HexValue3
+    
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
     
 
@@ -3304,7 +3347,87 @@ function DoublePlayerSpeed {
 }
 
 
+function MaxOutStats {
 
+
+
+
+        # Firion 
+        
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+
+      #Adresses
+
+    $HPC1 =  0xf98     #CurHp
+    $HPC2 =  0xf99
+    $HPM1 =  0xf9A     #MaxHP
+    $HPM2 =  0xf9B
+    $MPC1 =  0xf9C     #CurMP
+    $MPC2 =  0xf9D
+    $MPM1 =  0xf9E     #MaxMp
+    $MPM2 =  0xf9F
+    $Str  =  0xFA0
+    $Agi  =  0xFA1
+    $Vit  =  0xFA2
+    $Int  =  0xFA3
+    $Soul =  0xFA4
+    $Weapon= 0xFAC 
+    $Shield= 0xFAD 
+    $MagPow= 0xFB5
+    $WFist= 0xFD0
+    $WShield= 0xFD2
+    $WKnife= 0xFD4
+    $WCane= 0xFD6
+    $WRod= 0xFD8
+    $WSword= 0xFDA
+    $WAxe= 0xFDC
+    $WBow= 0xFDE
+
+       #Values
+     
+    $MaxHP1 = 0x0F
+    $MaxHp2 = 0x27
+    $MaxMP1 = 0xE7     #technically 2ndbyte but ff2 weird (big edian thing)
+    $MaxMP2 = 0x03
+    $MaxStat= 0x63
+    $Masamune=0x60
+    #$Masamune=0x60
+    $Nine = 0x0F
+
+       #Process
+
+    $Romfile[$HPC1] = $MaxHP1 
+    $Romfile[$HPC2] = $MaxHP2
+    $Romfile[$HPM1] = $MaxHP1 
+    $Romfile[$HPM2] = $MaxHP2
+    $Romfile[$MPC1] = $MaxMP1 
+    $Romfile[$MPC2] = $MaxMP2
+    $Romfile[$MPM1] = $MaxMP1 
+    $Romfile[$MPM2] = $MaxMP2
+    $Romfile[$Str] = $MaxStat
+    $Romfile[$Agi] = $MaxStat
+    $Romfile[$Vit] = $MaxStat
+    $Romfile[$Int] = $MaxStat
+    $Romfile[$Soul] = $MaxStat
+    $Romfile[$Weapon] = $Masamune
+    $Romfile[$Shield] = $Masamune
+    $Romfile[$MagPow] = $MaxStat
+    $Romfile[$WFist] = $Nine
+    $Romfile[$WShield] = $Nine
+    $Romfile[$WKnife] = $Nine
+    $Romfile[$WCane] = $Nine
+    $Romfile[$WRod] = $Nine
+    $Romfile[$WSword] = $Nine
+    $Romfile[$WAxe] = $Nine
+    $Romfile[$WBow] = $Nine
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+    Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " DW"
+
+
+
+}
 
 
 
@@ -3322,6 +3445,149 @@ function LogFile {
     New-Item -Path $CurrentDir -Name "Spoilers.Txt" -ItemType "File" -Value "Current Flags:"
 
 
+
+
+
+
+
+
+
+}
+
+
+
+function Dressup {
+       
+    $10Random = Get-Random -Maximum 5 -Minimum 1
+
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")   
+    
+    
+    $Address =  0x3E78C    # MENU MAIN
+    $Address2=  0x3E787    # MENU BORDER
+
+
+
+        #purple
+    IF ($10Random -eq 1)  {
+
+    
+    $HexValue = 0x03
+    $HexValue2= 0x13
+    }
+
+
+        #green
+    IF ($10Random -eq 2)  {
+
+    
+    $HexValue = 0x09
+    $HexValue2= 0x1A
+    }
+
+        #Red
+    IF ($10Random -eq 3)  {
+
+    
+    $HexValue = 0x06
+    $HexValue2= 0x16
+    }
+
+        #Teal
+    IF ($10Random -eq 4)  {
+
+    
+    $HexValue = 0x0C
+    $HexValue2= 0x1C
+    }
+
+        #Blue
+    IF ($10Random -eq 5)  {
+
+    
+    $HexValue = 0x01
+    $HexValue2= 0x11
+    }
+
+
+    $Romfile[$Address] = $HexValue
+    $Romfile[$Address2] = $HexValue2
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+
+}
+
+
+function SetupAirship {
+
+
+
+        # airship next to altair, need better JSR call
+        
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+
+   
+            #lousy JSR call (must save game...)
+
+            $JSR  = 0x20
+            $JSR2 = 0x69
+            $JSR3 = 0xF7
+            $JSRaddress = 0x03b701
+
+
+            # Loads the Values into RAM for the airship
+            
+    $Address =  0x3F778    # Big wad start at 03F779, put 0x08 because i did addresses +1 over
+    $HexValue = 0x99   #STA $6000,Y @ 6007 = #$00 (og thing)
+    $HexValue2 = 0x00
+    $HexValue3 = 0x60
+    $HexValue4 = 0xA9  #LDA #$04
+    $HexValue5 = 0x04
+    $HexValue6 = 0x8D  #STA $6004
+    $HexValue7 = 0x04
+    $HexValue8 = 0x60
+    $HexValue9 = 0xA9  #LDA #$5A
+    $HexValue10 = 0x5A
+    $HexValue11 = 0x8D #STA $6005
+    $HexValue12 = 0x05
+    $HexValue13 = 0x60
+    $HexValue14 = 0xA9 #LDA #$76
+    $HexValue15 = 0x76
+    $HexValue16 = 0x8D #STA $6006
+    $HexValue17 = 0x06
+    $HexValue18 = 0x60
+    $HexValue19 = 0x60 #RTS
+
+
+        $Romfile[$JSRaddress]= $JSR
+        $Romfile[$JSRaddress+1]= $JSR2
+        $Romfile[$JSRaddress+2]= $JSR3
+
+        $Romfile[$Address+1]= $HexValue
+        $Romfile[$Address+2]= $HexValue2
+        $Romfile[$Address+3]= $HexValue3
+        $Romfile[$Address+4]= $HexValue4
+        $Romfile[$Address+5]= $HexValue5
+        $Romfile[$Address+6]= $HexValue6
+        $Romfile[$Address+7]= $HexValue7
+        $Romfile[$Address+8]= $HexValue8
+        $Romfile[$Address+9]= $HexValue9
+        $Romfile[$Address+10]= $HexValue10
+        $Romfile[$Address+11]= $HexValue11
+        $Romfile[$Address+12]= $HexValue12
+        $Romfile[$Address+13]= $HexValue13
+        $Romfile[$Address+14]= $HexValue14
+        $Romfile[$Address+15]= $HexValue15
+        $Romfile[$Address+16]= $HexValue16
+        $Romfile[$Address+17]= $HexValue17
+        $Romfile[$Address+18]= $HexValue18
+        $Romfile[$Address+19]= $HexValue19
+    
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+    Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " DW"
 
 
 
