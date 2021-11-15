@@ -3526,64 +3526,43 @@ function SetupAirship {
 
         # airship next to altair, need better JSR call
         
-    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES") 
+    
+    
+    
+
+
+            #Pirate at altea
+
+            $shipShown = 0x02
+            $ShipX = 0x5E
+            $ShipY = 0x78
+            $ShipAddress = 0xAF0
+
+
+            #Airship at altea
+            
+            $AirshipShown = 0x04
+            $AirShipX = 0x5A
+            $AirShipY = 0x76
+            $AirShipAddress = 0xAF4
+
+
 
    
-            #lousy JSR call (must save game...)
-
-            $JSR  = 0x20
-            $JSR2 = 0x69
-            $JSR3 = 0xF7
-            $JSRaddress = 0x03b701
 
 
-            # Loads the Values into RAM for the airship
-            
-    $Address =  0x3F778    # Big wad start at 03F779, put 0x08 because i did addresses +1 over
-    $HexValue = 0x99   #STA $6000,Y @ 6007 = #$00 (og thing)
-    $HexValue2 = 0x00
-    $HexValue3 = 0x60
-    $HexValue4 = 0xA9  #LDA #$04
-    $HexValue5 = 0x04
-    $HexValue6 = 0x8D  #STA $6004
-    $HexValue7 = 0x04
-    $HexValue8 = 0x60
-    $HexValue9 = 0xA9  #LDA #$5A
-    $HexValue10 = 0x5A
-    $HexValue11 = 0x8D #STA $6005
-    $HexValue12 = 0x05
-    $HexValue13 = 0x60
-    $HexValue14 = 0xA9 #LDA #$76
-    $HexValue15 = 0x76
-    $HexValue16 = 0x8D #STA $6006
-    $HexValue17 = 0x06
-    $HexValue18 = 0x60
-    $HexValue19 = 0x60 #RTS
+
+        $Romfile[$AirShipAddress]= $AirshipShown
+        $Romfile[$AirShipAddress+1]= $AirShipX
+        $Romfile[$AirShipAddress+2]= $AirShipY
+
+        $Romfile[$ShipAddress]= $ShipShown
+        $Romfile[$ShipAddress+1]= $ShipX
+        $Romfile[$ShipAddress+2]= $ShipY
 
 
-        $Romfile[$JSRaddress]= $JSR
-        $Romfile[$JSRaddress+1]= $JSR2
-        $Romfile[$JSRaddress+2]= $JSR3
 
-        $Romfile[$Address+1]= $HexValue
-        $Romfile[$Address+2]= $HexValue2
-        $Romfile[$Address+3]= $HexValue3
-        $Romfile[$Address+4]= $HexValue4
-        $Romfile[$Address+5]= $HexValue5
-        $Romfile[$Address+6]= $HexValue6
-        $Romfile[$Address+7]= $HexValue7
-        $Romfile[$Address+8]= $HexValue8
-        $Romfile[$Address+9]= $HexValue9
-        $Romfile[$Address+10]= $HexValue10
-        $Romfile[$Address+11]= $HexValue11
-        $Romfile[$Address+12]= $HexValue12
-        $Romfile[$Address+13]= $HexValue13
-        $Romfile[$Address+14]= $HexValue14
-        $Romfile[$Address+15]= $HexValue15
-        $Romfile[$Address+16]= $HexValue16
-        $Romfile[$Address+17]= $HexValue17
-        $Romfile[$Address+18]= $HexValue18
-        $Romfile[$Address+19]= $HexValue19
     
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
