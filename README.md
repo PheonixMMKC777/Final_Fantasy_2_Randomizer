@@ -4,7 +4,7 @@ Currently can Randomize the following
 
 **Random Shops, Tiered Shops, Player Party, Base Stats, Main/Offhands, Party Select, and a bunch of fun modes!**
 
-If your not powershell savvy run the RUNME.exe
+If your not powershell savvy run the RUNME.bat
 
 If you get an error saying this below
 
