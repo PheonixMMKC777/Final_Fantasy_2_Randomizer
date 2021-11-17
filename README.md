@@ -25,6 +25,8 @@ Random player Party crashes sometimes, so if it dont work the first time, give i
 
 Using the Offhand Randomizer will overwrite Party Select/Random Party Randomization, so dont use them together.
 
+Also you cannot use tiered and randomized shops at the same time :/
+
 # Possible Future Features
 Randomize Chests 
 
