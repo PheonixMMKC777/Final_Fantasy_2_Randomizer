@@ -106,15 +106,16 @@ function FindRom
 
     
     if ($CheckRom -eq $true) {
-    write "rom found"
+    write-Host "===================="
+    Write-Host "Rom found!" -foregroundcolor "green"
     Main
     } 
     
     else {
-    write "Rom does not exist! `nPlace `"Final_Fantasy_2_(Tr).NES`" `nin this directory and try again."
-    pause
-    Write-Output "====================="
-    findrom
+    write "===================="
+    write-host "Rom does not exist! `nPlace `"Final_Fantasy_2_(Tr).NES`" `nin this directory and try again." -foregroundcolor "red"
+    pause    
+    FindRom
     }
 }
 
@@ -123,7 +124,7 @@ function FindRom
 
 
 
-function main {
+function Main {
 
     #icon but base64-ified
     $iconBase64      = 'iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAElBMVEUAAAAAAACBUTbw0LA/SMz////WgOHMAAAAAXRSTlMAQObYZgAAAAFiS0dEBfhv6ccAAAAHdElNRQflChwDAgzj5EDnAAAAAW9yTlQBz6J3mgAAAIxJREFUSMfF1d0NgDAIBOCuwAquwArdfya9XBBqqk8C96CNfDHnXxzjjoSMXdKByBGyIelgHXcAjD9JAXiWVK0HPsZItQPYrUJUsa0HPkJBQ4GkA5F5hYTBmseqAEsa4ppsuYpUwHJzGsG+B3DgbLmGdOAvDMva46oF/tqgoNXsBC+/tQIQP6DPc/wPTgRisoEQucWoAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIxLTEwLTI4VDAzOjAyOjExKzAwOjAwCh6BJQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMS0xMC0yOFQwMzowMjoxMSswMDowMHtDOZkAAAAASUVORK5CYII='
@@ -137,6 +138,7 @@ function main {
     $main_Window.Size = "440,330"
     $main_Window.Text = "Final Fantasy II (NES) Randomizer $versionnumber"
     $Main_Window.Icon = [System.Drawing.Icon]::FromHandle((New-Object System.Drawing.Bitmap -Argument $stream).GetHIcon())
+
 
     $PartySelectMenu = New-Object System.Windows.Forms.Form
     $PartySelectMenu.Size = "230,170"
@@ -164,11 +166,12 @@ function main {
     $TabControl = new-Object System.Windows.Forms.TabControl
     $TabControl.Size = "223,200"
     $TabControl.Location = "170,30"
-    $TabControl.Text = "Tab?"
+    
 
     $TabPlayerPage = New-Object System.Windows.Forms.TabPage
     $TabPlayerPage.Text = "Player"
     
+
     $TabShopPage = New-Object System.Windows.Forms.TabPage
     $TabShopPage.Text = "Shop"
 
@@ -3519,7 +3522,7 @@ function Dressup {
 
 }
 
-
+ 
 function SetupAirship {
 
 
@@ -3578,4 +3581,4 @@ function SetupAirship {
 
 
 
-main
+FindRom
