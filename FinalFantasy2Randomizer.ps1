@@ -219,7 +219,7 @@ function Main {
     $WeaponLock = New-Object System.Windows.Forms.CheckBox
     $WeaponLock.Text = "Lock Weapon Types"
     $WeaponLock.Size = "200,30"
-    $WeaponLock.Location = "20,20"
+    $WeaponLock.Location = "20,50"
 
     $RandomizeShops = New-Object System.Windows.Forms.CheckBox
     $RandomizeShops.Text = "Randomize Shops"
@@ -239,9 +239,9 @@ function Main {
 
 
     $SoloChallenge = New-Object System.Windows.Forms.CheckBox
-    $SoloChallenge.Text = "SoloChallenge *"
+    $SoloChallenge.Text = "Solo Challenge"
     $SoloChallenge.Size = "200,30"
-    $SoloChallenge.Location = "20,50"
+    $SoloChallenge.Location = "20,20"
 
     $MaxFirionStat = New-Object System.Windows.Forms.CheckBox
     $MaxFirionStat.Text = "Max Firion's Stats (Debug)"
@@ -365,6 +365,8 @@ Function EvaluateRandomizer {
     LogFile 
     Dressup
     SetupAirship
+        # keep good on on order of operations!!!
+    If ($SoloChallenge.checked -eq $true) {KillTheParty}
     If ($RandomizeShops.checked -eq $true) {RandomizeShops}
     If ($TieredShops.checked -eq $true) {TieredShops}
     If ($RandomizePlayerStats.checked -eq $true) {RandomizeBaseStats}
@@ -373,7 +375,6 @@ Function EvaluateRandomizer {
     If ($StartWithSpells.checked -eq $true) {SpellSelect}
     If ($RandomizeLootTable.checked -eq $true) {RandomizeEnemyLoot}
     If ($WeaponLock.checked -eq $true) {LockWeaponType}
-    If ($SoloChallenge.checked -eq $true) {KillTheParty}
     If ($CustomPlayerPal.checked -eq $true) {CustomPlayerColor}
     IF ($DoubleWalkSpeed.checked -eq $true) {DoublePlayerSpeed}
     If ($MaxFirionStat.Checked -eq $true) {MaxOutStats}
@@ -1115,6 +1116,12 @@ Function TieredShops {
 Function RandomizeShops {
 
      
+        #disables life spell if solo challange is on 
+    If ($SoloChallenge.checked -eq $true) {
+    
+    
+    }
+
 
 
     #region altea
@@ -3152,12 +3159,10 @@ Function KillTheParty {
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
 
     $Address = 0x1011
-    $HexValue = 0x00
-    While ($Address -le 0x108F) {
-
+    $HexValue = 0x80
     $Romfile[$Address] = $HexValue 
-    $Address++
-    }
+
+    
 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3167,12 +3172,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
 
     $Address = 0x1091
-    $HexValue = 0x00
-    While ($Address -le 0x108F) {
-
+    $HexValue = 0x80
     $Romfile[$Address] = $HexValue 
-    $Address++
-    }
+    
+    
 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3182,12 +3185,9 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
 
     $Address = 0x1111
-    $HexValue = 0x00
-    While ($Address -le 0x108F) {
-
+    $HexValue = 0x80
     $Romfile[$Address] = $HexValue 
-    $Address++
-    }
+
 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3197,12 +3197,9 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
 
     $Address = 0x1191
-    $HexValue = 0x00
-    While ($Address -le 0x108F) {
-
+    $HexValue = 0x080
     $Romfile[$Address] = $HexValue 
-    $Address++
-    }
+
 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3214,12 +3211,9 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
 
     $Address = 0x1211
-    $HexValue = 0x00
-    While ($Address -le 0x108F) {
-
+    $HexValue = 0x80
     $Romfile[$Address] = $HexValue 
-    $Address++
-    }
+
 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3229,12 +3223,9 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
 
     $Address = 0x1291
-    $HexValue = 0x00
-    While ($Address -le 0x108F) {
-
+    $HexValue = 0x80
     $Romfile[$Address] = $HexValue 
-    $Address++
-    }
+
 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3244,12 +3235,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
 
     $Address = 0x1311
-    $HexValue = 0x00
-    While ($Address -le 0x108F) {
+    $HexValue = 0x80
 
     $Romfile[$Address] = $HexValue 
-    $Address++
-    }
+
 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3259,17 +3248,63 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
 
     $Address = 0x1391
-    $HexValue = 0x00
-    While ($Address -le 0x108F) {
-
+    $HexValue = 0x80
     $Romfile[$Address] = $HexValue 
-    $Address++
-    }
+
 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
+            # i forgot XDD, something to do with life spell
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
+
+    $Address = 0x3067C
+    $HexValue = 0x00
+    While ($Address -le 0x30682) {
+    $Romfile[$Address] = $HexValue 
+    $Address++
+    }
+
+#======== this just disables life being drawn in $magicSpellslist =========#
+    $MagicByteList = 192..211 -and 213..255
+      
+        
+        # Remove life in NON-RANDO (if thats ever gonna happen) #
+
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES") 
+$Romfile[0x38685] = 0xE9
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+
+        
+                #remove pheonix down
+$Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES") 
+    $Address = 0x386EE     
+    $Romfile[$Address] = 0xE9
+
+
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+             #Disable life statue
+ 
+    
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES") 
+    
+
+    $NOP = 0xEA
+ 
+
+    $Romfile[0x38D1A] = $NOP
+    $Romfile[0x38D1A + 1] = $NOP
+    $Romfile[0x38D1A + 2] = $NOP
+
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+    
     Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " SC"
 
 }
@@ -3318,6 +3353,11 @@ function CustomPlayerColor {
     $Romfile[$Address+2] = $HexValue3
     
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
+
+
+
     
 
     Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " RP"
@@ -3385,6 +3425,7 @@ function MaxOutStats {
     $WSword= 0xFDA
     $WAxe= 0xFDC
     $WBow= 0xFDE
+    $FSpell = 0xFC0
 
        #Values
      
@@ -3396,6 +3437,8 @@ function MaxOutStats {
     $Masamune=0x60
     #$Masamune=0x60
     $Nine = 0x0F
+    $LIFE = 0xD5
+    $CURE = 0xD4
 
        #Process
 
@@ -3423,6 +3466,8 @@ function MaxOutStats {
     $Romfile[$WSword] = $Nine
     $Romfile[$WAxe] = $Nine
     $Romfile[$WBow] = $Nine
+    $Romfile[$FSpell] = $LIFE
+    $Romfile[$FSpell + 1] = $CURE
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
