@@ -28,7 +28,6 @@ Using the Offhand Randomizer will overwrite Party Select/Random Party Randomizat
 Also you cannot use tiered and randomized shops at the same time :/
 
 # Possible Future Features
-Randomize Chests 
 
 Randomize Key Items
 
