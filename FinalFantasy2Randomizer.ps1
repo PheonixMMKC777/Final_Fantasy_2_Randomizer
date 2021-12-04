@@ -1,7 +1,7 @@
 ﻿
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
-$VersionNumber = "v1.2"
+$VersionNumber = "v1.3"
 
 
 Add-Type -assembly System.Windows.Forms
@@ -26,6 +26,7 @@ $LeonHandList = 08,136
 
 $KeyItemByteList = 0..15
 $ItemByteList = 16..48
+$TreasureByteList = 01..191
 $WeaponByteList = 49..111
 
                #Shields  #Knifes   #Canes    #Spears       #Swords        #Axes     #Bows
@@ -48,7 +49,6 @@ $ArmorTier4 = 120,121,     130,131,132, 140,141,142, 151,152
 
 
 $SpellByteList = 153..191
-
 
 
 
@@ -204,6 +204,11 @@ function Main {
     $CustomPlayerPal.Size = "200,30"
     $CustomPlayerPal.Location = "20,110"
 
+    $RandomizeTreasureChest = New-Object System.Windows.Forms.CheckBox
+    $RandomizeTreasureChest.Text = "Randomize Treasures"
+    $RandomizeTreasureChest.Size = "200,30"
+    $RandomizeTreasureChest.Location = "20,140"
+
 
     $DoubleWalkSpeed = New-Object System.Windows.Forms.CheckBox
     $DoubleWalkSpeed.Text = "Double Walk Speed"
@@ -296,12 +301,29 @@ function Main {
     $Character_Select_Complete.Location = "200,78"
     $Character_Select_Complete.Text = "Party Chosen!"
 
+    $Preset_Label = New-Object System.windows.forms.Label
+    $Preset_Label.Size = "100,25"
+    $Preset_Label.Location = "50,40"
+    $Preset_Label.Text = "Presets!"
+    $Preset_Label.Font = "Arial,10"
 
+    $Preset_Standard = New-Object System.Windows.Forms.Button
+    $Preset_Standard.Location = "30,60"
+    $Preset_Standard.Size = "100,25"
+    $Preset_Standard.Text = "Standard"
+    $Preset_Standard.add_Click({StandardGame})
 
+    $Preset_Beginner = New-Object System.Windows.Forms.Button
+    $Preset_Beginner.Location = "30,90"
+    $Preset_Beginner.Size = "100,25"
+    $Preset_Beginner.Text = "Beginner"
+    $Preset_Beginner.add_Click({BeginnerGame})
 
-
-
-
+    $Preset_Balance = New-Object System.Windows.Forms.Button
+    $Preset_Balance.Location = "30,120"
+    $Preset_Balance.Size = "100,25"
+    $Preset_Balance.Text = "Balance"
+    $Preset_Balance.add_Click({BalanceGame})
 
 
     #Kimochiwa
@@ -311,6 +333,10 @@ function Main {
 
     $main_Window.Controls.Add($TabControl)
     $main_Window.Controls.Add($Flaglist)
+    $main_Window.Controls.Add($Preset_Standard)
+    $main_Window.Controls.Add($Preset_Beginner)
+    $main_Window.Controls.Add($Preset_Balance)
+    $main_Window.Controls.Add($Preset_Label)
     
 
     $TabControl.Controls.Add($TabGamePage)
@@ -318,6 +344,8 @@ function Main {
     $TabControl.Controls.Add($TabPlayerPage)
     $TabControl.Controls.Add($TabChaosPage)
     $TabControl.Controls.Add($TabOtherPage)
+
+ 
 
 
     $TabPlayerPage.Controls.Add($RandomizePlayerSprite)
@@ -332,6 +360,7 @@ function Main {
     $TabGamePage.Controls.Add($RandomizeLootTable)
     $TabGamePage.Controls.Add($StartWithSpells)
     $TabGamePage.Controls.Add($CustomPlayerPal)
+    $TabGamePage.Controls.Add($RandomizeTreasureChest)
 
     $TabChaosPage.Controls.Add($WeaponLock)
     $TabChaosPage.Controls.Add($SoloChallenge)
@@ -366,6 +395,7 @@ Function EvaluateRandomizer {
     Dressup
     SetupAirship
         # keep good on on order of operations!!!
+    If ($RandomizeTreasureChest.Checked -eq $true) {RandomizeDungeonChest}
     If ($SoloChallenge.checked -eq $true) {KillTheParty}
     If ($RandomizeShops.checked -eq $true) {RandomizeShops}
     If ($TieredShops.checked -eq $true) {TieredShops}
@@ -391,7 +421,42 @@ Function EvaluateRandomizer {
 }
 
 
+function StandardGame {
 
+RandomizeSprites
+RandomizeDungeonChest
+RandomizeShops
+CustomPlayerColor
+DoublePlayerSpeed
+RandomizeEnemyLoot
+RandomizeBaseStats
+
+}
+
+function BeginnerGame {
+
+RandomizeSprites
+RandomizeDungeonChest
+RandomizeShops
+CustomPlayerColor
+DoublePlayerSpeed
+SpellSelect
+RandomizeEnemyLoot
+
+}
+
+function BalanceGame {
+
+RandomizeDungeonChest
+TieredShops
+RandomizeBaseStats
+RandomizeSprites
+SpellSelect
+RandomizeEnemyLoot
+CustomPlayerColor
+DoublePlayerSpeed
+
+}
 
 Function TieredShops {
 
@@ -1973,12 +2038,16 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 function RandomizeSprites {
 
+    Write-Host "====Players=Sprites===="
 
     $FirionSprite = $RandomPlayerSprite | Get-Random
 
+    Write-Host "Firion OK"
 
     $MariaSprite = $RandomPlayerSprite | Get-Random
     While ($MariaSprite -eq $FirionSprite) {$MariaSprite = $RandomPlayerSprite | Get-Random}
+
+    Write-Host "Maria OK"
 
     $GuySprite = $RandomPlayerSprite | Get-Random
     While ($GuySprite -eq $FirionSprite) {
@@ -1987,6 +2056,7 @@ function RandomizeSprites {
             }
         }
 
+    Write-Host "Guy OK"
 
     $MinwuSprite = $RandomPlayerSprite | Get-Random
     While ($MinwuSprite -eq $FirionSprite) {
@@ -1996,6 +2066,8 @@ function RandomizeSprites {
             }        
         }
     }
+
+    Write-Host "Minwu OK"
 
     $JosefSprite = $RandomPlayerSprite | Get-Random
     While ($JosefSprite -eq $FirionSprite) {
@@ -2007,6 +2079,8 @@ function RandomizeSprites {
             }
         }
     } 
+
+    Write-Host "Josef OK"
 
     $GordonSprite = $RandomPlayerSprite | Get-Random
     While ($GordonSprite -eq $FirionSprite) {
@@ -2021,6 +2095,8 @@ function RandomizeSprites {
         }
     } 
 
+
+    Write-Host "Gordon OK"
 
     $LaylaSprite = $RandomPlayerSprite | Get-Random
     While ($LaylaSprite -eq $FirionSprite) {
@@ -2037,6 +2113,8 @@ function RandomizeSprites {
         }
     } 
 
+
+    Write-Host "Layla OK"
 
      $RichardSprite = $RandomPlayerSprite | Get-Random
     While ($RichardSprite -eq $FirionSprite) {
@@ -2056,7 +2134,7 @@ function RandomizeSprites {
     } 
     
 
-
+    Write-Host "Richard OK"
 
     $LeonSprite = $RandomPlayerSprite | Get-Random
     While ($LeonSprite -eq $FirionSprite) {
@@ -2077,6 +2155,7 @@ function RandomizeSprites {
         }
     } 
 
+    Write-Host "Leon OK"
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -3506,7 +3585,7 @@ function LogFile {
 
 function Dressup {
        
-    $10Random = Get-Random -Maximum 5 -Minimum 1
+    $10Random =  Get-Random -Maximum 6 -Minimum 1
 
     $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")   
     
@@ -3557,6 +3636,14 @@ function Dressup {
     $HexValue2= 0x11
     }
 
+        #Pink
+    IF ($10Random -eq 6)  {
+
+    
+    $HexValue = 0x07
+    $HexValue2= 0x17
+    }
+    
 
     $Romfile[$Address] = $HexValue
     $Romfile[$Address2] = $HexValue2
@@ -3619,6 +3706,29 @@ function SetupAirship {
 
 
 
+
+
+
+}
+
+
+
+
+function RandomizeDungeonChest {
+
+
+   $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES") 
+
+   $Address = 0xC20
+
+   while ($address -lt 0xD0F) {
+   $Hexvalue = $TreasureByteList | Get-Random
+   $Romfile[$address] = $Hexvalue
+   $address++
+   
+   }
+
+   [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
