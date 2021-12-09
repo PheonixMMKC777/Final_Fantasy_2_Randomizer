@@ -53,7 +53,7 @@ $SpellByteList = 153..191
 
 
 
-$MagicByteList = 192..231
+$MagicByteList = 152..191
 
 $RandomBaseHp = 32..80
 $RandomBaseStat = 5..15
@@ -138,6 +138,12 @@ function Main {
     $main_Window.Size = "440,330"
     $main_Window.Text = "Final Fantasy II (NES) Randomizer $versionnumber"
     $Main_Window.Icon = [System.Drawing.Icon]::FromHandle((New-Object System.Drawing.Bitmap -Argument $stream).GetHIcon())
+
+
+    $BraggingRights = New-Object System.Windows.Forms.Label
+    $BraggingRights.Text = "Programmed by: PheonixMMKC777"
+    $BraggingRight.size = "300,30"
+    $BraggingRights.Location = "30,10"
 
 
     $PartySelectMenu = New-Object System.Windows.Forms.Form
@@ -253,6 +259,11 @@ function Main {
     $MaxFirionStat.Size = "200,30"
     $MaxFirionStat.Location = "20,20"
 
+    $NoBloodSwords = New-Object System.Windows.Forms.CheckBox
+    $NoBloodSwords.Text = "Replace Blood sword with Onion"
+    $NoBloodSwords.Size = "200,30"
+    $NoBloodSwords.Location = "20,50"
+
     # BROKEN Player Select Menu
 
     $PlayerSelectButton = New-Object System.Windows.Forms.Button
@@ -303,24 +314,24 @@ function Main {
 
     $Preset_Label = New-Object System.windows.forms.Label
     $Preset_Label.Size = "100,25"
-    $Preset_Label.Location = "50,40"
+    $Preset_Label.Location = "50,50"
     $Preset_Label.Text = "Presets!"
     $Preset_Label.Font = "Arial,10"
 
     $Preset_Standard = New-Object System.Windows.Forms.Button
-    $Preset_Standard.Location = "30,60"
+    $Preset_Standard.Location = "30,70"
     $Preset_Standard.Size = "100,25"
     $Preset_Standard.Text = "Standard"
     $Preset_Standard.add_Click({StandardGame})
 
     $Preset_Beginner = New-Object System.Windows.Forms.Button
-    $Preset_Beginner.Location = "30,90"
+    $Preset_Beginner.Location = "30,100"
     $Preset_Beginner.Size = "100,25"
     $Preset_Beginner.Text = "Beginner"
     $Preset_Beginner.add_Click({BeginnerGame})
 
     $Preset_Balance = New-Object System.Windows.Forms.Button
-    $Preset_Balance.Location = "30,120"
+    $Preset_Balance.Location = "30,130"
     $Preset_Balance.Size = "100,25"
     $Preset_Balance.Text = "Balance"
     $Preset_Balance.add_Click({BalanceGame})
@@ -330,6 +341,7 @@ function Main {
 
 
     $main_Window.Controls.Add($RandomizeButton)
+    $main_Window.Controls.Add($BraggingRights)
 
     $main_Window.Controls.Add($TabControl)
     $main_Window.Controls.Add($Flaglist)
@@ -366,6 +378,7 @@ function Main {
     $TabChaosPage.Controls.Add($SoloChallenge)
 
     $TabOtherPage.Controls.Add($MaxFirionStat)
+    $TabOtherPage.Controls.Add($NoBloodSwords)
 
     $PartySelectMenu.Controls.Add($Player_Label)
     $PartySelectMenu.Controls.Add($Player1_Textbox)
@@ -394,7 +407,7 @@ Function EvaluateRandomizer {
     LogFile 
     Dressup
     SetupAirship
-        # keep good on on order of operations!!!
+        # keep good eye on order of operations!!!
     If ($RandomizeTreasureChest.Checked -eq $true) {RandomizeDungeonChest}
     If ($SoloChallenge.checked -eq $true) {KillTheParty}
     If ($RandomizeShops.checked -eq $true) {RandomizeShops}
@@ -408,7 +421,7 @@ Function EvaluateRandomizer {
     If ($CustomPlayerPal.checked -eq $true) {CustomPlayerColor}
     IF ($DoubleWalkSpeed.checked -eq $true) {DoublePlayerSpeed}
     If ($MaxFirionStat.Checked -eq $true) {MaxOutStats}
-    
+    If ($NoBloodSwords.Checked -eq $true) {NoBloods}
 
     Write-Host "Imported" #Verify to console
     
@@ -430,6 +443,10 @@ CustomPlayerColor
 DoublePlayerSpeed
 RandomizeEnemyLoot
 RandomizeBaseStats
+NoBloods
+    Dressup
+    SetupAirship
+    $main_Window.Controls.Add($Randocomplete)
 
 }
 
@@ -442,6 +459,9 @@ CustomPlayerColor
 DoublePlayerSpeed
 SpellSelect
 RandomizeEnemyLoot
+    Dressup
+    SetupAirship
+    $main_Window.Controls.Add($Randocomplete)
 
 }
 
@@ -455,6 +475,9 @@ SpellSelect
 RandomizeEnemyLoot
 CustomPlayerColor
 DoublePlayerSpeed
+    Dressup
+    SetupAirship
+    $main_Window.Controls.Add($Randocomplete)
 
 }
 
@@ -2838,12 +2861,12 @@ function RandomizeEnemyLoot {
        
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
-    #Spell 1 
+   
 
 $Address = 0x17810    # current
     
     While ($Address -le 0x179EF) {
-    $HexValue = $MagicByteList | Get-Random
+    $HexValue = $TreasureByteList | Get-Random
     $Romfile[$Address] = $HexValue 
     $Address++ 
 
@@ -3401,9 +3424,11 @@ function CustomPlayerColor {
 
 
     #find better one
+
+
     $GuyByte1 = 0x17
     $GuyByte2 = 0x27
-    $GuyByte3 = 0x30
+    $GuyByte3 = 0x30, 0x31, 0x33, 0x38, 0x3c
 
 
     $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -3423,7 +3448,7 @@ function CustomPlayerColor {
     $HexValue3 = $MariaByte3 | Get-Random
     $Romfile[$Address+2] = $HexValue3
 
-    $Address = 0x3C7    # Leon/Guy/Josef
+    $Address = 0x3C7    # Leon/Guy/Josef/mINWU
     $HexValue = $GuyByte1 | Get-Random
     $Romfile[$Address] = $HexValue 
     $HexValue2 = $GuyByte2 | Get-Random
@@ -3592,6 +3617,8 @@ function Dressup {
     
     $Address =  0x3E78C    # MENU MAIN
     $Address2=  0x3E787    # MENU BORDER
+    $Address3=  0x1D42     # DIALOGUE MAIN
+    #$Address4 = 0x1D3C     # DIALGOUE BORDER, affects houses
 
 
 
@@ -3647,6 +3674,8 @@ function Dressup {
 
     $Romfile[$Address] = $HexValue
     $Romfile[$Address2] = $HexValue2
+    $Romfile[$Address3] = $HexValue
+    #$Romfile[$Address4] = $HexValue2
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
@@ -3734,6 +3763,33 @@ function RandomizeDungeonChest {
 
 }
 
+function NoBloods {
+
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES") 
+    
+    $Address = 0x2A9E8
+    $Address2= 0x2CDB7
+    $Address3= 0x30278
+
+    $romfile[$address] = 0x98
+    $romfile[$address+1] = 0xB1
+    $romfile[$address+2] = 0xAC
+    $romfile[$address+3] = 0x44
+    $romfile[$address+4] = 0x00
+
+    $romfile[$address2] = 0x61
+
+    $romfile[$address3] = 0x46
+    $romfile[$address3+1] = 0x64
+    $romfile[$address3+2] = 0x03
+    $romfile[$address3+3] = 0x1E
+    # no +4 on $add3
+    $romfile[$address3+5] = 0x20
+
+
+   [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+}
 
 
 FindRom
