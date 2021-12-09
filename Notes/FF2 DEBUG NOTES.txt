@@ -1,0 +1,37 @@
+
+
+0x3E78C    # MENU PALETTE
+Uses a LDA instruction, why its so hard to find
+
+0X3F779	   # SETUP FOR SHIP (6 BYTES)
+
+
+=========Airship After Save============
+0x035701 JSR to 0x03F779(3Byte) [20 69 F7]
+
+0x03F779 Thing we took	(3Byte) [99 00 60]
+0x03F77C LDA $#04	(2byte) [A9 04]
+0x03F77E STA $6000	(3Byte) [8D 04 60]
+0x03F781 LDA $#5A	(2Byte) [A9 5A]
+0x03F783 STA $6005	(3Byte) [8D 05 60]
+0x03F784 LDA $#76	(2Byte) [A9 76]
+0x03F786 STA $6006	(3Byte) [8D 06 60]
+0x03f78B RTS		(1Byte) [60]
+
+
+#Coords for ariship start 5a,76	
+
+=========ChangeJSRlocation??============
+0x03f082 JSR to 0x03F779(3Byte) [20 69 F7]
+
+0x03F779 Thing we took	(3Byte) [BD 80 07]
+0x03F77C LDA $#04	(2byte) [A9 04]
+0x03F77E STA $6000	(3Byte) [8D 04 60]
+0x03F781 LDA $#5A	(2Byte) [A9 5A]
+0x03F783 STA $6005	(3Byte) [8D 05 60]
+0x03F784 LDA $#76	(2Byte) [A9 76]
+0x03F786 STA $6006	(3Byte) [8D 06 60]
+0x03f78B RTS		(1Byte) [60]
+
+
+#Coords for ariship start 5a,76	

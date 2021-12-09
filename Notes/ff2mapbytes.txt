@@ -1,0 +1,28 @@
+there are $40 32x32 blocks
+begins at $710
+same format as tsa
+
+$10010 - $100D0: town pointers, 2 bytes each, 192 bytes total
+	
+0x10018-9	altea poointer
+
+$100D0 - $13B32: town maps, varying bytes for each
+
+$100D0: restoration room (Hilda & Minh) - Altea
+87 31 80 07 01 87 08 08 22 0A 22 0A 22 0A 09 87
+08 0B 94 06 09 87 08 0B 94 06 09 87 08 0B 94 02
+40 94 03 09 87 08 0B 94 06 09 87 08 13 82 02 0F
+82 03 09 87 08 8A 03 16 08 8A 02 11 87 0B 0A 11
+87 4A FF
+
+$10113: Rebel HQ - Altea
+
+$101D2: King's resting room - Altea
+
+$10213: Hilda's room - Altea
+
+$1023D: Altea (the town)
+
+$10325: Gatea
+
+$3210 Might be tile map

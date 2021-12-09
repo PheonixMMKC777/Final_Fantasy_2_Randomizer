@@ -1,0 +1,832 @@
+Best viewed in 1024x768 resolution. Turn on Word Wrap if your reso is lower.
+
+30CD3 - 30D12:
+HP and MP, 2 bytes each, 64 bytes total
+
+HP/MP table:
+00 00 06 00 0A 00 14 00 1E 00 2D 00 3C 00 50 00
+64 00 8C 00 BE 00 F0 00 2C 01 72 01 C2 01 1C 02
+80 02 EE 02 66 03 E8 03 74 04 0A 05 AA 05 54 06
+08 07 D0 07 C4 09 B8 0B AC 0D 88 13 58 1B 10 27
+
+remember, HP starts at 30CD5 (monsters can't have 0 HP), MP starts at 30CD3. Remember that for HP/MP you must switch the 
+bytes around. So 10 27 will read as 2710, and that is 10,000 HP.
+
+30D13 - 30D22:
+Attack count, defense count, and magic defense. 1 byte each, 16 bytes total
+table:
+00 01 02 03 04 05 06 07 08 0A 0C 0E 10 12 14 FF
+
+30D23 - 30D32:
+Accuracy, evade, and magic evade. 1 byte each, 16 bytes total
+table:
+00 0A 14 1E 28 32 3C 41 46 4B 50 55 5A 5F 64 FF
+
+30D33 - 30D42:
+Strength, defense, and morale. 1 byte each, 16 bytes total
+table:
+00 04 09 11 19 23 28 32 3C 46 55 64 78 96 B4 D2
+
+30D43 - 30D52:
+Added effect table. 1 byte each, 16 bytes total
+table:
+00 81 41 11 09 05 03 82 42 0A 06 46 86 FE 04 08
+Bitflag system:
+01: Inflict permanent ailment. Ailments are Blind (0x2), Envenom (0x4), Curse (0x8), Amnesia (0x10), Toad (0x20), Petrify
+    (0x40), Death (0x80)
+02: Inflict temporary ailment. Ailments are Poison (0x4), Sleep (0x8), Mute (0x10), Mini (0x20), Paralysis (0x40), Confusion
+    (0x80)
+04: Drain 1/16 HP per hit, plus normal damage calculations.
+08: Drain MP.
+10: Ripper dagger effect. (DOES NOT WORK)
+20: Healing
+To determine ailments, check the first two bits. If the first bit is 1, then it's a permanent ailment, if the second bit is
+1, then it's a temporary ailment. Permanent and temporary ailments can never be used at the same time. If both bits are on,
+then the game will use the permanent ailment. 
+
+30D53 - 30D62:
+Monster race
+table:
+00 01 02 04 05 08 10 15 18 21 24 40 80 85 91 95
+
+30D63 - 30D72:
+Elemental resistance. 1 byte each, 16 bytes total.
+table:
+00 04 50 44 55 21 5D 28 80 C4 F5 FD 22 01 8A FF
+
+30D73 - 30D82:
+Elemental weakness/absorb. 1 byte each, 16 bytes total.
+table:
+00 10 11 04 40 20 08 80 A0 88 02 12 0A 82 AA FF
+
+// end monster stats, 175 bytes total.
+
+// monsters have 10 bytes of space each. Yes, you ARE reading that correctly. 10 measly bytes.
+
+LegEater: 307D3
+FF 01 00 16 10 00 01 53 30 E0
+^  ^  ^  ^^ ^^ ^^ ^^ ^^ ^^ ^^
+|  |  |  || || || || || || ||
+|  |  |  || || || || || || |Elemental absorb.
+|  |  |  || || || || || || Morale.
+|  |  |  || || || || || |Elemental weakness.
+|  |  |  || || || || || Elemental resistance.
+|  |  |  || || || || |Monster Race.
+|  |  |  || || || || Magic Evade.
+|  |  |  || || || |Magic Defense.
+|  |  |  || || || Defense.
+|  |  |  || || |Evade.
+|  |  |  || || Defense count. (Def. count subtracts hits taken. Doesn't seem to work too well unless there's some defense and/or evade there too.)
+|  |  |  || |Attack type.
+|  |  |  || Strength.
+|  |  |  |Accuracy.
+|  |  |  Attack count.
+|  |  MP.
+|  HP.
+AI Attack pattern.
+No AI, 6 HP, 0 MP, 1 hit, 60% accurate, 4 strength, -0 hits, 0% evade, 0 defense, 1 magic defense, 50% magic evade
+
+VmpThorn: 307DD
+FF 03 00 16 1A 00 01 53 30 D0
+No AI, 20 HP, 0 MP, 1 hit, 60% accurate, 4 strength, -0 hits, 0% evade, 0 defense, 1 magic defense, 50% magic evade
+
+Hornet: 307E7
+FF 01 00 15 1A 11 01 51 00 E0
+No AI, 6 HP, 0 MP, 1 hit, 50% accurate, 4 strength, -1 hit, 10% evade, 0 defense, 1 magic defense, 50% magic evade
+
+QueenBee: 307F1
+FF 04 00 15 25 11 11 51 00 D0
+No AI, 30 HP, 0 MP, 1 hit, 50% accurate, 9 strength, -1 hit, 10% evade, 4 defense, 1 magic defense, 50% magic evade
+
+Snowman: 307FB
+FF 05 00 16 20 12 12 40 0A D7
+No AI, 45 HP, 0 MP, 1 hit, 60% accurate, 9 strength, -1 hit, 20% evade, 4 defense, 2 magic defense, 40% magic evade
+
+Yeti: 30805
+FF 03 00 15 10 11 01 50 00 D0
+No AI, 20 HP, 0 MP, 1 hit, 50% accurate, 4 strength, -1 hit, 10% evade, 0 defense, 1 magic defense, 50% magic evade
+
+Icicle: 3080F
+FF 06 00 16 30 00 32 40 1A D7
+No AI, 60 HP, 0 MP, 1 hit, 60% accurate, 17 strength, -0 hits, 0% evade, 17 defense, 2 magic defense, 40% magic evade
+
+Stlctite: 30819
+FF 0B 00 28 50 13 53 40 15 B0
+No AI, 240 HP, 0 MP, 2 hits, 70% accurate, 35 strength, -1 hit, 30% evade, 25 defense, 3 magic defense, 40% magic evade
+
+Column: 30823
+FF 0B 00 38 60 13 63 40 10 90
+No AI, 240 HP, 0 MP, 3 hits, 70% accurate, 40 strength, -1 hit, 30% evade, 25 defense, 3 magic defense, 40% magic evade
+
+Sprinter: 3082D
+FF 04 00 15 20 14 01 50 00 D0
+No AI, 30 HP, 0 MP, 1 hit, 50% accurate, 9 strength, -1 hit, 40% evade, 0 defense, 1 magic defense, 50% magic evade
+
+BigBird: 30837
+FF 09 00 27 50 13 42 50 00 C0
+No AI, 140 HP, 0 MP, 2 hits, 65% accurate, 35 strength, -1 hit, 30% evade, 25 defense, 2 magic defense, 50% magic evade
+
+Adamanti: 30841
+FF 0E 00 29 70 00 81 5A 77 B0
+No AI, 450 HP, 0 MP, 2 hits, 75% accurate, 50 strength, -0 hits, 0% evade, 60 defense, 1 magic defense, 50% magic evade
+
+LandTrtl: 3084B
+FF 09 00 27 50 00 52 5A 77 C0
+No AI, 140 HP, 0 MP, 2 hits, 65% accurate, 35 strength, -0 hits, 0% evade, 35 defense, 2 magic defense, 50% magic evade
+
+Ogre: 30855
+FF 08 00 17 40 12 32 55 00 C0
+No AI, 100 HP, 0 MP, 1 hit, 65% accurate, 25 strength, -1 hit, 20% evade, 17 defense, 2 magic defense, 50% magic evade
+
+WzOgre: 3085F
+00 09 04 27 40 14 33 48 00 C0
+WzOgre's AI, 140 HP, 30 MP, 2 hits, 65% accurate, 25 strength, -1 hit, 40% evade, 17 defense, 3 magic defense, 40% magic evade
+
+GrOgre: 30869
+FF 0C 00 38 60 14 53 45 00 B0
+No AI, 300 HP, 0 MP, 3 hits, 70% accurate, 40 strength, -1 hit, 40% evade, 35 defense, 3 magic defense, 40% magic evade
+
+DualHead: 30873
+FF 07 00 25 40 12 32 55 14 D0
+No AI, 80 HP, 0 MP, 2 hits, 50% accurate, 25 strength, -1 hit, 20% evade, 17 defense, 2 magic defense, 50% magic evade
+
+DualZomb: 3087D
+FF 0C 00 57 60 15 43 5C 9A B1
+No AI, 540 HP, 0 MP, 5 hits, 65% accurate, 40 strength, -1 hit, 50% evade, 25 defense, 3 magic defense, 50% magic evade
+
+Wererat: 30887
+FF 06 00 16 35 22 12 40 20 C0
+No AI, 60 HP, 0 MP, 1 hit, 60% accurate, 17 strength, -2 hits, 20% evade, 4 defense, 2 magic defense, 40% magic evade
+
+Stunner: 30891
+FF 08 00 27 38 12 32 5B 00 C0
+No AI, 100 HP, 0 MP, 2 hits, 65% accurate, 17 strength, -1 hit, 20% evade, 17 defense, 2 magic defense, 50% magic evade
+
+DeadHead: 3089B
+FF 05 00 16 30 12 22 4C 9A D1
+No AI, 45 HP, 0 MP, 1 hit, 60% accurate, 17 strength, -1 hit, 20% evade, 9 defense, 2 magic defense, 40% magic evade
+
+Skull: 308A5
+01 10 0C 69 7E 17 64 4E 9A 31
+ AI, 640 HP, 300 MP, 6 hits, 75% accurate, 50 strength, -1 hit, 65% evade, 50 defense, 4 magic defense, 40% magic evade
+
+Zombie: 308AF
+FF 04 00 16 30 00 01 5C 9A D1
+No AI, 30 HP, 0 MP, 1 hit, 60% accurate, 17 strength, -0 hits, 0% evade, 0 defense, 1 magic defense, 50% magic evade
+
+Ghoul: 308B9
+FF 06 00 16 38 12 12 4C 9A D1
+No AI, 60 HP, 0 MP, 1 hit, 60% accurate, 17 strength, -1 hit, 20% evade, 4 defense, 2 magic defense, 40% magic evade
+
+Ghast: 308C3
+1F 08 04 26 48 13 22 5C 9A C1
+ AI, 100 HP, 30 MP, 2 hits, 60% accurate, 25 strength, -1 hit, 30% evade, 9 defense, 2 magic defense, 50% magic evade
+
+Revenant: 308CD
+FF 0B 00 38 6E 14 43 4C 9A B1
+No AI, 240 HP, 0 MP, 3 hits, 70% accurate, 40 strength, -1 hit, 40% evade, 25 defense, 3 magic defense, 40% magic evade
+
+Shadow: 308D7
+FF 05 00 16 36 12 22 4C 6A D1
+No AI, 45 HP, 0 MP, 1 hit, 60% accurate, 17 strength, -1 hit, 20% evade, 9 defense, 2 magic defense, 40% magic evade
+
+Wraith: 308E1
+FF 06 00 17 2E 22 22 5D AA C1
+No AI, 60 HP, 0 MP, 1 hit, 65% accurate, 9 strength, -2 hits, 20% evade, 9 defense, 2 magic defense, 50% magic evade
+
+Specter: 308EB
+20 0C 08 39 4E 14 43 5F AA A1
+Specter's AI, 300 HP, 100 MP, 3 hits, 75% accurate, 25 strength, -1 hit, 40% evade, 25 defense, 3 magic defense, 50% magic evade
+
+Ghost: 308F5
+21 0F 09 59 5E 16 53 5F AA 91
+Ghost's AI, 540 HP, 140 MP, 5 hits, 75% accurate, 35 strength, -1 hit, 60% evade, 35 strength, 3 magic defense, 50% magic evade
+
+Antlion: 308FF
+FF 0D 00 39 78 15 63 53 D8 A0
+No AI, 370 HP, 0 MP, 3 hits, 75% accurate, 50 strength, -1 hit, 50% evade, 40 defense, 3 magic defense, 50% magic evade
+
+Blade: 30909
+FF 12 00 6A 90 18 84 41 00 40
+No AI, 870 HP, 0 MP, 6 hits, 80% accurate, 70 strength, -1 hit, 70% evade, 60 defense, 4 magic defense, 40% magic evade
+
+Gotus: 30913
+05 19 07 6C 90 17 85 40 00 70
+ AI, 2000 HP, 80 MP, 6 hits, 90% accurate, 70 strength, -1 hit, 65% evade, 60 defense, 5 magic defense, 40% magic evade
+
+BstDemon: 3091D
+06 13 09 6A 95 19 86 66 E0 00
+Beast Demon's AI, 1000 HP, 140 MP, 6 hits, 80% accurate, 70 strength, -1 hit, 75% evade, 60 defense, 6 magic defense, 60% magic evade
+
+Chimera: 30927
+07 10 07 49 80 15 73 59 00 A0
+Chimera's AI, 640 HP, 80 MP, 4 hits, 75% accurate, 60 strength, -1 hit, 50% evade, 50 defense, 3 magic defense, 50% magic evade
+
+GChimera: 30931
+08 11 09 5A 80 16 74 49 00 80
+ AI, 750 HP, 140 MP, 5 hits, 80% accurate, 60 strength, -1 hit, 60% evade, 50 defense, 4 magic defense, 40% magic evade
+
+Sphinx: 3093B
+09 14 0D 6C A0 18 95 49 00 00
+Sphinx's AI, 1140 HP, 370 MP, 6 hits, 90% accurate, 85 strength, -1 hit, 70% evade, 70 defense, 5 magic defense, 40% magic evade
+
+Flower: 30945
+FF 0F 00 4A 67 00 63 50 3D A0
+No AI, 540 HP, 0 MP, 4 hits, 80% accurate, 40 strength, -0 hits, 0% evade, 40 defense, 3 magic defense, 50% magic evade
+
+DvFlower: 3094F
+FF 14 00 6B 9C 17 95 80 9A 71
+No AI, 1140 HP, 0 MP, 6 hits, 85% accurate, 70 strength, -1 hit, 65% evade, 70 defense, 5 magic defense, 70% magic evade
+
+KilrFish: 30959
+FF 08 00 27 40 13 32 52 C6 B0
+No AI, 100 HP, 0 MP, 2 hits, 65% accurate, 25 strength, -1 hit, 30% evade, 17 defense, 2 magic defense, 50% magic evade
+
+ElecFish: 30963
+0A 0F 07 4A 80 15 74 42 C0 86
+ElecFish's AI, 540 HP, 80 MP, 4 hits, 80% accurate, 60 strength, -1 hit, 50% evade, 50 defense, 4 magic defense, 40% magic evade
+
+Eagle: 3096D
+FF 09 00 27 50 15 32 51 00 C0
+No AI, 140 HP, 0 MP, 2 hits, 65% accurate, 35 strength, -1 hit, 50% evade, 17 defense, 2 magic defense, 50% magic evade
+
+Coctrice: 30977
+FF 0D 00 48 52 15 63 51 00 90
+No AI, 370 HP, 0 MP, 4 hits, 70% accurate, 35 strength, -1 hit, 50% evade, 40 defense, 3 magic defense, 50% magic evade
+
+Pirate: 30981
+FF 05 00 16 30 13 12 40 00 B0
+No AI, 45 HP, 0 MP, 1 hit, 60% accurate, 17 strength, -1 hit, 30% evade, 4 defense, 2 magic defense, 40% magic evade
+
+Bucaneer: 3098B
+FF 07 00 27 40 14 32 50 00 B0
+No AI, 80 HP, 0 MP, 2 hits, 65% accurate, 25 strength, -1 hit, 40% evade, 17 defense, 2 magic defense, 50% magic evade
+
+Borgan: 30995
+02 0B 03 19 40 14 33 50 00 00
+ AI, 240 HP, 20 MP, 1 hit, 75% accurate, 25 strength, -1 hit, 40% evade, 17 defense, 3 magic defense, 50% magic evade
+
+Z.Borgan: 3099F
+03 1A 0D 6D C8 16 C9 EC 9A 01
+Zombie Borgan's AI, 2500 HP, 370 MP, 6 hits, 95% accurate, 120 strength, -1 hit, 60% evade, 120 defense, 10 magic defense, 100% magic evade
+
+BigHorn: 309A9
+FF 14 00 4B 70 16 76 30 00 80
+No AI, 1140 HP, 0 MP, 4 hits, 85% accurate, 50 strength, -1 hit, 60% evade, 50 defense, 6 magic defense, 30% magic evade
+
+Tusk: 309B3
+FF 0C 00 3B 60 13 53 50 00 B0
+No AI, 300 HP, 0 MP, 3 hits, 85% accurate, 40 strength, -1 hit, 30% evade, 35 defense, 3 magic defense, 50% magic evade
+
+G.Toad: 309BD
+FF 0C 00 38 55 13 53 50 07 B0
+No AI, 300 HP, 0 MP, 3 hits, 70% accurate, 35 strength, -1 hit, 30% evade, 35 defense, 3 magic defense, 50% magic evade
+
+P.Toad: 309C7
+FF 0E 00 49 65 15 64 50 07 B0
+No AI, 450 HP, 0 MP, 4 hits, 75% accurate, 40 strength, -1 hit, 50% evade, 40 defense, 3 magic defense, 50% magic evade
+
+SeaSnake: 309D1
+FF 0C 00 39 65 14 63 52 C6 B0
+No AI, 300 HP, 0 MP, 3 hits, 75% accurate, 40 strength, -1 hit, 40% evade, 40 defense, 3 magic defense, 50% magic evade
+
+SeaDragn: 309DB
+0D 12 07 5A 90 16 84 42 C6 80
+SeaDragn's AI, 870 HP, 80 MP, 5 hits, 80% accurate, 70 strength, -1 hit, 60% evade, 60 defense, 4 magic defense, 40% magic evade
+
+Ray: 309E5
+FF 0E 00 49 68 15 63 53 00 A0
+No AI, 450 HP, 0 MP, 4 hits, 75% accurate, 40 strength, -1 hit, 50% evade, 40 defense, 3 magic defense, 50% magic evade
+
+MantaRay: 309EF
+FF 12 00 5A 90 16 84 42 C6 80
+No AI, 870 HP, 0 MP, 5 hits, 80% accurate, 70 strength, -1 hit, 60% evade, 60 defense, 4 magic defense, 40% magic evade
+
+Flier: 309F9
+FF 11 00 6A 80 17 74 41 00 90
+No AI, 750 HP, 0 MP, 6 hits, 80% accurate, 60 strength, -1 hit, 65% evade, 50 defense, 4 magic defense, 40% magic evade
+
+Changer: 30A03
+0E 09 07 28 50 15 43 4B 23 B0
+Changer's AI, 140 HP, 80 MP, 2 hits, 70% accurate, 35 strength, -1 hit, 50% evade, 25 defense, 3 magic defense, 40% magic evade
+
+Brain: 30A0D
+0F 0B 08 49 60 16 53 5B 23 A0
+Brain's AI, 240 HP, 100 MP, 4 hits, 75% accurate, 40 strength, -1 hit, 60% evade, 35 defense, 3 magic defense, 50% magic evade
+
+Sucker: 30A17
+FF 0C 00 38 5F 14 63 51 17 A0
+No AI, 300 HP, 0 MP, 3 hits, 70% accurate, 35 strength, -1 hit, 40% evade, 40 defense, 3 magic defense, 50% magic evade
+
+M.Sucker: 30A21
+10 11 0C 69 63 17 74 41 17 10
+M.Sucker's AI, 750 HP, 300 MP, 6 hits, 75% accurate, 40 strength, -1 hit, 65% evade, 50 defense, 4 magic defense, 40% magic evade
+
+Werewolf: 30A2B
+FF 0F 00 4A 75 15 74 4B 20 80
+No AI, 540 HP, 0 MP, 4 hits, 80% accurate, 50 strength, -1 hit, 50% evade, 50 defense, 4 magic defense, 40% magic evade
+
+WolfDevl: 30A35
+04 12 0C 8A 90 19 76 66 00 00
+ AI, 870 HP, 300 MP, 8 hits, 80% accurate, 70 strength, -1 hit, 75% evade, 50 defense, 6 magic defense, 60% magic evade
+
+Imp: 30A3F
+13 0C 08 48 55 15 53 E7 E0 80
+Imp's AI, 300 HP, 100 MP, 4 hits, 70% accurate, 35 strength, -1 hit, 50% evade, 35 defense, 3 magic defense, 100% magic evade
+
+Fiend: 30A49
+14 11 0C 8A 86 17 76 67 80 2A
+ AI, 750 HP, 300 MP, 8 hits, 80% accurate, 60 strength, -1 hit, 65% evade, 50 defense, 6 magic defense, 60% magic evade
+
+Molbor: 30A53
+FF 11 00 5A 78 16 74 42 C6 90
+No AI, 750 HP, 0 MP, 5 hits, 80% accurate, 50 strength, -1 hit, 60% evade, 50 defense, 4 magic defense, 40% magic evade
+
+L.Molbor: 30A5D
+FF 13 00 7A 8B 17 86 33 70 70
+No AI, 1000 HP, 0 MP, 7 hits, 80% accurate, 60 strength, -1 hit, 65% evade, 60 defense, 6 magic defense, 30% magic evade
+
+G.Molbor: 30A67
+FF 15 00 8B AD 18 A5 83 00 10
+No AI, 1290 HP, 0 MP, 8 hits, 85% accurate, 85 strength, -1 hit, 50% evade, 85 defense, 5 magic defense, 70% magic evade
+
+Basilisk: 30A71
+15 11 09 6A 90 17 76 3A 00 70
+ AI, 750 HP, 140 MP, 6 hits, 80% accurate, 70 strength, -1 hit, 65% evade, 50 defense, 6 magic defense, 30% magic evade
+
+Salmandr: 30A7B
+17 15 0C 8C B0 18 A5 86 A7 1A
+Salamander's AI, 1290 HP, 300 MP, 8 hits, 90% accurate, 100 strength, -1 hit, 70% evade, 85 defense, 5 magic defense, 70% magic evade
+
+IceLiz: 30A85
+16 13 0A 7B A0 17 96 3A 0A 77
+Ice Lizard's AI, 1000 HP, 190 MP, 7 hits, 85% accurate, 85 strength, -1 hit, 65% evade, 70 defense, 6 magic defense, 30% magic evade
+
+Ameoba: 30A8F
+FF 14 00 69 B5 00 86 34 40 55
+No AI, 1140 HP, 0 MP, 6 hits, 75% accurate, 100 strength, -0 hits, 0% evade, 60 defense, 6 magic defense, 30% magic evade
+
+100Eye: 30A99
+18 14 0C 7C A1 18 95 84 F0 15
+ AI, 1140 HP, 300 MP, 7 hits, 90% accurate, 85 strength, -1 hit, 70% evade, 70 defense, 5 magic defense, 70% magic evade
+
+Worm: 30AA3
+FF 19 00 6D C0 11 B4 57 00 00
+No AI, 2000 HP, 0 MP, 6 hits, 95% accurate, 120 strength, -1 hit, 10% evade, 100 defense, 4 magic defense, 50% magic evade
+
+SandWorm: 30AAD
+19 15 0A 7B B0 18 66 34 00 30
+Sand Worm's AI, 1290 HP, 190 MP, 7 hits, 85% accurate, 100 strength, -1 hit, 70% evade, 40 defense, 6 magic defense, 30% magic evade
+
+AbysWorm: 30AB7
+1A 15 0D 8C D0 18 A5 84 30 0B
+Abyss Worm's AI, 1290 HP, 370 MP, 8 hits, 90% accurate, 150 strength, -1 hit, 70% evade, 85 defense, 5 magic defense, 70% magic evade
+
+Slime: 30AC1
+FF 02 01 15 1A 00 F1 54 4D D5
+No AI, 10 HP, 6 MP, 1 hit, 50% accurate, 4 strength, -0 hits, 0% evade, 210 defense, 1 magic defense, 50% magic evade
+
+Jelly: 30ACB
+FF 05 01 16 35 00 F2 44 6D D5
+No AI, 45 HP, 6 MP, 1 hit, 60% accurate, 17 strength, -0 hits, 0% evade, 210 defense, 2 magic defense, 40% magic evade
+
+Mallow: 30AD5
+FF 08 05 27 45 00 F2 54 A6 B5
+No AI, 100 HP, 45 MP, 2 hits, 65% accurate, 25 strength, -0 hits, 0% evade, 210 defense, 2 magic defense, 50% magic evade
+
+Pudding: 30ADF
+FF 0D 07 4A 65 00 F3 54 BA 95
+No AI, 370 HP, 80 MP, 4 hits, 80% accurate, 40 strength, -0 hits, 0% evade, 210 defense, 3 magic defense, 50% magic evade
+
+R.Soul: 30AE9
+1E 0F 04 1A 50 16 64 47 00 AF
+ AI, 540 HP, 30 MP, 1 hit, 80% accurate, 35 strength, -1 hit, 60% evade, 40 defense, 4 magic defense, 40% magic evade
+
+G.Soul: 30AF3
+1D 01 06 18 40 14 33 47 00 EF
+ AI, 6 HP, 60 MP, 1 hit, 70% accurate, 25 strength, -1 hit, 40% evade, 17 defense, 3 magic defense, 40% magic evade
+
+Soul: 30AFD
+1C 03 07 18 50 14 43 47 00 EF
+ AI, 20 HP, 80 MP, 1 hit, 70% accurate, 35 strength, -1 hit, 40% evade, 25 defense, 3 magic defense, 40% magic evade
+
+VmpGirl: 30B07
+11 0F 08 5A 6E 16 74 4F 8A 71
+VampGirl's AI, 540 HP, 100 MP, 5 hits, 80% accurate, 40 strength, -1 hit, 60% evade, 50 defense, 4 magic defense, 40% magic evade
+
+VmpLady: 30B11
+12 14 09 6B AE 18 A6 3F BA 31
+VampLady's AI, 1140 HP, 140 MP, 6 hits, 85% accurate, 85 strength, -1 hit, 70% evade, 85 defense, 6 magic defense, 30% magic evade
+
+Emperor: 30B1B (the first time)
+0B 15 0A 6A 90 17 74 40 00 00
+ AI, 1290 HP, 190 MP, 6 hits, 80% accurate, 70 strength, -1 hit, 65% evade, 50 defense, 4 magic defense, 40% magic evade
+
+Shade: 30B25
+0C 1B 0B 8E C4 1A C8 3F A0 01
+ AI, 3000 HP, 240 MP, 8 hits, 100% accurate, 120 strength, -1 hit, 80% evade, 120 defense, 8 magic defense, 30% magic evade
+
+Mantis: 30B2F
+FF 11 00 59 80 16 74 40 07 90
+No AI, 750 HP, 0 MP, 5 hits, 75% accurate, 60 strength, -1 hit, 60% evade, 50 defense, 4 magic defense, 40% magic evade
+
+MantKing: 30B39
+FF 14 00 7A A0 18 95 40 07 00
+No AI, 1140 HP, 0 MP, 7 hits, 80% accurate, 85 strength, -1 hit, 70% evade, 70 defense, 5 magic defense, 40% magic evade
+
+DvMantis: 30B43
+22 15 0D 8B A8 19 A5 86 80 0A
+ AI, 1290 HP, 370 MP, 8 hits, 85% accurate, 85 strength, -1 hit, 75% evade, 85 defense, 5 magic defense, 70% magic evade
+
+Corpse: 30B4D
+FF 12 00 69 85 17 86 30 00 00
+No AI, 870 HP, 0 MP, 6 hits, 75% accurate, 60 strength, -1 hit, 65% evade, 60 defense, 6 magic defense, 30% magic evade
+
+DkKnight: 30B57
+FF 14 00 7A A0 18 A5 40 00 00
+No AI, 1140 HP, 0 MP, 7 hits, 80% accurate, 85 strength, -1 hit, 70% evade, 85 defense, 5 magic defense, 40% magic evade
+
+DthRider: 30B61
+FF 15 00 8B CE 18 C5 86 9A 01
+No AI, 1290 HP, 0 MP, 8 hits, 85% accurate, 120 strength, -1 hit, 70% evade, 120 defense, 5 magic defense, 70% magic evade
+
+Golem: 30B6B
+FF 17 00 6D B9 15 CB E6 AA 00
+No AI, 1620 HP, 0 MP, 6 hits, 95% accurate, 100 strength, -1 hit, 50% evade, 120 defense, 14 magic defense, 100% magic evade
+
+StGolem: 30B75
+23 18 0B 7D C0 15 DB E6 F5 00
+ AI, 1800 HP, 240 MP, 7 hits, 95% accurate, 120 strength, -1 hit, 50% evade, 150 defense, 14 magic defense, 100% magic evade
+
+MtGolem: 30B7F
+FF 19 00 8D D0 15 EB E6 F6 00
+No AI, 2000 HP, 0 MP, 8 hits, 95% accurate, 150 strength, -1 hit, 50% evade, 180 defense, 14 magic defense, 100% magic evade
+
+Goblin: 30B89
+FF 01 00 15 10 00 01 55 00 E0
+No AI, 6 HP, 0 MP, 1 hit, 50% accurate, 4 strength, -0 hits, 0% evade, 0 defense, 1 magic defense, 50% magic evade
+
+G.Goblin: 30B93
+24 02 01 15 10 11 01 55 00 D0
+Green Goblin's AI, 10 HP, 6 MP, 1 hit, 50% accurate, 4 strength, -1 hit, 10% evade, 0 defense, 1 magic defense, 50% magic evade
+
+DesAngel: 30B9D
+25 04 02 16 20 11 12 45 00 D0
+ AI, 30 HP, 10 MP, 1 hit, 60% accurate, 9 strength, -1 hit, 10% evade, 4 defense, 2 magic defense, 40% magic evade
+
+Balloon: 30BA7
+26 03 02 15 20 00 01 51 3C D0
+Balloon's AI, 20 HP, 10 MP, 1 hit, 50% accurate, 9 strength, -0 hits, 0% evade, 0 defense, 1 magic defense, 50% magic evade
+
+Grenade: 30BB1
+27 06 02 17 40 00 32 51 3C D0
+ AI, 60 HP, 10 MP, 1 hit, 65% accurate, 25 strength, -0 hits, 0% evade, 17 defense, 2 magic defense, 50% magic evade
+
+Mine: 30BBB
+28 0A 04 28 50 00 43 41 3C C0
+Mine's AI, 30 MP, 2 hits, 70% accurate, 35 strength, -0 hits, 0% evade, 25 defense, 3 magic defense, 40% magic evade
+
+Bomb: 30BC5
+29 10 09 5A 80 00 74 41 3C 80
+Bomb's AI, 640 HP, 140 MP, 5 hits, 80% accurate, 60 strength, -0 hits, 0% evade, 55 defense, 4 magic defense, 40% magic evade
+
+Soldier: 30BCF
+24 05 02 16 30 11 20 50 00 D0
+G.Goblin's AI, 45 HP, 10 MP, 1 hit, 60% accurate, 17 strength, -1 hit, 10% evade, 9 defense, 2 magic defense, 50% magic evade
+
+Sargeant: 30BD9
+2A 09 02 28 50 13 43 50 00 C0
+Captain's AI, 140 HP, 10 MP, 2 hits, 70% accurate, 35 strength, -1 hit, 30% evade, 25 defense, 3 magic defense, 50% magic evade
+
+Captain: 30BE3
+2A 11 04 6A 80 16 74 50 00 B0
+Captain's AI, 750 HP, 30 MP, 6 hits, 80% accurate, 60 strength, -1 hit, 60% evade, 55 defense, 4 magic defense, 50% magic evade
+
+General: 30BED
+FF 18 00 9D C0 19 B4 60 00 40
+No AI, 1800 HP, 0 MP, 9 hits, 95% accurate, 120 strength, -1 hit, 75% evade, 100 defense, 4 magic defense, 60% magic evade
+
+Mage: 30BF7 (brown robed caster)
+2C 07 04 17 30 14 23 66 00 C0
+Mage's AI, 80 HP, 30 MP, 1 hit, 65% accurate, 25 strength, -1 hit, 40% evade, 17 defense, 3 magic defense, 60% magic evade
+
+Sorcerer: 30C01 (blue robed caster)
+2D 09 06 18 40 15 33 66 00 90
+Sorcerer's AI, 60 MP, 1 hit, 70% accurate, 25 strength, -2 hit, 50% evade, 25 defense, 3 magic defense, 60% magic evade
+
+Wizard: 30C0B (green robed caster)
+2E 0F 0A 19 60 18 54 66 00 50
+Wizard's AI, 540 HP, 190 MP, 1 hit, 75% accurate, 40 strength, -1 hit, 70% evade, 35 defense, 4 magic defense, 60% magic evade
+
+Panther: 30C15
+FF 0A 00 28 55 13 43 4B 20 C0
+No AI, 190, 0 MP, 2 hits, 70% accurate, 35 strength, -1 hit, 30% evade, 25 defense, 3 magic defense, 40% magic evade
+
+Krull: 30C1F
+2F 13 0C 79 61 18 85 40 00 20
+Krull's AI, 1000 HP, 300 MP, 7 hits, 75% accurate, 40 strength, -1 hit, 70% evade, 60 defense, 5 magic defense, 40% magic evade
+
+Lamia: 30C29
+30 13 06 6B 99 17 96 36 00 50
+ AI, 1000 HP, 60 MP, 6 hits, 85% accurate, 70 strength, -1 hit, 65% evade, 70 defense, 6 magic defense, 30% magic evade
+
+Q.Lamia: 30C33
+31 15 0D 8D 79 29 77 46 00 20
+ AI, 1290 HP, 370 MP, 8 hits, 95% accurate, 50 strength, -2 hits, 75% evade, 50 defense, 7 magic defense, 40% magic evade
+
+Gigas: 30C3D
+FF 11 00 3A B0 13 84 45 00 C0
+No AI, 750 HP, 0 MP, 3 hits, 80% accurate, 100 strength, -1 hit, 30% evade, 60 defense, 4 magic defense, 40% magic evade
+
+F.Gigas: 30C47
+2B 18 0B 6D B0 14 B4 55 07 7A
+Fire Gigas' AI, 1800 HP, 240 MP, 6 hits, 95% accurate, 100 strength, -1 hit, 40% evade, 100 defense, 4 magic defense, 50% magic evade
+
+I.Gigas: 30C51
+32 19 09 7D C0 15 C4 55 0A 67
+Ice Gigas' AI, 2000 HP, 140 MP, 7 hits, 95% accurate, 120 strength, -1 hit, 50% evade, 120 defense, 4 magic defense, 50% magic evade
+
+T.Gigas: 30C5B
+33 1A 0D 8D D0 16 D4 55 05 66
+ AI, 2500 HP, 370 MP, 8 hits, 95% accurate, 150 strength, -1 hit, 60% evade, 150 defense, 4 magic defense, 50% magic evade
+
+Behemoth: 30C65
+FF 17 00 3D A0 14 74 53 00 A0
+No AI, 1620 HP, 0 MP, 3 hits, 95% accurate, 85 strength, -1 hit, 40% evade, 50 defense, 4 magic defense, 50% magic evade
+
+Behemoth: 30C6F (King Behemoth that is)
+FF 1D 00 8E D0 15 C8 33 00 00
+No AI, 5000 HP, 0 MP, 8 hits, 100% accurate, 150 strength, -1 hit, 50% evade, 120 defense, 8 magic defense, 30% magic evade
+
+Dragon: 30C79
+16 1A 09 6D D0 19 C5 59 0A 07
+Ice Lizard's AI, 2500 HP, 140 MP, 6 hits, 95% accurate, 150 strength, -1 hit, 75% evade, 120 defense, 5 magic defense, 50% magic evade
+
+G.Dragon: 30C83
+34 1B 0A 7E D0 19 D8 49 06 05
+Green Dragon's AI, 3000 HP, 190 MP, 7 hits, 100% accurate, 150 strength, -1 hit, 75% evade, 150 defense, 8 magic defense, 40% magic evade
+
+B.Dragon: 30C8D
+35 1C 0B 8E E0 19 D8 49 05 06
+Blue Dragon's AI, 3500 HP, 240 MP, 8 hits, 100% accurate, 180 strength, -1 hit, 75% evade, 150 defense, 8 magic defense, 40% magic evade
+
+R.Dragon: 30C97
+17 1D 0E 8E E0 19 E8 49 07 0A
+Salamander's AI, 5000 HP, 450 MP, 8 hits, 100% accurate, 180 strength, -1 hit, 75% evade, 180 defense, 8 magic defense, 40% magic evade
+
+Giant: 30CA1
+34 1C 0B AE E0 00 EB E6 49 0A
+Green Dragon's AI, 3500 HP, 240 MP, 12 hits, 100% accurate, 180 strength, -0 hits, 0% evade, 180 defense, 14 magic defense, 100% magic evade
+
+Tiamat: 30CAB
+36 1D 0E 8E D5 1A E8 89 14 0E
+Tiamat's AI, 5000 HP, 450 MP, 8 hits, 100% accurate, 150 strength, -1 hit, 80% evade, 180 defense, 8 magic defense, 70% magic evade
+
+Satan: 30CB5
+37 1D 0E 8E D5 1A E8 87 80 0A
+Satan's AI, 5000 HP, 450 MP, 8 hits, 100% accurate, 150 strength, -1 hit, 80% evade, 180 defense, 8 magic defense, 70% magic evade
+
+Asteroth: 30CBF
+38 1E 0F 8E DE 1A E8 89 14 0E
+Asteroth's AI, 7000 HP, 540 MP, 8 hits, 100% accurate, 150 strength, -1 hit, 80% evade, 180 defense, 8 magic defense, 70% magic evade
+
+Emperor: 30CC9 (the final battle)
+39 1F 0F 8E EE 1A FC 84 40 02
+Emperor's AI, 10,000 HP, 540 MP, 8 hits, 100% accurate, 180 strength, -1 hit, 80% evade, 210 defense, 16 magic defense, 70% magic evade
+
+30D83 - 30F52:
+Monster AI, 8 bytes each, 464 bytes total.
+
+Wizard Ogre's attack pattern, pack 00: 30D83
+4E 4E 4E 6B 5D 5A 4E 4E
+Ice 5, Ice 5, Ice 5, Blink 3, Blind 4, Sleep 4, Ice 5, Ice 5
+
+Skull's attack pattern, pack 01: 30D8B
+50 50 50 5B 5B 5B 62 62
+Ice 12, Ice 12, Ice 12, STON 16, STON 16, Toad 10, Toad 10
+
+Borgan's attack pattern, pack 02: 30D93
+00 00 00 0D 0D 0D 00 00
+Attack, attack, attack, Cure 3, Cure 3, Cure 3, attack, attack
+
+Zombie Borgan's attack pattern, pack 03: 30D9B
+59 59 00 00 00 00 59 59
+Flare 16, Flare 16, attack, attack, attack, attack, Flare 16, Flare 16
+
+Wolf Devil's attack pattern, pack 04: 30DA3
+4A 00 00 4A 5F 5F 1F 67
+
+
+Gotus' attack pattern, pack 05: 30DAB
+00 00 00 00 00 1B 34 34
+
+
+Beast Demon's attack pattern, pack 06: 30DB3
+19 3F 00 70 4D 00 70 4D
+
+
+Chimera's attack pattern, pack 07: 30DBB
+01 00 00 01 00 00 01 00
+Fire 7, attack, attack, Fire 7, attack, attack, Fire 7, attack
+
+GChimera's attack pattern, pack 08: 30DC3
+01 00 00 01 00 82 01 82
+
+
+Sphinx's attack pattern, pack 09: 30DCB
+7A 00 00 7A 83 83 7A 6E
+(Fire 16, Dispel 16,)
+
+Electric Fish's attack pattern, pack 0A: 30DD3
+7C 00 00 7C 00 00 7C 00
+Bolt 8, attack, attack, Bolt 8, attack, attack, Bolt 8, attack
+
+Emperor's attack pattern, pack 0B: 30DDB
+00 00 4D 17 16 0B 6C 6A
+
+
+Shade's attack pattern, pack 0C: 30DE3
+00 00 5F 64 5F 64 5F 64
+
+
+Sea Dragon's attack pattern, pack 0D: 30DEB
+84 00 00 00 00 00 00 84
+Wave 8, attack, attack, attack, attack, attack, attack, Wave 8
+
+Changer's attack pattern, pack 0E: 30DF3
+00 00 00 4F 4F 4F 00 00
+attack, attack, attack, Change 4, Change 4, Change 4, attack, attack
+
+Brain's attack pattern, pack 0F: 30DFB
+00 00 00 4F 4F 4F 70 70
+attack, attack, attack, Change 4, Change 4, Change 4, Fog 6, Fog 6
+
+M.Sucker's attack pattern, pack 10: 30E03
+00 00 00 55 55 55 57 57
+
+
+Vampire Girl's attack pattern, pack 11: 30E0B
+72 00 00 00 00 00 00 72
+
+
+Vampire Lady's attack pattern, pack 12: 30E13
+73 50 00 1D 00 00 00 73
+
+
+Imp's attack pattern, pack 13: 30E1B
+00 00 00 1F 1F 1F 6C 6C
+
+
+Fiend's attack pattern, pack 14: 30E23
+4B 5B 00 4B 5B 00 00 00
+
+
+Basilisk's attack pattern, pack 15: 30E2B
+80 80 80 00 00 00 00 00
+
+
+Ice Lizard's attack pattern, pack 16: 30E33
+13 00 00 13 00 00 00 13
+
+
+Salamander's attack pattern, pack 17: 30E3B
+7A 00 00 7A 00 00 00 7A
+Fire 16, attack, attack, Fire 16, attack, attack, attack, Fire 16
+
+Hecteyes' attack pattern, pack 18: 30E43
+55 57 5C 81 71 5B 6E 67
+
+
+Sand Worm's attack pattern, pack 19: 30E4B
+10 00 10 00 00 00 00 00
+
+
+Abyss Worm's attack pattern, pack 1A: 30E53
+0F 00 0F 00 00 00 00 00
+
+
+UNUSED attack pattern, pack 1B: 30E5B
+00 00 46 3C 32 28 1E 14
+Attack, attack, Fear 8, Safe 8, Warp 6, Flare 8, Shell 16, Abil 0
+
+Soul's attack pattern, pack 1C: 30E63
+21 21 21 21 21 21 21 21
+Fire 5, Fire 5, Fire 5, Fire 5, Fire 5, Fire 5, Fire 5, Fire 5
+
+Green Soul's attack pattern, pack 1D: 30E6B
+52 52 52 52 52 52 52 52
+
+
+Red Soul's attack pattern, pack 1E: 30E73
+22 23 24 25 22 23 24 25
+
+
+Ghast's attack pattern, pack 1F: 30E7B
+5D 00 00 00 00 00 00 00
+
+
+Specter's attack pattern, pack 20: 30E83
+00 00 00 00 29 24 00 30
+
+
+Ghost's attack pattern, pack 21: 30E8B
+00 00 00 5F 5B 53 00 6F
+
+
+Mantis Devil's attack pattern, pack 22: 30E93
+4B 00 00 00 00 00 00 4B
+
+
+Stone Golem's attack pattern, pack 23: 30E9B
+19 00 00 00 00 00 00 19
+Stop 8, attack, attack, attack, attack, attack, attack, Stop 8
+
+Green Goblin's attack pattern, pack 24: 30EA3
+78 00 00 00 00 00 00 78
+Bow 1, attack, attack, attack, attack, attack, attack, Bow 1
+
+DesAngel's attack pattern, pack 25: 30EAB
+87 5A 00 00 5A 87 00 00
+Bow 3, Sleep 4, attack, attack, Sleep 4, Bow 3, attack, attack
+
+Balloon's attack pattern, pack 26: 30EB3
+74 74 00 74 74 74 74 74
+Blast 1, Blast 1, attack, Blast 1, Blast 1, Blast 1, Blast 1, Blast 1
+
+Grenade's attack pattern, pack 27: 30EBB
+75 75 00 75 75 75 75 75
+Blast 3, Blast 3, attack, Blast 3, Blast 3, Blast 3, Blast 3, Blast 3
+
+Mine's attack pattern, pack 28: 30EC3
+76 76 00 76 76 76 76 76
+Blast 5, Blast 5, attack, Blast 5, Blast 5, Blast 5, Blast 5, Blast 5
+
+Bomb's attack pattern, pack 29: 30ECB
+77 77 00 77 77 77 77 77
+Blast 7, Blast 7, attack, Blast 7, Blast 7, Blast 7, Blast 7, Blast 7
+
+Captain's attack pattern, pack 2A: 30ED3
+87 00 00 00 00 00 00 87
+Bow 3, attack, attack, attack, attack, attack, attack, Bow 3
+
+Fire Gigas' attack pattern, pack 2B: 30EDB
+79 4B 00 79 4B 00 00 00
+(Fire 16,)
+
+Mage's attack pattern, pack 2C: 30EE3
+21 4E 4C 51 5D 5A 68 68
+
+
+Sorcerer's attack pattern, pack 2D: 30EEB
+26 22 24 2A 2C 34 2E 31
+
+
+Wizard's attack pattern, pack 2E: 30EF3
+54 56 58 4A 19 61 63 66
+
+
+Krull's attack pattern, pack 2F: 30EFB
+00 86 86 00 00 00 00 00
+attack, Blaster 1, Blaster 1, attack, attack, attack, attack, attack
+
+Lamia's attack pattern, pack 30: 30F03
+72 72 00 00 00 00 00 3B
+
+
+Queen Lamia's attack pattern, pack 31: 30F0B
+73 73 00 00 00 00 00 6D
+
+
+Ice Gigas' attack pattern, pack 32: 30F13
+50 50 00 79 79 00 00 00
+(Ice 12,)
+
+Thunder Gigas' attack pattern, pack 33: 30F1B
+7E 7E 00 79 79 00 00 00
+
+
+Green Dragon's attack pattern, pack 34: 30F23
+1C 00 00 1C 00 00 00 1C
+
+
+Blue Dragon's attack pattern, pack 35: 30F2B
+7D 00 00 7D 00 00 00 7D
+
+
+Tiamat's attack pattern, pack 36: 30F33
+7A 13 7D 1C 1C 00 00 00
+(Mist 16,)
+
+Beelzebub's attack pattern, pack 37: 30F3B
+55 53 4B 00 00 5E 65 00
+
+
+Astaroth's attack pattern, pack 38: 30F43
+59 4B 00 5B 5C 00 6D 6E
+Aero 16, Death 16, Drain 16, Fire 16, Blind 16,
+
+Emperor's attack pattern, pack 39: 30F4B
+00 85 59 00 71 60 6E 5E
+Attack, Meteo 10, Flare 16, attack, Slow 16, Curse 16, Dispel 16, Blind 16
+
+FF: nothing, plain old attack until ya die.

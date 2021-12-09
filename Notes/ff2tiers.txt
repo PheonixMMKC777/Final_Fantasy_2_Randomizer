@@ -1,0 +1,24 @@
+
+Equipment
+-----------
+Shields 9
+Knives	7
+Canes	9
+Spears	9
+Swords 	14
+Axes	7	
+Bows	8
+
+
+Tiers	1 2 3 4
+-----------------
+Helm	3 3 2 2
+Heavy   3 3*2 3
+Light	2 2 3 3
+Arms	2 3 3 2		
+-----------------
+
+
+
+
+

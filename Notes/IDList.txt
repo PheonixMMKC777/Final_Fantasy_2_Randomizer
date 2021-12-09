@@ -1,0 +1,402 @@
+ff2 idlist
+
+/\/\/\ detialed list with hex below /\/\/\/
+
+0xC99 mythril cave b2 treasures
+
+//////Main list////////
+ 
+00: Nothing
+
+01-0E: Key Items
+01: Ring
+02: Canoe
+03: Pass
+04: Mithril
+05: Ice Sled
+06: Goddess Bell
+07: Egil Torch
+08: Sun Flame
+09: Pendant
+0A: Egg
+0B: White Mask
+0C: Black Mask
+0D: Crystal Rod
+0E: Hiryuu
+
+0F: ???
+
+10-2F: Items
+10: Potion
+11: Antidote
+12: Gold Pin
+13: Crucifix
+14: Maiden's Kiss
+15: Echo Screen
+16: Eye Drop
+17: Phoenix Down
+18: Elixir
+19: Ether
+1A: X Potion
+1B: Cottage
+1C: Wind Flute
+1D: Earth Drum
+1E: Garlic
+1F: Unicorn
+20: Ice Wind
+21: Elder IQ
+22: Heart
+23: Shoes
+24: Thread
+25: SilentB (what the hell is this?)
+26: Egg Timer
+27: Death God
+28: Bacchus' Wine
+29: Dragon Bean
+2A: Valium
+2B: Ice Scythe
+2C: Fang
+2D: Mirror
+2E: Hellfire
+2F: Phin (I'm not entirely convinced this is an item.)
+
+30: "Unarmed"
+
+31-39: Shields
+31: Buckler
+32: Bronze Shield
+33: Mithril Shield
+34: Gold Shield
+35: Ice Shield
+36: Flame Shield
+37: Diamond Shield
+38: Dragon Shield
+39: Aegis Shield
+
+3A-40: Dirks
+3A: Knife
+3B: Dagger
+3C: Mithril Dagger
+3D: Gouche
+3E: Orhacon
+3F: Ripper
+40: CatClaw
+
+41-49: Canes
+41: Cane
+42: Mace
+43: Mithril Cane
+44: Were Cane
+45: Magic Cane
+46: Power Cane
+47: Evil Cane
+48: Greed Cane
+49: Diamond Cane
+
+4A-52: Spears
+4A: Javelin
+4B: Spear
+4C: Mithril Spear
+4D: Trident
+4E: Demon
+4F: Flame Spear
+50: Ice Spear
+51: Bolt Spear
+52: Holy Spear
+
+53-60: Swords
+53: Broad Sword
+54: Long Sword
+55: Mithril Sword
+56: Ancient Sword
+57: Sleep Sword
+58: Winged Sword
+59: Blood Sword
+5A: Earth Sword
+5B: Flame Sword
+5C: Ice Sword
+5D: Defender
+5E: Sun Sword
+5F: Excalibur
+60: Masamune
+
+61-67: Axe's
+61: Axe
+62: Battle Axe
+63: Mithril Axe
+64: Demon Axe
+65: Ogre Axe
+66: Poison Axe
+67: Rune Axe
+
+68-6F: Bow's
+68: Bow
+69: Long bow
+6A: Mithril Bow
+6B: Blind Bow
+6C: Flame Bow
+6D: Ice Bow
+6E: Killer Bow
+6F: Yoichi Bow
+
+70-79: Helmets
+70: Leather Helmet
+71: Bronze Helmet
+72: Mithril Helmet
+73: Giant Helmet
+74: Flame Helmet
+75: Diamond Helmet
+76: Genji Helmet
+77: Spiral Helmet
+78: Goldpin Helmet
+79: Ribbon
+
+7A-8D: Armor
+7A: Clothes
+7B: Leather Armor
+7C: Bronze Armor
+7D: Mithril Armor
+7E: Gold Armor
+7F: Knight Armor
+80: Flame Armor
+81: Ice Armor
+82: Diamond Armor
+83: Dragon Armor
+84: Genji Armor
+85: Copper Armor
+86: Silver Armor
+87: Ruby Armor
+88: Quartz Armor
+89: Diamond Armor
+8A: White Robe
+8B: Black Robe
+8C: Power Armor
+8D: Black Armor
+
+8E-97: Gloves
+8E: Leather Gloves
+8F: Bronze Gloves
+90: Mithril Gloves
+91: Thief Gloves
+92: Giant Gloves
+93: Ice Gloves
+94: Diamond Gloves
+95: Genji Gloves
+96: Defender Gloves
+97: Power Gloves
+
+98-BF: Scrolls
+98: Fire Scroll
+99: Bolt Scroll
+9A: Ice Scroll
+9B: Aero Scroll
+9C: Drain Scroll
+9D: Osmose Scroll
+9E: Flare Scroll
+9F: Sleep Scroll
+A0: Stone Scroll
+A1: Stop Scroll
+A2: Charm Scroll
+A3: Blind Scroll
+A4: Curse Scroll
+A5: Toad Scroll
+A6: Break Scroll
+A7: Death Scroll
+A8: Warp Scroll
+A9: Berserk Scroll
+AA: Haste Scroll
+AB: Aura Scroll
+AC: Cure Scroll
+AD: Life Scroll
+AE: Peep Scroll
+AF: Heal Scroll
+B0: Barrier Scroll
+B1: Blink Scroll
+B2: Safe Scroll
+B3: Shell Scroll
+B4: Wall Scroll
+B5: Dispel Scroll
+B6: Mini Scroll
+B7: Mute Scroll
+B8: Anti Scroll
+B9: Fog Scroll
+BA: Slow Scroll
+BB: Change Scroll
+BC: Fear Scroll
+BD: Holy Scroll
+BE: Exit Scroll
+BF: Ultima Scroll
+
+C0 - E7: Spells (in characters spell menu)
+C0: Fire
+C1: Bolt
+C2: Ice
+C3: Aero
+C4: Drain
+C5: Osmose
+C6: Flare
+C7: Sleep
+C8: Stone
+C9: Stop
+CA: Charm
+CB: Blind
+CC: Curse
+CD: Toad
+CE: Break
+CF: Death
+D0: Warp
+D1: Berserk
+D2: Haste (Fast)
+D3: Aura
+D4: Cure
+D5: Life
+D6: Peep (Basuna)
+D7: Heal (Esuna)
+D8: Barrier
+D9: Blink
+DA: Safe
+DB: Shell
+DC: Wall
+DD: Dispel
+DE: Mini
+DF: Mute
+E0: Anti
+E1: Fog
+E2: Slow
+E3: Change
+E4: Fear
+E5: Holy
+E6: Exit
+E7: Ultima
+
+
+
+
+//////with hex smaller////
+Potion is 16 Base10 (0x10)
+
+
+Potion: 30350
+29 01 64 05 64
+
+
+Antidote: 30355
+2B 01 64 05 64
+
+
+Goldpin: 3035A
+2F 01 64 05 64
+
+
+Crucifix: 3035F
+2C 01 64 05 64
+
+
+Maiden's Kiss: 30364
+2E 01 64 05 64
+
+
+Echo Screen: 30369
+2D 01 64 05 64
+
+
+Eye Drop:
+2A 01 64 05 64
+
+
+Phoenix Down:
+30 01 64 05 64
+
+
+Elixir:
+32 0F 64 05 64
+
+
+Ether:
+31 01 64 05 64
+
+
+X Potion: 30382
+29 03 64 05 64
+
+
+Cottage (unusable):
+FF 00 00 00 00
+
+
+Wind Flute:
+40 0D 5F 01 14
+
+
+Earth Drum:
+3F 0A 5F 01 05
+
+
+Garlic:
+42 03 5F 01 32
+
+
+Unicorn (Peep/Basuna 16):
+17 10 64 06 0A
+
+
+Ice Wind (Ice 16):
+37 10 5F 01 64
+
+
+Elder IQ:
+33 00 64 05 64
+
+
+Heart:
+34 00 64 05 64
+
+
+Shoes (Haste 8):
+13 08 50 05 0A
+
+
+Thread (Slow 9):
+23 09 5F 01 32
+
+
+SilentB (Mute 16):
+20 10 64 01 64
+
+
+Egg Timer (Stop 8):
+0A 08 5F 01 32
+
+
+Death God (Fear 10):
+25 0A 64 01 0A
+
+
+Bacchus' Wine:
+35 06 64 05 64
+
+
+Dragon Bean (Mist 16):
+39 10 64 01 64
+
+
+Valium (Sleep 16):
+08 10 64 01 64
+
+
+Ice Scythe (Shell 16):
+1C 10 64 05 64
+
+
+Fang (Confuse 16):
+0B 10 64 01 64
+
+
+Mirror (Wall 16):
+1D 10 64 05 64
+
+
+Hellfire (Fire 5):
+01 05 3C 01 0A
+47 = phin
+48 = unarmed

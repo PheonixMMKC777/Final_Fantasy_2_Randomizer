@@ -1,0 +1,89 @@
+void CFF2MapDisplay::DecompressMap()
+{
+    int x, y, z;
+    for(x=0; x<256; x++)
+    {
+        y=0;
+        DWORD offset = ((nRom[(nCombo + WORLDMAP_PTR) + x*2 + 1] << 8) | nRom[(nCombo + WORLDMAP_PTR) + x*2]) - (nCombo + 0x3FF0);
+        while(nRom[offset] != 0xFF)
+        {   // check for compression, first check to see if the tile spans 255 tiles
+            if(nRom[offset] >= 0x80 && nRom[offset] != 0xFF)
+            {   // how many times the compressed tile is drawn is based on the next byte, not the current
+                // by default, this particular scenario does not exist in FF2
+                if(nRom[offset + 1] == 0)
+                {
+                    for(z=0; z<255; z++)
+                    {
+                        nDecompressedMap[x][z] = nRom[offset] - 0x80;
+                    }
+                    offset += 2;
+                    y = 255;
+                }   // the tile does not span 255 tiles, it runs 2-254 times
+                else
+                {   // the compression is denoted by the next byte, not the current
+                    for(z=0; z<nRom[offset + 1]; z++)
+                    {
+                        nDecompressedMap[x][y] = nRom[offset] - 0x80;
+                        y++;
+                    }
+                    offset += 2;
+                }
+            }   // no compression
+            else
+            {
+                nDecompressedMap[x][y] = nRom[offset];
+                offset++;
+                y++;
+            }
+        }
+    }
+}
+ 
+void CFF2MapDisplay::RecompressMap()
+{   // as the function says, recompress the map
+    int dex = 0;
+    int dey = 0;
+    int rec = 0;
+    int rle = 0;
+    int decmap, decmap2;
+    while(dey < 256)
+    {
+        decmap = nDecompressedMap[dey][dex];
+        if (dex < 255) decmap2 = nDecompressedMap[dey][dex+1];
+        if ((decmap != decmap2 && dex < 255 && rle == 0) || (dex == 255 && rle == 0) || decmap == 127)
+        {
+            nRecompressedMap[rec] = decmap;
+            rec++;
+        }
+        else if (decmap == decmap2 && dex < 255 && rle == 0)
+        {
+            nRecompressedMap[rec] = decmap + 128;
+            rec++;
+            rle += 2;
+        }
+        else if (decmap == decmap2 && dex < 255 && rle > 0) rle++;
+        else if ((decmap != decmap2 && dex < 255 && rle > 0) || (dex == 255 && rle > 0))
+        {
+            if(rle == 255)
+            {
+                nRecompressedMap[rec] = 0;
+                nRecompressedMap[rec++] = decmap;
+                rle = 0;
+            }
+            else
+            {
+                nRecompressedMap[rec] = rle;
+                rle = 0;
+                rec++;
+            }
+        }
+        if (dex < 255) dex++;
+        else
+        {
+            dex = 0;
+            dey++;
+            nRecompressedMap[rec] = 255;
+            rec++;
+        }
+    }
+}

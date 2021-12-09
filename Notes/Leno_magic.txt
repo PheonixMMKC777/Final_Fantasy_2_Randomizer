@@ -1,0 +1,636 @@
+30346 - 305E8: Item Properties/AI choices, 5 bytes each, 675 bytes total
+
+Hiryuu: 30346
+36 07 50 01 00
+|  |  |  |  |
+|  |  |  |  Consumption rate
+|  |  |  Targetting
+|  |  Accuracy (replaces Int/Soul)
+|  Level
+Spell
+
+
+???? (unusable): 3034B
+FF 00 00 00 00
+
+
+Potion: 30350
+29 01 64 05 64
+
+
+Antidote: 30355
+2B 01 64 05 64
+
+
+Goldpin: 3035A
+2F 01 64 05 64
+
+
+Crucifix: 3035F
+2C 01 64 05 64
+
+
+Maiden's Kiss: 30364
+2E 01 64 05 64
+
+
+Echo Screen: 30369
+2D 01 64 05 64
+
+
+Eye Drop:
+2A 01 64 05 64
+
+
+Phoenix Down:
+30 01 64 05 64
+
+
+Elixir:
+32 0F 64 05 64
+
+
+Ether:
+31 01 64 05 64
+
+
+X Potion: 30382
+29 03 64 05 64
+
+
+Cottage (unusable):
+FF 00 00 00 00
+
+
+Wind Flute:
+40 0D 5F 01 14
+
+
+Earth Drum:
+3F 0A 5F 01 05
+
+
+Garlic:
+42 03 5F 01 32
+
+
+Unicorn (Peep/Basuna 16):
+17 10 64 06 0A
+
+
+Ice Wind (Ice 16):
+37 10 5F 01 64
+
+
+Elder IQ:
+33 00 64 05 64
+
+
+Heart:
+34 00 64 05 64
+
+
+Shoes (Haste 8):
+13 08 50 05 0A
+
+
+Thread (Slow 9):
+23 09 5F 01 32
+
+
+SilentB (Mute 16):
+20 10 64 01 64
+
+
+Egg Timer (Stop 8):
+0A 08 5F 01 32
+
+
+Death God (Fear 10):
+25 0A 64 01 0A
+
+
+Bacchus' Wine:
+35 06 64 05 64
+
+
+Dragon Bean (Mist 16):
+39 10 64 01 64
+
+
+Valium (Sleep 16):
+08 10 64 01 64
+
+
+Ice Scythe (Shell 16):
+1C 10 64 05 64
+
+
+Fang (Confuse 16):
+0B 10 64 01 64
+
+
+Mirror (Wall 16):
+1D 10 64 05 64
+
+
+Hellfire (Fire 5):
+01 05 3C 01 0A
+
+
+0C/83DB: 01 08 64 01 64	; FIRE no Hon     // these are the scrolls
+0C/83E0: 02 08 64 01 64	; THUNDER no Hon  // I was just too lazy to space them out =\
+0C/83E5: 03 08 64 01 64	; BLIZARD no Hon
+0C/83EA: 04 08 64 01 64	; CLOUDER no Hon
+0C/83EF: 05 08 64 01 64	; DRAIN no Hon
+0C/83F4: 06 08 64 01 64	; ASPIL no Hon
+0C/83F9: 07 08 64 01 64	; FLARE no Hon
+0C/83FE: 08 06 64 01 64	; SLEEP no Hon
+0C/8403: 09 06 64 01 64	; STUN no Hon
+0C/8408: 0A 06 64 01 64	; STOP no Hon
+0C/840D: 0B 06 64 01 64	; CONFU no Hon
+0C/8412: 0C 06 64 01 64	; BLIND no Hon
+0C/8417: 0D 06 64 01 64	; CURSE no Hon
+0C/841C: 0E 06 64 01 64	; TOAD no Hon
+0C/8421: 0F 06 64 01 64	; BREAK no Hon
+
+0C/8426: 10 06 64 01 64	; DEATH no Hon
+0C/842B: 11 06 64 01 64	; DEGEON no Hon
+0C/8430: 12 06 32 05 64	; BERSERK no Hon
+0C/8435: 13 06 32 06 64	; HASTE no Hon
+0C/843A: 14 06 32 05 64	; AURA no Hon
+0C/843F: 15 08 64 06 64	; CURE no Hon
+0C/8444: 16 08 64 06 64	; RAISE no Hon
+0C/8449: 17 08 64 06 64	; BASUNA no Hon
+0C/844E: 18 08 64 06 64	; ESUNA no Hon
+0C/8453: 19 08 64 06 64	; BARRIER no Hon
+0C/8458: 1A 08 64 06 64	; BLINK no Hon
+0C/845D: 1B 08 64 06 64	; PROTEC no Hon
+0C/8462: 1C 08 64 06 64	; SHELL no Hon
+0C/8467: 1D 08 64 06 64	; WALL no Hon
+0C/846C: 1E 08 64 01 64	; DISPEL no Hon
+0C/8471: 1F 08 64 01 64	; MINIMUM no Hon
+
+0C/8476: 20 08 64 01 64	; SILENCE no Hon
+0C/847B: 21 08 64 01 64	; ANTI no Hon
+0C/8480: 22 08 64 01 64	; FOG no Hon
+0C/8485: 23 08 64 01 64	; SLOW no Hon
+0C/848A: 24 08 64 01 64	; CHANGE no Hon
+0C/848F: 25 08 64 01 64	; FEAR no Hon
+0C/8494: 26 08 64 01 64	; HOLY no Hon
+0C/8499: 27 08 64 01 64	; TELEPO no Hon
+0C/849E: 28 08 64 01 64	; ULTIMA no Hon   // these are the scrolls
+
+Fire 11: 304B3
+01 0B 64 01 00
+
+Fire 16: 304B8
+01 10 64 02 00
+
+Bolt 5:
+02 05 64 01 00
+
+Bolt 10:
+02 0A 64 01 00
+
+Ice 5:
+03 05 64 01 00
+
+Change 4:
+24 04 3C 02 00
+
+Ice 12:
+03 0C 64 01 00
+
+Aero 5:
+04 05 64 01 00
+
+Cure 6:
+15 06 64 02 00
+
+Aero 16:
+04 10 64 02 00
+
+Drain 8:
+05 08 64 01 00
+
+Drain 16:
+05 10 64 02 00
+
+Aspil 8:
+06 08 3C 01 00
+
+Aspil 10:
+06 0A 28 02 00
+
+Flare 10:
+07 0A 64 01 00
+
+Flare 16:
+07 10 64 02 00
+
+Sleep 4:
+08 04 46 01 00
+
+Stun 16:
+09 10 64 02 00
+
+Confuse 16:
+0B 10 64 02 00
+
+Blind 4:
+0C 04 46 01 00
+
+Blind 16:
+0C 10 64 02 00
+
+Curse 8:
+0D 08 46 01 00
+
+Curse 16:
+0D 10 64 02 00
+
+Toad 7:
+0E 07 46 01 00
+
+Toad 10:
+0E 0A 4B 02 00
+
+Break 6:
+0F 06 1E 02 00
+
+Death 10:
+10 08 32 01 00
+
+Death 10:
+10 10 32 02 00
+
+Warp 7:
+11 07 28 01 00
+
+Warp 9:
+11 09 1E 02 00
+
+Berserk 3: 30549
+12 03 64 06 00
+
+Haste 11: 3054E
+13 0B 64 06 00
+
+Barrier 8:
+19 08 64 06 00
+
+Blink 3:
+1A 03 32 05 00
+
+Blink 8:
+1A 08 32 05 00
+
+Blink 16:
+1A 10 32 05 00
+
+Dispel 16:
+1E 10 64 01 00
+
+Mini 7:
+1F 07 3C 01 00
+
+Fog 6: 30571
+22 06 28 01 00
+
+Slow 16:
+23 10 64 02 00
+
+Wink 6:
+3C 06 46 01 00
+
+Wink 9:
+3C 09 5A 02 00
+
+Blast 1:
+3D 01 32 02 00
+
+Blast 3:
+3D 03 3C 02 00
+
+Blast 5:
+3D 05 46 02 00
+
+Blast 7:
+3D 07 50 02 00
+
+Bow 1:
+43 01 2D 02 00
+
+Rock 9:
+44 09 4B 02 00
+
+Fire 16:
+36 10 64 01 00
+
+Ice 13:
+37 0D 64 01 00
+
+Bolt 8:
+38 08 64 01 00
+
+Bolt 16:
+38 10 64 01 00
+
+Bolt 12:
+38 0C 64 02 00
+
+Mist 13:
+39 0D 64 01 00
+
+Glare 5:
+3B 05 50 02 00
+
+Glare 9:
+3B 09 5A 02 00
+
+Breath 6:
+3A 06 3C 01 00
+
+Breath 10:
+3A 0A 3C 01 00
+
+Wave 8: 305D5
+41 08 64 01 00
+
+Meteo 10: 305DA
+46 0A 64 01 00
+
+Blast 10: 305DF
+45 0A 50 01 00
+
+Bow 3: 305E4
+43 03 41 02 00
+
+
+305E9 - 30700: Spell properties
+7 bytes each, 279 bytes total
+
+Fire: 305E9
+01 00 0A 02 00 10 00
+|  |  |  |  |  |  |
+|  |  |  |  |  |  Animation
+|  |  |  |  |  Palette
+|  |  |  |  Status, used by status ailment spells only.
+|  |  |  Element
+|  |  Spell power (for direct damage), 
+|  Accuracy modifier
+Type
+Direct damage, no accuracy modifing, fire elemental, no ailment, 
+
+Bolt: 305F0
+01 00 0A 08 00 11 01
+Direct damage, no accuracy modifing, lightning elemental, no ailment, 
+
+Ice: 305F7
+01 00 0A 80 00 12 02
+Direct damage, no accuracy modifing, ice elemental, no ailment, 
+
+Aero: 305FE
+01 00 0A 20 00 13 03
+Direct damage, no accuracy modifing, poison elemental, no ailment, 
+
+Drain: 30605
+13 00 0A 00 00 16 09
+Drain HP, no accuracy modifing, no element, no ailment, 
+
+Osmose: 3060C
+14 00 0A 00 00 12 09
+Drain MP, no accuracy modifing, no element, no ailment, 
+
+Flare: 30613
+01 00 14 00 00 10 04
+Direct damage, no accuracy modifing, no element, no ailment, 
+
+Sleep: 3061A
+04 32 05 04 08 15 08
+Temporary ailment, ??? accuracy modifier, mind elemental, induces sleep, 
+
+Stone: 30621
+04 28 05 40 40 18 08
+Temporary ailment, ??? accuracy modifier, body elemental, induces paralasis, 
+
+Stop: 30628
+04 1E 05 01 40 14 08
+Temporary ailment, ??? accuracy modifier, dimension elemental, induces paralasis, 
+
+Charm: 3062F
+04 1E 05 04 80 17 03
+Temporary ailment, ??? accuracy modifier, mind elemental, induces confusion, 
+
+Blind: 30636
+03 32 05 40 02 60 08
+Permanent ailment, ??? accuracy modifier, body elemental, induces blindness, 
+
+Curse: 3063D
+03 28 05 04 08 6B 08
+Permanent ailment, ??? accuracy modifier, mind elemental, induces curse, 
+
+Toad: 30644
+03 1E 05 01 20 10 10
+Permanent ailment, ??? accuracy modifier, dimension elemental, induces toad, 
+
+Break: 3064B
+03 14 05 01 40 12 07
+Permanent ailment, ??? accuracy modifier, dimension elemental, induces petrification, 
+
+Death: 30652
+03 0A 05 10 80 10 06
+Permanent ailment, ??? accuracy modifier, insta-death elemental, induces death, 
+
+Warp: 30659
+03 0A 05 01 80 15 05
+Permanent ailment, ??? accuracy modifier, dimension elemental, induces death, 
+
+Berserk: 30660
+15 32 05 00 00 17 0A
+Adds attack power, ??? accuracy modifier, no element, no ailment, 
+
+Haste: 30667
+06 32 00 00 00 18 0A
+Adds to hits, ??? accuracy modifier, no element, no ailment, 
+
+Aura: 3066E
+0C 32 00 00 00 14 0A
+Adds element, ??? accuracy modifier, no element, no ailment, 
+
+Cure: 30675
+02 32 14 00 00 18 0B
+Healing effect, ??? accuracy modifier, no element, no ailment, 
+
+Life: 3067C
+10 32 00 00 80 10 0B
+Ressurection, ??? accuracy modifier, no element, revives from death, 
+
+Peep: 30683
+09 32 02 00 00 19 0B
+Reverses temporary ailment, ??? accuracy modifier, no element, no ailment, 
+
+Heal: 3068A
+08 32 01 00 00 15 0B
+Reverses permanent ailment, ??? accuracy modifier, no element, no ailment, 
+
+Barrier: 30691
+0B 32 00 00 00 1A 0C
+Adds elemental resistance, ??? accuracy modifier, no element, no ailment, 
+
+Blink: 30698
+0E 32 00 00 00 14 0E
+Adds to evade, ??? accuracy modifier, no element, no ailment, 
+
+Safe: 3069F
+0A 32 00 00 00 11 0E
+Raises defense, ??? accuracy modifier, no element, no ailment, 
+
+Shell: 306A6
+0F 32 00 00 00 12 0E
+Raises magic defense, ??? accuracy modifier, no element, no ailment, 
+
+Wall: 306AD
+16 32 00 00 00 15 0C
+Cancels low level magic, ??? accuracy modifier, no element, no ailment
+
+Dispel: 306B4
+0D 28 00 00 00 10 0D
+Lower elemental resistance, ??? accuracy modifier, no element, no ailment, 
+
+Mini: 306BB
+04 14 05 01 20 10 11
+Temporary ailment, ??? accuracy modifier, dimension elemental, induces mini, 
+
+Mute: 306C2
+04 1E 05 40 10 15 08
+Temporary ailment, ??? accuracy modifier, body elemental, induces silence, 
+
+Anti: 306C9
+11 28 05 04 00 19 08
+Lose 50% MP, ??? accuracy modifier, mind elemental, no ailment, 
+
+Fog: 306D0
+03 14 05 04 10 10 08
+Permanent ailment, ??? accuracy modifier, mind elemental, induces amnesia
+
+Slow: 306D7
+05 1E 05 40 00 18 08
+Reduces attacks, ??? accuracy modifier, body elemental, no ailment, 
+
+Change: 306DE
+12 1E 05 01 00 16 08
+HP<->MP, ??? accuracy modifier, dimension elemental, no ailment, 
+
+Fear: 306E5
+07 32 14 04 00 6D 08
+Raises morale, ??? accuracy modifier, mind elemental, no ailment, 
+
+Holy: 306EC
+01 00 0F 00 00 14 04
+Direct damage, no accuracy modifier, no element, no ailment, 
+
+Exit: 306F3
+03 00 05 01 80 10 05
+Permanent ailment, no accuracy modifier, dimension elemental, induces death, 
+
+Ultima: 306FA
+1C 32 64 00 00 15 0F
+Ultima, ??? accuracy modifier, no element, no ailment, 
+
+Split: 30794
+00 00 00 FF FF FF FF
+
+Meteo: ?????
+21 64 46 00 00 15 15
+
+A word of caution: this seems to just data for in-battle effects only; presumably, there's a
+different set of data for spell effects outside of battle, as in FF1. So be careful when changing
+spells with out-of-combat effects, like Warp or Life.
+
+1st byte: Type of spell
+Known spell types:
+01 = Damage spell (Fire, Bolt, Flare, Holy, etc.)
+02 = Healing spell (Cure, probably potions too)
+03 = Status effect, inflicts permanent statuses (blind, curse, amnesia etc.)
+04 = Status effect, inflicts temporary statuses (sleep, confusion, etc.)
+05 = Reduces # of attacks (Slow)
+06 = Adds to # of attacks (Haste)
+07 = Reduces enemy morale (Fear)
+08 = Cures permanent status effects (Heal [Esuna])
+09 = Cures temporary status effects (Peep [Basuna])
+0A = Raises defense (Safe)
+0B = Adds elemental resistances (Barrier)
+0C = Adds elemental attack (Aura)
+0D = Lowers elemental defense (Dispell)
+0E = Adds to # of evade attempts (Blink)
+0F = Adds to # of magic resist attempts (Shell)
+10 = Resurrects dead party members/inflict status (dead) vs. undead monsters (Life)
+11 = Cuts MP in half (Anti)
+12 = Swaps HP and MP (Change)
+13 = Drain HP (Drain)
+14 = Drain MP (Aspil)
+15 = Boosts attack power (Berserk)
+16 = Cancels out lower level magic (Wall)
+1C = Special damage case (Ultima)
+
+These are numbers that I've observed from item effect data, but haven't had time to figure out
+which is which:
+17 = Cure specific status condition? (Eyedrop, Antidote, etc.)
+18 = Unknown
+1B = Unknown
+1D = Unknown
+1E = Unknown
+1F = Unknown
+20 = Unknown
+21 = Unknown
+
+2nd byte: Success rate modifier
+I don't know how the magic success rate formula goes, but I imagine it goes something like
+Int/Soul (for white/black magic) + this number - all your equipment's magic penalties.
+
+3rd byte: Unknown
+It influences damage spells (higher seems to be better) and is set to 5 for most status effects.
+Resistability? It's also set to 2 for the Basuna spell and 1 for the Esuna spell, not sure what
+the significance of that is.
+
+4th byte: Elemental flag
+Bit 1 (01) = Dimensional stuff (Stop, Warp, Toad, Change, etc.)
+Bit 2 (02) = Fire
+Bit 3 (04) = Mental status spells (Fog, Sleep, etc.)
+Bit 4 (08) = Lightning
+Bit 5 (10) = Death spell
+Bit 6 (20) = Poison (Aero, Mist, etc.)
+Bit 7 (40) = Physical status spells (Paralysis, Blind, etc.)
+Bit 8 (80) = Ice
+
+5th byte: Seems to be a status effect flag for status effect spells; no other spells use it
+It's set up as a bitflag, but no spells inflict multiple status so I'm not sure if that would
+work or not (Bad Breath, anyone?) These are just the ones that are used by regular spells; I
+assume that it would be possible to get both varieties of poison, not sure what the remaining
+bits would do (if anything).
+Bit 1 (01) = "Normal body" (for type 04) or Confusion (for type 03)
+Bit 2 (02) = "Rose!" (for type 04) or Blind (for spells of type 03)
+Bit 3 (04) = Poison (for type 04) or Envenom (for type 03)
+Bit 4 (08) = Sleep (for type 04) or Curse (for type 03)
+Bit 5 (10) = Mute (for type 04) or Amnesia (for type 03)
+Bit 6 (20) = Mini (for type 04) or Toad (for type 03)
+Bit 7 (40) = Paralysis (for type 04) or Stone (for type 03)
+Bit 8 (80) = Confusion (for type 04) or Death (for type 03)
+
+6th byte: Color.
+7th byte: Animation
+
+Starts at $305E9 with Fire, goes through all black magics then all white magics, then keeps going
+into what appears to be enemy attacks, item effects, etc., which is all uncharted territory; all
+of them follow the same format of spell data, it looks like, but I've never been able to sort out
+the order.
+
+targetting:
+01: enemy party
+02: single enemy target
+03: no clue
+04: no clue
+05: self
+06: caster party

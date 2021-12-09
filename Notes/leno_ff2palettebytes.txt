@@ -1,0 +1,501 @@
+31, 30, 23
+1A, 31, 21 - river
+1A, 19, 29 - grass, forest too probably
+0F, 27, 30 - airship most likely
+16, 26, 30 - character sprite, in this case, Firion
+
+Snowman
+Yeti
+Icicle
+Stlctite
+Column
+0F, 22, 31, 30 - Sprinter
+Adamanti
+GrOgre
+DualHead
+DualZomb
+0F, 00, 10, 16 - Wererat
+Stunner
+DeadHead
+Skull
+Zombie
+Ghoul
+Ghast
+Revenant
+Shadow
+Wraith
+SPectre
+Ghost
+Blade
+Gotus
+BstDemon
+GChimera
+Sphinx
+Flower
+DvFlower
+KilrFish
+ElecFish
+Eagle
+Coctrice
+Pirate
+Bucaneer
+Borgan
+Z.Borgan
+BigHorn
+Tusk
+G.Toad
+P.Toad
+SeaSnake
+SeaDragn
+Ray
+MantaRay
+Flier
+Changer
+Sucker
+M.Sucker
+Werewolf
+WolfDevl
+Imp
+Fiend
+Molbor
+L.Molbor
+G.Molbor
+Basilisk
+Salmandr
+IceLiz
+Amoeba
+100Eye
+Worm
+SandWorm
+AbysWorm
+Slime
+Jelly
+Mallow
+0F, 0C, 1C, 37 - Pudding
+R.Soul
+G.Soul
+Soul
+VmpLady
+Emperor
+Shade
+MantKing
+DvMantis
+COrpse
+Golem
+StGolem
+MtGolem
+DesAngel
+Grenade
+Mine
+Sargeant
+General
+Sorcerer
+Wizard
+Panther
+Krull
+Lamia
+Q.Lamia
+F.Gigas
+I.Gigas
+T.Gigas
+Behemoth
+Behemoth
+Dragon
+G.Dragon
+B.Dragon
+R.Dragon
+Giant
+Tiamat
+Satan
+Asteroth
+Emperor
+
+1710 - 1890, 3 bytes each, 384 bytes total
+Palette, in a more readable format:
+00: $1710, $1790, $1810 - used by forest battle backdrop
+07, 17, 19
+
+01: $1711, $1791, $1811
+22, 3C, 30
+
+02: $1712, $1792, $1812 - used by grass battle backdrop
+29, 31, 30
+
+03: $1713, $1793, $1813
+17, 27, 31
+
+04: $1714, $1794, $1814
+22, 31, 30
+
+05: $1715, $1795, $1815
+00, 17, 27
+
+06: $1716, $1796, $1816 - used by swamp battle backdrop
+19, 29, 2C
+
+07: $1717, $1797, $1817
+00, 10, 16
+
+08: $1718, $1798, $1818
+07, 17, 27
+
+09: $1719, $1799, $1819
+11, 22, 32
+
+0A: $171A, $179A, $181A
+08, 19, 29
+
+0B: $171B, $179B, $181B
+16, 26, 35
+
+0C: $171C, $179C, $181C
+12, 22, 30
+
+0D: $171D, $179D, $181D
+0C, 00, 10
+
+0E: $171E, $179E, $181E
+12, 22, 30
+
+0F: $171F, $179F, $181F
+13, 22, 31
+
+10: $1720, $17A0, $1820
+16, 27, 37
+
+11: $1721, $17A1, $1821
+13, 22, 37
+
+12: $1722, $17A2, $1822
+11, 21, 31
+
+13: $1723, $17A3, $1823
+26, 34, 30
+
+14: $1724, $17A4, $1824
+12, 22, 32
+
+15: $1725, $17A5, $1825
+1C, 2C, 30
+
+16: $1726, $17A6, $1826
+14, 24, 34
+
+17: $1727, $17A7, $1827 - used by LegEater, QueenBee
+13, 23, 27
+
+18: $1728, $17A8, $1828
+1B, 2B, 30
+
+19: $1729, $17A9, $1829
+15, 25, 30
+
+1A: $172A, $17AA, $182A
+22, 34, 37
+
+1B: $172B, $17AB, $182B
+2B, 30, 27
+
+1C: $172C, $17AC, $182C
+19, 29, 30
+
+1D: $172D, $17AD, $182D
+13, 23, 27
+
+1E: $172E, $17AE, $182E - used by VmpThorn, Hornet
+1B, 2B, 16
+
+1F: $172F, $17AF, $182F
+31, 30, 23
+
+20: $1730, $17B0, $1830
+17, 36, 19
+
+21: $1731, $17B1, $1831
+22, 31, 30
+
+22: $1732, $17B2, $1832 - used by Captain, Gigas
+0B, 1B, 28
+
+23: $1733, $17B3, $1833 - used by LandTrtl and WzOgre
+18, 2C, 1C
+
+24: $1734, $17B4, $1834
+28, 36, 14
+
+25: $1735, $17B5, $1835
+00, 10, 16
+
+26: $1736, $17B6, $1836 - used by Chimera
+18, 28, 33
+
+27: $1737, $17B7, $1837 - looks like the undead Zombie palette
+18, 2C, 16
+
+28: $1738, $17B8, $1838
+12, 22, 37
+
+29: $1739, $17B9, $1839 - looks like an undead palette
+19, 10, 30
+
+2A: $173A, $17BA, $183A - looks like another undead palette
+14, 23, 3B
+
+2B: $173B, $17BB, $183B - looks like the Ghost palette
+16, 27, 30
+
+2C: $173C, $17BC, $183C - used by Antlion, and the General apparently
+00, 10, 28
+
+2D: $173D, $17BD, $183D
+06, 19, 2B
+
+2E: $173E, $17BE, $183E
+14, 23, 2A
+
+2F: $173F, $17BF, $183F
+16, 27, 2B
+
+30: $1740, $17C0, $1840
+00, 10, 22
+
+31: $1741, $17C1, $1841
+13, 23, 30
+
+32: $1742, $17C2, $1842
+12, 2B, 36
+
+33: $1743, $17C3, $1843
+17, 19, 28
+
+34: $1744, $17C4, $1844
+16, 22, 37
+
+35: $1745, $17C5, $1845
+1A, 2C, 31
+
+36: $1746, $17C6, $1846
+13, 24, 2B
+
+37: $1747, $17C7, $1847
+18, 27, 34
+
+38: $1748, $17C8, $1848
+16, 27, 22
+
+39: $1749, $17C9, $1849
+15, 25, 2A
+
+3A: $174A, $17CA, $184A - used by Brain
+18, 28, 24
+
+3B: $174B, $17CB, $184B - used by Mantis
+17, 27, 30
+
+3C: $174C, $17CC, $184C - used by Soldier, Mage
+18, 37, 31
+
+3D: $174D, $17CD, $184D
+00, 10, 23
+
+3E: $174E, $17CE, $184E
+19, 29, 17
+
+3F: $174F, $17CF, $184F
+1B, 2B, 32
+
+40: $1750, $17D0, $1850
+15, 23, 37
+
+41: $1751, $17D1, $1851
+19, 29, 12
+
+42: $1752, $17D2, $1852
+1C, 2C, 24
+
+43: $1753, $17D3, $1853
+0C, 1C, 2A
+
+44: $1754, $17D4, $1854
+17, 28, 1C
+
+45: $1755, $17D5, $1855
+19, 2A, 30
+
+46: $1756, $17D6, $1856
+27, 37, 30
+
+47: $1757, $17D7, $1857 - used by Bomb
+16, 26, 30
+
+48: $1758, $17D8, $1858
+0C, 1C, 37
+
+49: $1759, $17D9, $1859 - used by VmpGirl, DkKnight
+1C, 2C, 16
+
+4A: $175A, $17DA, $185A
+13, 28, 37
+
+4B: $175B, $17DB, $185B
+07, 17, 28
+
+4C: $175C, $17DC, $185C
+11, 31, 27
+
+4D: $175D, $17DD, $185D - used by Goblin
+18, 38, 30
+
+4E: $175E, $17DE, $185E - used by G.Goblin, Balloon
+19, 29, 25
+
+4F: $175F, $17DF, $185F
+1C, 32, 30
+
+50: $1760, $17E0, $1860
+16, 23, 30
+
+51: $1761, $17E1, $1861
+0C, 1C, 16
+
+52: $1762, $17E2, $1862
+0C, 1C, 37
+
+53: $1763, $17E3, $1863
+18, 28, 1B
+
+54: $1764, $17E4, $1864 - used by Ogre
+18, 28, 22
+
+55: $1765, $17E5, $1865
+22, 3C, 25
+
+56: $1766, $17E6, $1866
+22, 3C, 30
+
+57: $1767, $17E7, $1867
+19, 29, 16
+
+58: $1768, $17E8, $1868 - used by Bigbird
+19, 29, 27
+
+59: $1769, $17E9, $1869
+11, 21, 25
+
+5A: $176A, $17EA, $186A
+11, 21, 37
+
+5B: $176B, $17EB, $186B - used by Fire Gigas?
+16, 26, 22
+
+5C: $176C, $17EC, $186C
+16, 26, 3A
+
+5D: $176D, $17ED, $186D - used by Iron Giant
+1C, 2C, 27
+
+5E: $176E, $17EE, $186E - used by Iron Giant
+1C, 2C, 3A
+
+5F: $176F, $17EF, $186F
+17, 27, 2C
+
+60: $1770, $17F0, $1870
+00, 10, 30
+
+61: $1771, $17F1, $1871
+00, 16, 26
+
+62: $1772, $17F2, $1872
+00, 15, 25
+
+63: $1773, $17F3, $1873
+00, 2B, 3B
+
+64: $1774, $17F4, $1874
+00, 10, 37
+
+65: $1775, $17F5, $1875
+00, 27, 30
+
+66: $1776, $17F6, $1876
+00, 21, 31
+
+67: $1777, $17F7, $1877
+00, 2C, 3C
+
+68: $1778, $17F8, $1878
+00, 10, 34
+
+69: $1779, $17F9, $1879
+00, 27, 37
+
+6A: $177A, $17FA, $187A
+00, 12, 22
+
+6B: $177B, $17FB, $187B
+00, 26, 16
+
+6C: $177C, $17FC, $187C
+00, 18, 28
+
+6D: $177D, $17FD, $187D
+00, 28, 38
+
+6E: $177E, $17FE, $187E
+10, 22, 30
+
+6F: $177F, $17FF, $187F
+00, 17, 27
+
+70: $1780, $1800, $1880
+00, 22, 2B
+
+71: $1781, $1801, $1881
+00, 13, 23
+
+72: $1782, $1802, $1882
+14, 24, 30
+
+73: $1783, $1803, $1883
+00, 21, 30
+
+74: $1784, $1804, $1884
+00, 1C, 21
+
+75: $1785, $1805, $1885
+17, 27, 2A
+
+76: $1786, $1806, $1886
+13, 23, 37
+
+77: $1787, $1807, $1887
+13, 23, 16
+
+78: $1788, $1808, $1888 - used by Astaroth
+19, 38, 30
+
+79: $1789, $1809, $1889 - used by Astaroth
+19, 38, 27
+
+7A: $178A, $180A, $188A - used by the Emperor (final battle)
+18, 28, 23
+
+7B: $178B, $180B, $188B - used by the Emperor (final battle)
+18, 28, 16
+
+7C: $178C, $180C, $188C
+0F, 2A, 30
+
+7D: $178D, $180D, $188D - used by the hand, Petrified
+00, 10, 30
+
+7E: $178E, $180E, $188E - used by Guy, Josef, Layla, Richard, Leon
+12, 28, 18
+
+7F: $178F, $180F, $188F - used by Firion, Maria, Minh, Gordon
+16, 36, 30
+
+
+side note: all palette's apparently have 0F as the first color, exclude that. Also note that
+0F isn't actually in the data anywhere, that's a deduction from debugging.

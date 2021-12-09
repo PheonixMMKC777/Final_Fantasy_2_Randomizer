@@ -1,0 +1,23 @@
+0xAF0	PirateShip Visible?
+0xAF1	PirateShip X
+0xAF2	PirateShip Y
+
+0xAF3	Airship Visible?
+0xAF4	Airship X
+0xAF5	Airship Y
+
+0xC20 - 0xD0F = TreasureLootTables
+
+0x390-F Overworld Palette
+0x3C3	Maria Pal
+0x3C7	Guy Pal
+0x3CB	FirionPal
+
+0x1D3C Dialogue Pal 1	(Gray)
+0x1D42 Dialogue Pal 2	(Blue)
+0x1D46 Dialogue Pal 3	(White)
+0x3E787 Menu Palette 1	(Gray)
+0x3E78C Menu Palette 2	(Blue)
+0x3E791 Menu Palette 3	(White)
+
+0x35e1d Square1 audio [30 32 34 36 38 3A 3C 3E 40 42 44 46 48 4A 4C 4E] cancerous

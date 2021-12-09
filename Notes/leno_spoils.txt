@@ -1,0 +1,763 @@
+$17790 - $17810
+Follow the monster ID's, starting with LegEater, ending with the Emperor, 1 byte each, 128 bytes total
+
+table:
+01 1B 01 12 03 02 03 06 09 01 04 1F 18 16 17 1E
+14 07 04 05 02 0D 02 04 05 08 03 04 09 0A 07 0D
+2A 0F 08 0A 0F 20 0B 04 09 05 09 06 07 15 0F 0A
+06 1C 07 05 23 08 09 09 06 08 08 0E 0A 0F 0A 0E
+22 24 0E 0A 0E 0B 0C 0E 0E 0C 0D 01 01 05 08 03
+06 06 0A 2E 2C 00 09 31 0F 29 2D 33 0B 0B 0D 02
+02 13 01 02 04 08 11 1A 28 2F 19 21 2B 05 0D 0C
+34 1D 25 26 27 00 36 30 32 37 38 35 39 3A 3B 00
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  Emperor: pack 0
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  Astaroth: pack 3B
+|  |  |  |  |  |  |  |  |  |  |  |  |  Beelzebub: pack 3A
+|  |  |  |  |  |  |  |  |  |  |  |  Tiamat: pack 39
+|  |  |  |  |  |  |  |  |  |  |  Iron Giant: pack 35
+|  |  |  |  |  |  |  |  |  |  Red Dragon: pack 38
+|  |  |  |  |  |  |  |  |  Blue Dragon: pack 37
+|  |  |  |  |  |  |  |  Green Dragon: pack 32
+|  |  |  |  |  |  |  Dragon: pack 30
+|  |  |  |  |  |  Behemoth King: pack 36
+|  |  |  |  |  Behemoth: pack 00
+|  |  |  |  Thunder Gigas: pack 27
+|  |  |  Ice Gigas: pack 26
+|  |  Fire Gigas: pack 25
+|  Gigas: pack 1D
+Queen Lamia: pack 34
+
+$17810 - $179F0
+dropped items, 8 bytes each, 480 bytes total
+
+table:
+$17810: 00
+00 00 00 00 00 00 00 00
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  nothing
+|  |  |  |  |  |  nothing
+|  |  |  |  |  nothing
+|  |  |  |  nothing
+|  |  |  nothing
+|  |  nothing
+|  nothing
+nothing
+
+$17818: 01
+F0 F0 F1 F1 F2 F2 F3 F3
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  25 gil
+|  |  |  |  |  |  25 gil
+|  |  |  |  |  12 gil
+|  |  |  |  12 gil
+|  |  |  6 gil
+|  |  6 gil
+|  3 gil
+3 gil  
+
+$17820: 02
+F1 F1 F2 F2 F3 F3 F4 F4
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  50 gil
+|  |  |  |  |  |  50 gil
+|  |  |  |  |  25 gil
+|  |  |  |  25 gil
+|  |  |  12 gil
+|  |  12 gil
+|  6 gil
+6 gil
+
+$17828: 03
+F2 F2 F3 F3 F4 F4 F5 F5
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  100 gil
+|  |  |  |  |  |  100 gil
+|  |  |  |  |  50 gil
+|  |  |  |  50 gil
+|  |  |  25 gil
+|  |  25 gil
+|  12 gil
+12 gil
+
+$17830: 04
+F3 F3 F4 F4 F5 F5 F6 F6
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  200 gil
+|  |  |  |  |  |  200 gil
+|  |  |  |  |  100 gil
+|  |  |  |  100 gil
+|  |  |  50 gil
+|  |  50 gil
+|  25 gil
+25 gil
+
+$17838: 05
+F4 F4 F5 F5 F6 F6 F7 F7
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  300 gil
+|  |  |  |  |  |  300 gil
+|  |  |  |  |  200 gil
+|  |  |  |  200 gil
+|  |  |  100 gil
+|  |  100 gil
+|  50 gil
+50 gil
+
+$17840: 06
+F5 F5 F6 F6 F7 F7 F8 F8
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  400 gil
+|  |  |  |  |  |  400 gil
+|  |  |  |  |  300 gil
+|  |  |  |  300 gil
+|  |  |  200 gil
+|  |  200 gil
+|  100 gil
+100 gil
+
+$17848: 07
+F6 F6 F7 F7 F8 F8 F9 F9
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  500 gil
+|  |  |  |  |  |  500 gil
+|  |  |  |  |  400 gil
+|  |  |  |  400 gil
+|  |  |  300 gil
+|  |  300 gil
+|  200 gil
+200 gil
+
+$17850: 08
+F7 F7 F8 F8 F9 F9 FA FA
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  600 gil
+|  |  |  |  |  |  600 gil
+|  |  |  |  |  500 gil
+|  |  |  |  500 gil
+|  |  |  400 gil
+|  |  400 gil
+|  300 gil
+300 gil
+
+$17858: 09
+F8 F8 F9 F9 FA FA FB FB
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  800 gil
+|  |  |  |  |  |  800 gil
+|  |  |  |  |  600 gil
+|  |  |  |  600 gil
+|  |  |  500 gil
+|  |  500 gil
+|  400 gil
+400 gil
+
+$17860: 0A
+F9 F9 FA FA FB FB FC FC
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  1,000 gil
+|  |  |  |  |  |  1,000 gil
+|  |  |  |  |  800 gil
+|  |  |  |  800 gil
+|  |  |  600 gil
+|  |  600 gil
+|  500 gil
+500 gil
+
+$17868: 0B
+FA FA FB FB FC FC FD FD
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  1,500 gil
+|  |  |  |  |  |  1,500 gil
+|  |  |  |  |  1,000 gil
+|  |  |  |  1,000 gil
+|  |  |  800 gil
+|  |  800 gil
+|  600 gil
+600 gil
+
+$17870: 0C
+FB FB FC FC FD FD FE FE
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  2,000 gil
+|  |  |  |  |  |  2,000 gil
+|  |  |  |  |  1,500 gil
+|  |  |  |  1,500 gil
+|  |  |  1,000 gil
+|  |  1,000 gil
+|  800 gil
+800 gil
+
+$17878: 0D
+FC FC FD FD FE FE FE FE
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  2,000 gil
+|  |  |  |  |  |  2,000 gil
+|  |  |  |  |  2,000 gil
+|  |  |  |  2,000 gil
+|  |  |  1,500 gil
+|  |  1,500 gil
+|  1,000 gil
+1,000 gil
+
+$17880: 0E
+FD FD FE FE FE FE FE FE
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  2,000 gil
+|  |  |  |  |  |  2,000 gil
+|  |  |  |  |  2,000 gil
+|  |  |  |  2,000 gil
+|  |  |  2,000 gil
+|  |  2,000 gil
+|  1,500 gil
+1,500 gil
+
+$17888: 0F
+FE FE FE FE FE FE FE FE
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  2,000 gil
+|  |  |  |  |  |  2,000 gil
+|  |  |  |  |  2,000 gil
+|  |  |  |  2,000 gil
+|  |  |  2,000 gil
+|  |  2,000 gil
+|  2,000 gil
+2,000 gil
+
+$17890: 10
+FF FF FF FF FF FF FF FF
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  10,000 gil
+|  |  |  |  |  |  10,000 gil
+|  |  |  |  |  10,000 gil
+|  |  |  |  10,000 gil
+|  |  |  10,000 gil
+|  |  10,000 gil
+|  10,000 gil
+10,000 gil
+
+$17898: 11
+10 F1 F2 11 F3 F3 1E F4
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  50 gil
+|  |  |  |  |  |  Garlic
+|  |  |  |  |  25 gil
+|  |  |  |  25 gil
+|  |  |  Antidote
+|  |  12 gil
+|  6 gil
+Potion
+
+$178A0: 12
+F0 F0 F1 F1 10 10 11 11
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Antidoe
+|  |  |  |  |  |  Antidote
+|  |  |  |  |  Potion
+|  |  |  |  Potion
+|  |  |  6 gil
+|  |  6 gil
+|  3 gil
+3 gil
+
+$178A8: 13
+10 F2 F3 F3 F4 69 32 54
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Long Sword
+|  |  |  |  |  |  Bronze Shield
+|  |  |  |  |  Long Bow
+|  |  |  |  50 gil
+|  |  |  25 gil
+|  |  25 gil
+|  12 gil
+Potion
+
+$178B0: 14
+F2 F3 F4 42 F4 62 F5 F6
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  200 gil
+|  |  |  |  |  |  100 gil
+|  |  |  |  |  Battle Axe
+|  |  |  |  50 gil
+|  |  |  Mace
+|  |  50 gil
+|  25 gil
+12 gil
+
+$178B8: 15
+F8 F8 F8 F8 F8 F8 1A 3C
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Mithril Dagger
+|  |  |  |  |  |  X Potion
+|  |  |  |  |  400 gil
+|  |  |  |  400 gil
+|  |  |  400 gil
+|  |  400 gil
+|  400 gil
+400 gil
+
+$178C0: 16
+F4 F4 F5 F5 F6 F6 43 72
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Mithril Helmet
+|  |  |  |  |  |  Mithril cane
+|  |  |  |  |  200 gil
+|  |  |  |  200 gil
+|  |  |  100 gil
+|  |  100 gil
+|  50 gil
+50 gil
+
+$178C8: 17
+F4 F4 A3 9F 9A B1 2E A8
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Warp Scroll
+|  |  |  |  |  |  Hellfire
+|  |  |  |  |  Blink Scroll
+|  |  |  |  Ice Scroll
+|  |  |  Sleep Scroll
+|  |  Blind Scroll
+|  50 gil
+50 gil
+
+$178D0: 18
+F3 F3 F4 F4 F5 F5 F6 33
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Mithril Shield
+|  |  |  |  |  |  200 gil
+|  |  |  |  |  100 gil
+|  |  |  |  100 gil
+|  |  |  50 gil
+|  |  50 gil
+|  25 gil
+25 gil
+
+$178D8: 19
+F4 F4 A9 9B 99 98 A0 45
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Magic Cane
+|  |  |  |  |  |  Stone Scroll (Stun)
+|  |  |  |  |  Fire Scroll
+|  |  |  |  Bolt Scroll
+|  |  |  Aero Scroll
+|  |  Berserk Scroll
+|  50 gil
+50 gil
+
+$178E0: 1A
+F5 F5 F6 F6 72 63 7D 6A
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Mithril Bow
+|  |  |  |  |  |  Mithril Armor
+|  |  |  |  |  Mithril Axe
+|  |  |  |  Mithril Helmet
+|  |  |  200 gil
+|  |  200 gil
+|  100 gil
+100 gil
+
+$178E8: 1B
+F0 F0 F1 F1 F2 11 16 10
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Potion
+|  |  |  |  |  |  Eye Drop
+|  |  |  |  |  Antidote
+|  |  |  |  12 gil
+|  |  |  6 gil
+|  |  6 gil
+|  3 gil
+3 gil
+
+$178F0: 1C
+F4 F4 F5 F5 11 10 27 14
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Maiden's Kiss
+|  |  |  |  |  |  Death God
+|  |  |  |  |  Potion
+|  |  |  |  Antidote
+|  |  |  100 gil
+|  |  100 gil
+|  50 gil
+50 gil
+
+$178F8: 1D
+F6 F6 F7 F7 F8 F8 73 92
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Giant Gloves
+|  |  |  |  |  |  Giant Helmet
+|  |  |  |  |  400 gil
+|  |  |  |  400 gil
+|  |  |  300 gil
+|  |  300 gil
+|  200 gil
+200 gil
+
+$17900: 1E
+F7 F7 F8 F8 F9 F9 58 35
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Ice Shield
+|  |  |  |  |  |  Winged Sword
+|  |  |  |  |  500 gil
+|  |  |  |  500 gil
+|  |  |  400 gil
+|  |  400 gil
+|  300 gil
+300 gil
+
+$17908: 1F
+F6 F6 F7 F7 F8 F8 F9 37
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Diamond Shield
+|  |  |  |  |  |  500 gil
+|  |  |  |  |  400 gil
+|  |  |  |  400 gil
+|  |  |  300 gil
+|  |  300 gil
+|  200 gil
+200 gil
+
+$17910: 20
+11 F6 2A F7 16 F8 10 F9
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  500 gil
+|  |  |  |  |  |  Potion
+|  |  |  |  |  400 gil
+|  |  |  |  Eye Drop
+|  |  |  300 gil
+|  |  Valium
+|  200 gil
+Antidote
+
+$17918: 21
+F8 F8 AB A7 AA A5 9C 88
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Quartz Armor
+|  |  |  |  |  |  Drain Scroll
+|  |  |  |  |  Toad Scroll
+|  |  |  |  Haste Scroll
+|  |  |  Death Scroll
+|  |  Aura Scroll
+|  400 gil
+400 gil
+
+$17920: 22
+F7 F7 F8 1A F9 19 FA FA
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  600 gil
+|  |  |  |  |  |  600 gil
+|  |  |  |  |  Ether
+|  |  |  |  500 gil
+|  |  |  X Potion
+|  |  400 gil
+|  300 gil
+300 gil
+
+$17928: 23
+F8 F8 F9 2B FA 2C FB 3E
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Orhacon Dagger
+|  |  |  |  |  |  800 gil
+|  |  |  |  |  Fang
+|  |  |  |  600 gil
+|  |  |  Ice Scythe
+|  |  500 gil
+|  400 gil
+400 gil
+
+$17930: 24
+F9 F9 FA 1A FB 19 FC 18
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Elixir
+|  |  |  |  |  |  1,000 gil
+|  |  |  |  |  Ether
+|  |  |  |  800 gil
+|  |  |  X Potion
+|  |  600 gil
+|  500 gil
+500 gil
+
+$17938: 25
+FA FA FB FB FC 5B 80 A2
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Charm Scroll
+|  |  |  |  |  |  Flame Armor
+|  |  |  |  |  Flame Sword
+|  |  |  |  1,000 gil
+|  |  |  800 gil
+|  |  800 gil
+|  600 gil
+600 gil
+
+$17940: 26
+FA FA FB FB FC 5C 20 A1
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Stop Scroll
+|  |  |  |  |  |  Ice Wind
+|  |  |  |  |  Ice Sword
+|  |  |  |  1,000 gil
+|  |  |  800 gil
+|  |  800 gil
+|  600 gil
+600 gil
+
+$17948: 27
+FB FB FC FC 47 8B A2 9E
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Flare Scroll
+|  |  |  |  |  |  Charm Scroll
+|  |  |  |  |  Black Robe
+|  |  |  |  Evil Cane (it's evil!)
+|  |  |  1,000 gil
+|  |  1,000 gil
+|  800 gil
+800 gil
+
+$17950: 28
+F6 F6 F7 F7 6C 7E A4 A5
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Toad Scroll
+|  |  |  |  |  |  Curse Scroll
+|  |  |  |  |  Gold Armor
+|  |  |  |  Flame Bow
+|  |  |  300 gil
+|  |  300 gil
+|  200 gil
+200 gil
+
+$17958: 29
+FB FB FC FC 66 1F A0 A8
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Warp Scroll
+|  |  |  |  |  |  Stone Scroll (Stun)
+|  |  |  |  |  Unicorn
+|  |  |  |  Poison Axe
+|  |  |  1,000 gil
+|  |  1,000 gil
+|  800 gil
+800 gil
+
+$17960: 2A
+FB FB 28 FC 3F FD FE AA
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Haste Scroll
+|  |  |  |  |  |  2,000 gil
+|  |  |  |  |  1,500 gil
+|  |  |  |  Ripper Dagger
+|  |  |  1,000 gil
+|  |  Bacchus' Wine
+|  800 gil
+800 gil
+
+$17968: 2B
+FC FC FD 89 A8 9C 9E 9D
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Osmose Scroll
+|  |  |  |  |  |  Flare Scroll
+|  |  |  |  |  Drain Scroll
+|  |  |  |  Warp Scroll
+|  |  |  Diamond Armor (2)
+|  |  1,500 gil
+|  1,000 gil
+1,000 gil
+
+$17970: 2C
+FF FF 18 16 17 1B 82 5D
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Defender
+|  |  |  |  |  |  Diamond Armor (1)
+|  |  |  |  |  Cottage
+|  |  |  |  Phoenix Down
+|  |  |  Eye Drop
+|  |  Elixir
+|  10,000 gil
+10,000 gil
+
+$17978: 2D
+FD FD FE FE 37 6F 1A 5E
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Sun Sword
+|  |  |  |  |  |  X Potion
+|  |  |  |  |  Yoichi Bow
+|  |  |  |  Diamond Shield
+|  |  |  2,000 gil
+|  |  2,000 gil
+|  1,500 gil
+1,500 gil
+
+$17980: 2E
+FD FD FE FE FF 14 9A 26
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Egg Timer
+|  |  |  |  |  |  Ice Scroll
+|  |  |  |  |  Maiden's Kiss
+|  |  |  |  10,000 gil
+|  |  |  2,000 gil
+|  |  2,000 gil
+|  1,500 gil
+1,500 gil
+
+$17988: 2F
+FD FD FE 24 94 75 83 67
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Rune Axe
+|  |  |  |  |  |  Dragon Armor
+|  |  |  |  |  Diamond Helmet
+|  |  |  |  Diamond Gloves
+|  |  |  Thread
+|  |  2,000 gil
+|  1,500 gil
+1,500 gil
+
+$17990: 30
+FE FE FF 2C 6D 20 95 1C
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Wind Flute
+|  |  |  |  |  |  Genji Gloves
+|  |  |  |  |  Ice Wind
+|  |  |  |  Ice Bow
+|  |  |  Fang
+|  |  10,000 gil
+|  2,000 gil
+2,000 gil
+
+$17998: 31
+FE FE FF 17 19 15 2D 40
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Catclaw
+|  |  |  |  |  |  Mirror
+|  |  |  |  |  Echo Screen
+|  |  |  |  Ether
+|  |  |  Phoenix Down
+|  |  10,000 gil
+|  2,000 gil
+2,000 gil
+
+$179A0: 32
+FE FE FF 2C 48 29 75 1D
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Earth Drum
+|  |  |  |  |  |  Diamond Helmet
+|  |  |  |  |  Dragon Bean
+|  |  |  |  Greed Cane/Heal Staff
+|  |  |  Fang
+|  |  10,000 gil
+|  2,000 gil
+2,000 gil
+
+$179A8: 33
+FF FF FF 1A 19 51 18 79
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Ribbon
+|  |  |  |  |  |  Elixir
+|  |  |  |  |  Bolt Spear
+|  |  |  |  Ether
+|  |  |  X Potion
+|  |  10,000 gil
+|  10,000 gil
+10,000 gil
+
+$179B0: 34
+FF FF FF 89 96 78 21 79
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Ribbon
+|  |  |  |  |  |  Elder IQ
+|  |  |  |  |  Goldpin Helmet
+|  |  |  |  Defender Gloves
+|  |  |  Diamond Armor (2)
+|  |  10,000 gil
+|  10,000 gil
+10,000 gil
+
+$179B8: 35
+FE FE FF 76 95 84 5F 39
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Aegis Shield
+|  |  |  |  |  |  Exaclibur
+|  |  |  |  |  Genji Armor
+|  |  |  |  Genji Gloves
+|  |  |  Genji Helmet
+|  |  10,000 gil
+|  2,000 gil
+2,000 gil
+
+$179C0: 36
+FF FF FF 77 8C 97 27 6F
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Yoichi Bow
+|  |  |  |  |  |  Death God
+|  |  |  |  |  Power Gloves
+|  |  |  |  Power Armor
+|  |  |  Spiral Helmet
+|  |  10,000 gil
+|  10,000 gil
+10,000 gil
+
+$179C8: 37
+FF FF FF 83 52 38 2C 47
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Evil Cane/Heal Staff
+|  |  |  |  |  |  Fang
+|  |  |  |  |  Dragon Shield
+|  |  |  |  Holy Spear
+|  |  |  Dragon Armor
+|  |  10,000 gil
+|  10,000 gil
+10,000 gil
+
+$179D0: 38
+FF FF FF 83 52 38 8D 23
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Shoes
+|  |  |  |  |  |  Black Armor/Ninja Suit
+|  |  |  |  |  Dragon Shield
+|  |  |  |  Holy Spear
+|  |  |  Dragon Armor
+|  |  10,000 gil
+|  10,000 gil
+10,000 gil
+
+$179D8: 39
+FF FF FF 18 17 AD BD 9E
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Flare Scroll
+|  |  |  |  |  |  Holy Scroll
+|  |  |  |  |  Life Scroll
+|  |  |  |  Phoenix Down
+|  |  |  Elixir
+|  |  10,000 gil
+|  10,000 gil
+10,000 gil
+
+$179E0: 3A
+FF FF FF 8B 2C 23 21 1D
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Earth Drum
+|  |  |  |  |  |  Elder IQ
+|  |  |  |  |  Shoes
+|  |  |  |  Fang
+|  |  |  Black Robe
+|  |  10,000 gil
+|  10,000 gil
+10,000 gil
+
+$179E8: 3B
+FF FF FF 8A 2D 24 22 1C
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  Wind Flute
+|  |  |  |  |  |  Heart
+|  |  |  |  |  Thread
+|  |  |  |  Mirror
+|  |  |  White Robe
+|  |  10,000 gil
+|  10,000 gil
+10,000 gil
+
+<=E7: Follow item ID's, which is in the Shop Bytes file.
+Fx: Indicates Gil is dropped, where F0-FF are possibilities. Follow the table below.
+
+$179F0 - $17A0F:
+Dropped Gil. 2 bytes each, 32 bytes total
+
+table:
+03 00 06 00 0C 00 19 00 32 00 64 00 C8 00 2C 01
+90 01 F4 01 58 02 20 03 E8 03 DC 05 D0 07 10 27

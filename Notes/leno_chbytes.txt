@@ -1,0 +1,195 @@
+«±ªº°¹ºqÞ«±ªº°¹ºqÞ Final Fantasy «±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹1.0
+ ¸¿§§§§¿  /§§§ /§§§  ¸§§§§§§  /§§§§§§¿   ¸§§§§§§   ¸¿§§§§¿  /§§§§§§§§ /§§§§§§§ /§§§§§§¿  ªº°¹1.0
+/§§§' ´¤§ /§§§ /§§§ /§§§´`§§§ /§§§´ `§¿ /§§§´`§§§ /§§§' ´¤§ ////§§/// /§§§//// /§§§´ `§¿ ªº°¹1.0
+/§§§      /§§§§§§§§ /§§§ /§§§ /§§§¸ ¸§¤ /§§§ /§§§ /§§§         /§§    /§§§¿¿¿  /§§§¸ ¸§¤ ªº°¹1.0
+/§§§      /§§§//§§§ /§§§¤¤§§§ /§§§§§§¤  /§§§¤¤§§§ /§§§	       /§§    /§§§¤¤¤  /§§§§§§¤  ªº°¹1.0
+/§§§¸ ¸¿§ /§§§ /§§§ /§§§ /§§§ /§§§//§¿  /§§§ /§§§ /§§§¸ ¸¿§    /§§    /§§§///  /§§§//§¿  ªº°¹1.0
+/`¤§§§§§' /§§§ /§§§ /§§§ /§§§ /§§§ /§§¿ /§§§ /§§§ /`¤§§§§§'    /§§    /§§§§§§§ /§§§ /§§¿ ªº°¹1.0
+ ///////  //// //// //// //// //// //// //// ////  ///////     ///    //////// //// //// ªº°¹1.0
+°¹ºqÞ«±ªº°¹ºqÞ Document «±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹1.0
+º°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹ºqÞ«±ªº°¹1.0
+
+Original by Y Dienddiwr Da
+Modified by Lenophis (sorry Y)
+if you see a *, look at the bottom for notes.
+
+Character Data F90  -1400
+
+Unlike FF1, which had a rather small 12 character bytes or so, this game
+uses an 8x16 block of Data to represent each character, brace yourself:
+
+The Bytes
+
+A1	: Index, and determines dominant hand.*
+C1 - CF : 6 Letter Name, FF is space (For first four character's).
+I1 - J1	: Current HP bytes, I1 being 16s and 1s, J1 being 65536s and 256s.
+K1 - L1	: Maximum HP bytes, K1 being 16s and 1s, L1 being 65536s and 256s.
+M1 - N1	: Current MP bytes, M1 being 16s and 1s, N1 being 65536s and 256s.
+O1 - P1	: Maximum MP bytes, O1 being 16s and 1s, P1 being 65536s and 256s.
+A2,3	: Strength Points. Don't know why there is two rows, working on it.*
+B2,3	: Agility Points.			''
+C2,3	: Vitality Points. 			''
+D2,3	: Intelligence Points.			''
+E2,3	: Soul Points.				''
+J2	: Starting Helmet
+K2	: Starting Armour
+L2	: Starting Gauntlet
+M2	: Starting Weapon
+N2	: Starting Shield
+O2 - P2 : Starting Belt Items
+F3	: Magic Power.				
+A4 - P4 : Starting Magics.
+A5 - P5	: Starting Weapons Skills, 2 bytes each; Level(hits)- Experience.
+	in order: Fist, Shield, Knife, Cane, Spear, Sword, Axe, Bow.
+A6 - P6 : Magic's (1 - 8) Level, 2 bytes per magic; Level-Experience.
+A7 - P7 : Magic's (9 - 16) Level,		''
+A8 - B8	: Evasion, 2 bytes; Level- Experience.
+C8 - D8	: Magic Defense, 2 bytes; Level- Experience.
+F8	: Effects how the players are positioned initially, it can yield
+		odd results occasionally.
+G8 - P8 : No idea.
+
+
+XY-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1-00-00-FF-FF-FF-FF-FF-FF-1E-00-1E-00-05-00-05-00  1, "Frioniel"*, HP 30/30, MP 5/5, right handed
+2-0A-0A-0A-0A-0A-05-01-46-0B-00-7B-00-53-31-00-00  Str 10, Agi 10, Vit 10, Int 10, Soul 10, LeatherA, BroadS, Buckler
+3-0A-0A-0A-0A-0A-05-01-05-02-02-01-0E-01-25-00-7C  MPwr 5
+4-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  No Initial Spells
+5-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Weapon skills at 1-00
+6-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+7-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+8-00-00-00-00-00-01-47-51-5B-76-E8-EF-94-3A-C8-7A  Evade 1-00, MgDef 1-00, front row
+
+XY-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1-01-00-FF-FF-FF-FF-FF-FF-14-00-14-00-05-00-05-00  2, "Violet"/"Maria", HP 20/20, MP 5/5, right handed
+2-05-0F-05-0F-0A-05-01-37-03-00-7A-00-68-00-00-00  Str 5, Agi 15, Vit 5, Int 15, Soul 10, Clothes, Bow
+3-05-0F-05-0F-0A-05-00-00-00-01-01-0E-01-23-00-34  MPwr 5
+4-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  No Initial Spells
+5-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Weapon skills at 1-00
+6-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+7-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+8-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Evade 1-00, MgDef 1-00, back row
+
+XY-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1-02-00-FF-FF-FF-FF-FF-FF-28-00-28-00-05-00-05-00  3, "Guy"*, HP 40/40, MP 5/5, right handed
+2-0F-05-0F-0A-0A-05-01-46-12-00-7B-00-61-00-00-00  Str 15, Agi 5, Vit 15, Int 10, Soul 10, LeatherA, Axe
+3-0F-05-0F-0A-0A-05-00-00-00-02-01-04-01-28-00-36  MPwr 5
+4-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  No Initial Spells
+5-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Weapon skills at 1-00
+6-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+7-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+8-00-00-00-00-00-01-0B-00-04-02-15-14-00-1C-12-17  Evade 1-00, MgDef 1-00, front row
+
+XY-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1-03-00-96-AC-B1-AB-FF-FF-AF-00-AF-00-67-00-67-00  4, "Minh"*, HP 175/175, MP 103/103, right handed
+2-0A-14-14-10-30-28-01-50-0A-00-85-00-41-00-2B-19  Str 10, Agi 20, Vit 20, Int 16, Soul 48, CopperA, Cane, Ice Scythe, Ether
+3-0A-14-14-10-30-28-00-00-00-05-01-14-02-41-00-00  MPwr 40
+4-D4-D5-D6-D7-D8-D9-DA-DB-DC-DD-DF-E0-E1-E3-E4-E6  CURE, LIFE, PEEP, HEAL, BARR, BLNK, SAFE, SHEL, WALL, DSPL, MINI, MUTE, ANTI, FOG, SLOW, CHNG, FEAR, HOLY, EXIT
+5-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Weapon skills at 1-00
+6-06-3A-06-31-05-07-02-4D-06-34-04-43-04-45-05-4B  7-58, 7-49, 6-07, 3-77, 7-52, 5-67, 5-69, 6-75
+7-04-43-02-61-03-40-03-23-05-4E-02-1D-02-14-00-00  5-67, 3-97, 4-64, 4-35, 6-76, 3-29, 3-20, 1-00
+8-00-62-01-14-00-01-00-00-00-00-00-00-00-00-00-00  Evade 0-98, MgDef 1-20, front row
+
+XY-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1-04-00-93-B2-B6-A8-A9-FF-EB-00-EB-00-05-00-05-00  5, "Josef", HP 235/235, MP 5/5, right handed
+2-18-18-18-0A-0A-0A-04-63-14-70-7B-8E-00-00-1E-10  Str 24, Agi 24, Vit 24, Int 10, Soul 10, LeatherH, LeatherA, LeatherG, Potion, Garlic
+3-18-18-18-0A-0A-0A-00-00-00-04-02-14-02-2F-00-0A  MPwr 10
+4-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  No Initial Spells
+5-01-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Fist 2-00, rest are 1-00
+6-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+7-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+8-01-00-01-00-00-01-00-00-00-00-00-00-00-00-00-00  Evade 2-00, MgDef 2-00, front row
+
+XY-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1-05-00-90-B2-B5-A7-B2-B1-40-00-40-00-05-00-05-00  6, "Gordon", HP 64/64, MP 5/5, right handed
+2-16-16-16-16-16-16-01-4D-11-00-7C-8F-4B-32-10-10  Str 22, Agi 22, Vit 22, Int 22, Soul 22, BronzeA, BronzeG, Spear, BronzeSh, Potion, Potion
+3-16-16-16-16-16-16-01-05-04-08-01-0A-01-34-00-AC  MPwr 22
+4-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  No Initial Spells
+5-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Weapon skills at 1-00
+6-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+7-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+8-00-00-00-00-00-01-00-00-00-00-00-00-00-00-00-00  Evade 1-00, MgDef 1-00, front row
+
+XY-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1-86-00-95-A4-BC-AF-A4-FF-60-00-96-00-14-00-14-00  7, "Layla", HP 96/150, MP 32/32, left handed
+2-12-1A-12-10-0A-0A-02-44-12-78-86-00-3B-54-69-00  Str 18, Agi 26, Vit 18, Int 16, Soul 10, GoldpinH, SilverA, Dagger, LongS, LongBow
+3-12-24-10-0A-12-0A-02-4A-0A-15-02-2E-02-3A-08-38  MPwr 10
+4-C1-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  BOLT
+5-00-00-00-00-01-35-00-00-00-00-01-00-00-00-01-0A  Knife 2-53, Sword 2-00, Bow 2-10, rest at 1-00
+6-01-22-00-00-00-00-00-00-00-00-00-00-00-00-00-00  2-34, rest at 1-00
+7-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+8-01-4A-01-51-00-01-00-00-00-00-00-00-00-00-00-00  Evade 2-74, MgDef 2-81, front row
+
+XY-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1-07-00-E8-E9-EA-EB-EC-A7-25-02-25-02-05-00-05-00  8, "Richard"*, HP 549/549, MP 5/5, right handed
+2-28-1A-20-10-1A-05-08-63-3D-73-7F-92-58-34-00-00  Str 40, Agi 26, Vit 32, Int 16, Soul 26, GiantH, KnightA, GiantG, WingedS, GoldSh
+3-32-1A-20-10-1A-05-05-1E-0B-2B-02-19-02-3F-20-EA  MPwr 5
+4-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  No Initial Spells
+5-00-00-04-43-00-00-00-00-00-00-07-26-00-00-00-00  Shield 5-67, Sword 8-38, rest at 1-00
+6-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+7-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+8-01-61-01-36-00-01-00-00-00-00-00-00-00-00-00-00  Evade 2-97, MgDef 2-54, front row
+
+XY-A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1-88-00-FF-FF-FF-FF-FF-FF-26-02-4A-04-05-00-05-00  9, "Lionheart"*, HP 550/1098, MP 5/5, left handed
+2-35-2D-2E-24-10-20-09-62-61-75-82-94-5B-66-00-00  Str 53, Agi 45, Vit 46, Int 36, Soul 16, DiamondH, DiamondA, DiamondG, FlameS, PoisonAxe
+3-35-2D-2E-24-10-20-08-4C-4C-55-03-00-03-54-08-FF  MPwr 32
+4-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  No Initial Spells
+5-01-56-02-60-04-58-05-34-06-26-07-28-08-47-03-25  Fist 2-86, Shield 3-96, Knife 5-88, Cane 6-52, Spear 7-38, Sword 8-40, Axe 9-71, Bow 4-37
+6-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+7-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  Spell levels at 1-00
+8-02-49-02-34-00-01-00-00-00-00-00-00-00-00-00-00  Evade 3-73, MgDef 3-52, front row
+
+Notes:
+
+Dominant hand is determined by the four high bits. If they are on (8), that character is left
+handed. If not (0), that character is right handed.
+
+A2, A3, B2, B3, C2, C3, D2, D3, E2, E3: Though there are two rows, the second row doesn't appear
+ to affect the game in any way. Exception is Magic Power, since it's on the second row.
+
+"Frionel": This translation is Frionel, Origins named him Firion.
+
+"Guy": This translation is Guy, Origins named him Gus.
+
+"Minh": This translation is Minh, Origins named him Mindu.
+
+"Richard": This translation is Richard, Origins named him Gareth. Richard is 7 characters, so
+ whoever did the translation used tiles to fit his name in.
+
+"Lionheart": This translation is Lionheart, Origins named him Leon.
+
+To change the palette used by each character, you need to change some bits at two bytes, at 0x2D26A.
+
+You'll see 0x2B and 00. This is the format.
+
+00101011
+||||||||
+|||||||+-- Frioniel/Firion
+||||||+--- Maria
+|||||+---- Guy
+||||+----- Ming-Wu
+|||+------ Josef
+||+------- Gordon
+|+-------- Layla
++--------- Ricard
+
+00000000
+||||||||
+|||||||Leon
+unused.
+
+Simply put, if the bit is set, use palette 7F (blue), otherwise use palette 7E (red).
+
+Data provided courteousy of Vystrix Nexoth, original findings are here:
+
+http://zerosoul.arc-nova.org/Documents/ff2-battlecolors.txt

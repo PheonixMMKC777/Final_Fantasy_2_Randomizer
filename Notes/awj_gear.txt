@@ -1,0 +1,443 @@
+Great deal of thanks to awj for contributing this data.
+
+30010 - 30105: Armor pieces
+6 bytes each, 245 bytes total
+
+Unequipped: 30010
+00 00 00 00 FF 05
+|  |  |  |  |  |
+|  |  |  |  |  Magic defense
+|  |  |  |  Stat boost
+|  |  |  Elemental defense
+|  |  Int/Soul penalty
+|  Evade penalty
+Defense
+0 defense, -0 evade, -0 int/soul, no elemental defense, no stat boosts, 5 magic defense
+
+Leather Helmet: 30016
+01 02 02 00 FF 05
+1 defense, -2% evade, -2 int/soul, no elemental defense, no stat boosts, 5 magic defense
+
+Bronze Helmet: 3001C
+02 05 08 00 FF 05
+2 defense, -5% evade, -8 int/soul, no elemental defense, no stat boosts, 5 magic defense
+
+Mithril Helmet: 30022
+04 05 08 00 FF 0A
+4 defense, -5% evade, -8 int/soul, no elemental defense, no stat boosts, 10 magic defense
+
+Giant Helmet: 30028
+06 0D 18 00 00 0A
+6 defense, -13% evade, -24 int/soul, no elemental defense, +10 strength, 10 magic defense
+
+Flame Helmet: 3002E
+0D 0E 1A 80 FF 0A
+13 defense, -14% evade, -26 int/soul, ice elemental defense, no stat boosts, 10 magic defense
+
+Diamond Helmet: 30034
+11 12 22 08 FF 0A
+17 defense, -18% evade, -34 int/soul, lightning elemental defense, no stat boosts, 10 magic defense
+
+Genji Helmet: 3003A
+1E 1F 3C 01 FF 0F
+30 defense, -31% evade, -60 int/soul, dimension elemental defense, no stat boosts, 15 magic defense
+
+Spiral Helmet: 30040
+0C 02 02 04 00 0A
+12 defense, -2% evade, -2 int/soul, mind elemental defense, +10 strength, 10 magic defense
+
+Goldpin Helmet: 30046
+0B 02 00 08 01 0F
+11 defense, -2% evade, -0 int/soul, lightning elemental defense, +10 agility, 15 magic defense
+
+Ribbon: 3004C
+0A 00 00 FF FF 1A
+10 defense, -0% evade, -0 int/soul, resist all 8 elements, no stat boosts, 26 magic defense
+
+Clothes: 30052
+01 05 02 00 FF 05
+1 defense, -5% evade, -2 int/soul, no elemental defense, no stat boosts, 5 magic defense
+
+Leather Armor: 30058
+02 06 04 00 FF 05
+2 defense, -6% evade, -4 int/soul, no elemental defense, no stat boosts, 5 magic defense
+
+Bronze Armor: 3005E
+05 0E 14 00 FF 05
+5 defense, -14% evade, -20 int/soul, no elemental defense, no stat boosts, 5 magic defense
+
+Mithril Armor: 30064
+0A 0E 14 00 FF 0A
+10 defense, -14% evade, -20 int/soul, no elemental defense, no stat boosts, 10 magic defense
+
+Gold Armor: 3006A
+0F 13 1E 20 FF 0A
+15 defense, -19% evade, -30 int/soul, poison elemental defense, no stat boosts, 10 magic defense
+
+Knight Armor: 30070
+16 1A 2C 00 FF 0A
+22 defense, -26% evade, -44 int/soul, no elemental defense, no stat boosts, 10 magic defense
+
+Flame Armor: 30076
+1D 21 3A 02 FF 0A
+29 defense, -33% evade, -58 int/soul, fire elemental defense, no stat boosts, 10 magic defense
+
+Ice Armor: 3007C
+24 28 48 80 FF 0A
+36 defense, -40% evade, -72 int/soul, ice elemental defense, no stat boosts, 10 magic defense
+
+Diamond Armor(1): 30082
+2B 2F 56 08 FF 0A
+43 defense, -47% evade, -86 int/soul, lightning elemental defense, no stat boosts, 10 magic defense
+
+Dragon Armor: 30088
+32 36 32 AA FF 0A
+50 defense, -54% evade, -50 int/soul, fire, lightning, poison, ice elemental defense, no stat boosts, 10 magic defense
+
+Genji Armor: 3008E
+4B 4F 64 10 FF 0F
+75 defense, -79% evade, -100 int/soul, insta-death elemental defense, no stat boosts, 15 magic defense
+
+Copper Armor: 30094
+05 05 01 00 FF 0A
+5 defense, -5% evade, -1 int/soul, no elemental defense, no stat boosts, 10 magic defense
+
+Silver Armor: 3009A
+0A 05 01 00 FF 0A
+10 defense, -5% evade, -1 int/soul, no elemental defense, no stat boosts, 10 magic defense
+
+Ruby Armor: 300A0
+0F 05 01 00 FF 0A
+15 defense, -5% evade, -1 int/soul, no elemental defense, no stat boosts, 10 magic defense
+
+Quartz Armor: 300A6
+16 05 01 00 FF 0A
+22 defense, -5% evade, -1 int/soul, no elemental defense, no stat boosts, 10 magic defense
+
+Diamond Armor(2): 300AC
+2B 05 01 00 FF 0A
+43 defense, -5% evade, -1 int/soul, no elemental defense, no stat boosts, 10 magic defense
+
+White Robe: 300B2
+1E 05 00 55 04 1A
+30 defense, -5% evade, -0 int/soul, dimension, mind, insta-death, body elemental defense, +10 soul, 26 magic defense
+
+Black Robe: 300B8
+23 05 00 AA 03 1A
+35 defense, -5% evade, -0 int/soul, fire, lightning, poison, ice elemental defense, +10 intelligence, 26 magic defense
+
+Power Armor: 300BE
+19 05 01 40 00 0A
+25 defense, -5% evade, -1 int/soul, body elemental defense, +10 strength, 10 magic defense
+
+Black Armor: 300C4
+28 00 01 01 01 0A
+40 defense, -0% evade, -1 int/soul, dimension elemental defense, +10 agility, 10 magic defense
+
+Leather Gloves: 300CA
+01 03 04 00 FF 05
+1 defense, -3% evade, -4 int/soul, no elemental defense, no stat boosts, 5 magic defense
+
+Bronze Gloves: 300D0
+03 08 18 00 FF 05
+3 defense, -8% evade, -24 int/soul, no elemental defense, no stat boosts, 5 magic defense
+
+Mithril Gloves: 300D6
+06 08 18 00 FF 0A
+6 defense, -8% evade, -24 int/soul, no elemental defense, no stat boosts, 10 magic defense
+
+Thief Gloves: 300DC
+0F 03 28 00 01 0A
+15 defense, -3% evade, -40 int/soul, no elemental defense, +10 agility, 10 magic defense
+
+Giant Gloves: 300E2
+0F 11 3C 00 00 0A
+15 defense, -17% evade, -60 int/soul, no elemental defense, +10 strength, 10 magic defense
+
+Ice Gloves: 300E8
+14 16 50 02 FF 0A
+20 defense, -22% evade, -80 int/soul, fire elemental defense, no stat boosts, 10 magic defense
+
+Diamond Gloves: 300EE
+19 1B 64 08 FF 0A
+25 defense, -27% evade, -100 int/soul, lightning elemental defense, no stat boosts, 10 magic defense
+
+Genji Gloves: 300F4
+2D 2F 64 04 FF 0F
+45 defense, -47% evade, -100 int/soul, mind elemental defense, no stat boosts, 15 magic defense
+
+Defender Gloves: 300FA
+12 03 00 10 FF 1A
+18 defense, -3% evade, -0 int/soul, insta-death elemental defense, no stat boosts, 26 magic defense
+
+Power Gloves: 30100
+13 03 02 20 00 0A
+19 defense, -3% evade, -2 int/soul, poison elemental defense, +10 strength, 10 magic defense
+
+30106 - 30345: Weapons
+9 bytes each, 575 bytes total
+
+Unarmed: 30106
+00 50 00 00 00 00 00 00 FF
+|  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  Used as an item...
+|  |  |  |  |  |  |  Attack with
+|  |  |  |  |  |  Added damage to monster type
+|  |  |  |  |  Elemental properties
+|  |  |  |  Int/Soul penalty
+|  |  |  Evade
+|  |  Attack power
+|  Accuracy
+Type
+fist, 80% accurate, 0 attack power, 0% evade, -0 int/soul, no elemental attack, no added damage to monsters, no added effect, no effect when used as an item
+
+Buckler: 3010F
+01 00 01 04 46 00 00 00 FF
+shield, 0% accurate, 1 attack power, 4% evade, -70 int/soul, no elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Bronze Shield: 30118
+01 00 02 04 46 00 00 00 FF
+shield, 0% accurate, 2 attack power, 5% evade, -70 int/soul, no elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Mithril Shield: 30121
+01 00 03 06 46 00 00 00 FF
+shield, 0% accurate, 3 attack power, 6% evade, -70 int/soul, no elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Gold Shield: 3012A
+01 00 04 07 46 20 00 00 FF
+shield, 0% accurate, 4 attack power, 7% evade, -70 int/soul, poison elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Ice Shield: 30133
+01 00 04 07 46 02 00 00 FF
+shield, 0% accurate, 4 attack power, 7% evade, -70 int/soul, fire elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Flame Shield: 3013C
+01 00 04 07 46 80 00 00 FF
+shield, 0% accurate, 4 attack power, 7% evade, -70 int/soul, ice elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Diamond Shield: 30145
+01 00 04 07 46 08 00 00 FF
+shield, 0% accurate, 4 attack power, 7% evade, -70 int/soul, lightning elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Dragon Shield: 3014E
+01 00 05 09 46 AA 00 00 FF
+shield, 0% accurate, 5 attack power, 9% evade, -70 int/soul, fire, lighting, poison, ice elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Aegis Shield: 30157
+01 00 06 0A 46 55 00 00 FF
+shield, 0% accurate, 6 attack power, 10% evade, -70 int/soul, dimension, mind, insta-death, body elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Knife: 30160
+02 4B 03 01 05 00 00 00 FF
+dagger, 75% accurate, 3 attack power, 1% evade, -5 int/soul, no elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Dagger: 30169
+02 41 07 01 05 00 00 00 FF
+dagger, 65% accurate, 7 attack power, 1% evade, -5 int/soul, no elemental defense, no added damage to monsters, no added effect, no effect when used as an item
+
+Mithril Dagger: 30172
+02 43 0E 01 05 00 00 00 FF
+
+
+Gouche: 3017B
+02 46 20 05 05 00 00 00 FF
+
+
+Orhacon: 30184
+02 48 32 01 05 00 02 00 FF
+
+
+Ripper: 3018D
+02 4B 45 01 05 00 00 10 FF
+
+
+CatClaw: 30196
+02 50 56 01 05 00 10 00 FF
+
+
+Cane: 3019F
+03 46 04 01 05 00 00 00 FF
+
+
+Mace: 301A8
+03 3C 09 01 14 00 00 00 FF
+
+
+Mithril Cane: 301B1
+03 3C 10 01 14 00 00 00 FF
+
+
+Were Cane: 301BA
+03 3E 1C 01 14 00 40 00 FF
+
+
+Magic Cane: 301C3
+03 40 28 01 05 00 00 00 4B
+
+
+Power Cane: 301CC
+03 42 35 01 14 00 00 00 FF
+
+
+Evil Cane: 301D5
+03 44 40 01 05 00 00 00 52
+
+
+Greed Cane: 301DE
+03 46 4E 01 05 00 80 20 FF
+
+
+Diamond Cane: 301E7
+03 4B 5A 01 05 00 00 00 FF
+
+
+Javelin: 301F0
+04 41 06 01 28 00 00 00 FF
+
+
+Spear: 301F9
+04 37 0B 01 28 00 00 00 FF
+
+
+Mithril Spear: 30202
+04 37 12 01 28 00 00 00 FF
+
+
+Trident: 3020B
+04 39 1E 01 28 00 02 00 FF
+
+
+Demon: 30214
+04 3C 2A 01 28 00 01 00 FF
+
+
+Flame Spear: 3021D
+04 3E 36 01 28 02 00 00 FF
+
+
+Ice Spear: 30226
+04 41 42 01 28 80 00 00 FF
+
+
+Bolt Spear: 3022F
+04 43 4E 01 28 08 00 00 7C
+
+
+Holy Spear: 30238
+04 46 5A 01 28 00 20 00 46
+
+
+Broad Sword: 30241
+05 3C 08 01 32 00 00 00 FF
+
+
+Long Sword: 3024A
+05 32 0D 01 32 00 00 00 FF
+
+
+Mithril Sword: 30253
+05 32 14 01 32 00 00 00 FF
+
+
+Ancient Sword: 3025C
+05 0A 19 01 32 00 00 09 FF
+
+
+Sleep Sword: 30265
+05 0A 1E 01 32 00 00 0A FF
+
+
+Winged Sword: 3026E
+05 38 2A 01 32 00 01 00 FF
+
+
+Blood Sword: 30277
+05 00 00 00 64 00 00 04 FF
+
+
+Earth Sword: 30280
+05 3A 34 01 32 00 04 00 FF
+
+
+Flame Sword: 30289
+05 3C 3F 01 32 02 00 00 FF
+
+
+Ice Sword: 30292
+05 3E 48 01 32 80 00 00 FF
+
+
+Defender: 3029B
+05 40 4E 08 32 00 00 00 FF
+
+
+Sun Sword: 302A4
+05 41 53 01 32 00 80 00 FF
+
+
+Excalibur: 302AD
+05 4B 64 01 1E FF F8 00 FF
+
+
+Masamune: 302B6
+05 5A 96 02 00 00 00 00 68
+sword, 90% accurate, 150 attack power, 2% evade, -0 int/soul, no elemental attack, no added damage to monsters, no added effect, cast Haste 11 (group)
+
+Axe: 302BF
+06 37 0A 01 32 00 00 00 FF
+
+
+Battle Axe: 302C8
+06 2D 0F 01 32 00 00 00 FF
+
+
+Mithril Axe: 302D1
+06 2D 16 01 32 00 00 00 FF
+
+
+Demon Axe: 302DA
+06 2D 1B 01 32 00 00 00 FF
+
+
+Ogre Axe: 302E3
+06 32 3A 01 32 00 08 00 FF
+
+
+Poison Axe: 302EC
+06 37 4C 01 32 20 00 05 FF
+
+
+Rune Axe: 302F5
+06 3C 5F 01 32 00 10 00 6F
+
+
+Bow: 302FE
+07 32 01 00 46 00 00 00 FF
+
+
+Long Bow: 30307
+07 28 05 00 46 00 00 00 FF
+
+
+Mithril Bow: 30310
+07 28 0D 00 46 00 00 00 FF
+
+
+Blind Bow: 30319
+07 00 19 00 46 00 00 03 FF
+
+
+Flame Bow: 30322
+07 2F 2A 00 46 02 00 00 FF
+
+
+Ice Bow: 3032B
+07 32 38 00 46 80 00 00 FF
+
+
+Killer Bow: 30334
+07 00 00 00 46 00 00 81 FF
+
+
+Yoichi Bow: 3033D
+07 4B 5A 00 46 00 00 00 67

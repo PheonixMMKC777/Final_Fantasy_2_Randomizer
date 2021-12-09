@@ -1,0 +1,775 @@
+Best viewed on a 1024x768 resolution. Turn on Word Wrap if your reso is lower.
+
+big thanks to Vagla for figuring out the shop locations and format
+
+buying table:
+$38190 - $3820F
+2 bytes each, 128 bytes total
+
+table:
+02 00 04 00 05 00 08 00 0A 00 0F 00 14 00 1E 00
+28 00 32 00 50 00 64 00 7D 00 96 00 C8 00 FA 00
+E8 03 E8 03 D0 07 E8 03 2C 01 1E 00 0A 00 C8 00
+32 00 01 00 90 01 64 00 96 00 00 00 00 00 00 00
+98 3A 20 4E A8 61 30 75 40 9C 50 C3 14 00 E8 FD
+00 00 32 00 50 00 64 00 00 00 96 00 C8 00 FA 00
+2C 01 90 01 F4 01 58 02 20 03 E8 03 DC 05 08 07
+D0 07 C4 09 B8 0B A0 0F 88 13 40 1F 10 27 E0 2E
+
+Item prices:
+38010 - 3820F
+
+38030 & 38031: Price to sell Potion
+
+38032 & 38033: Price to sell Antidote
+
+38034 & 38035: Price to sell Gold-Pin
+
+38038 & 38039: Price to sell Maiden's Kiss
+
+38042 & 38043: Price to sell Ether
+
+38036 & 38037: Price to sell Crucifix
+
+3803A & 3803B: Price to sell Echo Screen
+
+3803C & 3803D: Price to sell Eye Drop
+
+3803E & 3803F: Price to sell Phoenix Down
+
+38040 & 38041: Price to sell Elixir
+
+38044 & 38045: Price to sell X-Potion
+
+38046 & 38047: Price to sell Cottage
+
+38048 & 38049: Price to sell Wind Flute
+
+3804A & 3804B: Price to sell Earth Drum
+
+3804C & 3804D: Price to sell Garlic
+
+3804E & 3804F: Price to sell Unicorn
+
+38050 & 38051: Price to sell Ice Wind
+
+38052 & 38053: Price to sell Elder IQ
+
+38054 & 38055: Price to sell Heart
+
+38056 & 38057: Price to sell Shoes
+
+38058 & 38059: Price to sell Thread
+
+3805A & 3805B: Price to sell SilentB
+
+3805C & 3805D: Price to sell Egg Timer
+
+3805E & 3805F: Price to sell Death God
+
+38060 & 38061: Price to sell Bacchus' Wine
+
+38062 & 38063: Price to sell Dragon Bean
+
+38064 & 38065: Price to sell Valium
+
+38066 & 38067: Price to sell Ice Scythe
+
+38068 & 38069: Price to sell Fang
+
+3806A & 3806B: Price to sell Mirror
+
+3806C & 3806D: Price to sell Hellfire
+
+3806E & 3806F: Price to sell Phin, I imagine
+
+38070 & 38071: Price to sell "unarmed," I think
+
+38072 & 38073: Price to sell Buckler
+
+38074 & 38075: Price to sell Bronze Shield
+
+38076 & 38077: Price to sell Mithril Shield
+
+38078 & 38079: Price to sell Gold Shield
+
+3807A & 3807B: Price to sell Ice Shield
+
+3807C & 3807D: Price to sell Flame Shield
+
+3807E & 3807F: Price to sell Diamond Shield
+
+38080 & 38081: Price to sell Dragon Shield
+
+38082 & 38083: Price to sell Aegis Shield
+
+38084 & 38085: Price to sell Knife
+
+38086 & 38087: Price to sell Dagger
+
+38088 & 38089: Price to sell Mithril Dagger
+
+3808A & 3808B: Price to sell Gouche
+
+3808C & 3808D: Price to sell Orhacon
+
+3808E & 3808F: Price to sell Ripper
+
+38090 & 38091: Price to sell CatClaw
+
+38092 & 38093: Price to sell Cane
+
+38094 & 38095: Price to sell Mace
+
+38096 & 38097: Price to sell Mithril Cane
+
+38098 & 38099: Price to sell Were Cane
+
+3809A & 3809B: Price to sell Magic Cane
+
+3809C & 3809D: Price to sell Power Cane
+
+3809E & 3809F: Price to sell Evil Cane
+
+380A0 & 380A1: Price to sell Greed Cane
+
+380A2 & 380A3: Price to sell Diamond Cane
+
+380A4 & 380A5: Price to sell Javelin
+
+380A6 & 380A7: Price to sell Spear
+
+380A8 & 380A9: Price to sell Mithril Spear
+
+380AA & 380AB: Price to sell Trident
+
+380AC & 380AD: Price to sell Demon
+
+380AE & 380AF: Price to sell Flame Spear
+
+380B0 & 380B1: Price to sell Ice Spear
+
+380B2 & 380B3: Price to sell Bolt Spear
+
+380B4 & 380B5: Price to sell Holy Spear
+
+380B6 & 380B7: Price to sell Broad Sword
+
+380B8 & 380B9: Price to sell Long Sword
+
+380BA & 380BB: Price to sell Mithril Sword
+
+380BC & 380BD: Price to sell Ancient Sword
+
+380BE & 380BF: Price to sell Sleep Sword
+
+380C0 & 380C1: Price to sell Winged Sword
+
+380C2 & 380C3: Price to sell Blood Sword
+
+380C4 & 380C5: Price to sell Earth Sword
+
+380C6 & 380C7: Price to sell Flame Sword
+
+380C8 & 380C9: Price to sell Ice Sword
+
+380CA & 380CB: Price to sell Defender
+
+380CC & 380CD: Price to sell Sun Sword
+
+380CE & 380CF: Price to sell Excalibur
+
+380D0 & 380D1: Price to sell Masamune
+
+380D2 & 380D3: Price to sell Axe
+
+380D4 & 380D5: Price to sell Battle Axe
+
+380D6 & 380D7: Price to sell Mithril Axe
+
+380D8 & 380D9: Price to sell Demon Axe
+
+380DA & 380DB: Price to sell Ogre Axe
+
+380DC & 380DD: Price to sell Poison Axe
+
+380DE & 380DF: Price to sell Rune Axe
+
+380E0 & 380E1: Price to sell Bow
+
+380E2 & 380E3: Price to sell Long bow
+
+380E4 & 380E5: Price to sell Mithril Bow
+
+380E6 & 380E7: Price to sell Blind Bow
+
+380E8 & 380E9: Price to sell Flame Bow
+
+380EA & 380EB: Price to sell Ice Bow
+
+380EC & 380ED: Price to sell Killer Bow
+
+380EE & 380EF: Price to sell Yoichi Bow
+
+380F0 & 380F1: Price to sell Leather Helmet
+
+380F2 & 380F3: Price to sell Bronze Helmet
+
+380F4 & 380F5: Price to sell Mithril Helmet
+
+380F6 & 380F7: Price to sell Giant Helmet
+
+380F8 & 380F9: Price to sell Flame Helmet
+
+380FA & 380FB: Price to sell Diamond Helmet
+
+380FC & 380FD: Price to sell Genji Helmet
+
+380FE & 380FF: Price to sell Spiral Helmet
+
+38100 & 38101: Price to sell Goldpin Helmet
+
+38102 & 38103: Price to sell Ribbon
+
+38104 & 38105: Price to sell Clothes
+
+38106 & 38107: Price to sell Leather Armor
+
+38108 & 38109: Price to sell Bronze Armor
+
+38109 & 3810A: Price to sell Mithril Armor
+
+3810C & 3810D: Price to sell Gold Armor
+
+3810E & 3810F: Price to sell Knight Armor
+
+38110 & 38111: Price to sell Flame Armor
+
+38112 & 38113: Price to sell Ice Armor
+
+38114 & 38115: Price to sell Diamond Armor
+
+38116 & 38117: Price to sell Dragon Armor
+
+38118 & 38119: Price to sell Genji Armor
+
+3811A & 3811B: Price to sell Copper Armor
+
+3811C & 3811D: Price to sell Silver Armor
+
+3811E & 3811F: Price to sell Ruby Armor
+
+38120 & 38121: Price to sell Quartz Armor
+
+38122 & 38123: Price to sell Diamond Armor
+
+38124 & 38125: Price to sell White Robe
+
+38126 & 38127: Price to sell Black Robe
+
+38128 & 38129: Price to sell Power Armor
+
+3812A & 3812B: Price to sell Black Armor
+
+3812C & 3812D: Price to sell Leather Gloves
+
+3812E & 3812F: Price to sell Bronze Gloves
+
+38130 & 38131: Price to sell Mithril Gloves
+
+38132 & 38133: Price to sell Thief Gloves
+
+38134 & 38135: Price to sell Giant Gloves
+
+38136 & 38137: Price to sell Ice Gloves
+
+38138 & 38139: Price to sell Diamond Gloves
+
+3813A & 3813B: Price to sell Genji Gloves
+
+3813C & 3813D: Price to sell Defender Gloves
+
+3813E & 3813F: Price to sell Power Gloves
+
+38140 & 38141: Price to sell Fire Scroll
+
+38142 & 38143: Price to sell Bolt Scroll
+
+38144 & 38145: Price to sell Ice Scroll
+
+38146 & 38147: Price to sell Aero Scroll
+
+38148 & 38149: Price to sell Drain Scroll
+
+3814A & 3814B: Price to sell Osmose Scroll
+
+3814C & 3814D: Price to sell Flare Scroll
+
+3814E & 3814F: Price to sell Sleep Scroll
+
+38150 & 38151: Price to sell Stone Scroll
+
+38152 & 38153: Price to sell Stop Scroll
+
+38154 & 38155: Price to sell Charm Scroll
+
+38156 & 38157: Price to sell Blind Scroll
+
+38158 & 38159: Price to sell Curse Scroll
+
+3815A & 3815B: Price to sell Toad Scroll
+
+3815C & 3815D: Price to sell Break Scroll
+
+3815E & 3815F: Price to sell Death Scroll
+
+38160 & 38161: Price to sell Warp Scroll
+
+38162 & 38163: Price to sell Berserk Scroll
+
+38164 & 38165: Price to sell Haste Scroll
+
+38166 & 38167: Price to sell Aura Scroll
+
+38168 & 38169: Price to sell Cure Scroll
+
+3816A & 3816B: Price to sell Life Scroll
+
+3816C & 3816D: Price to sell Peep Scroll
+
+3816E & 3816F: Price to sell Heal Scroll
+
+38170 & 38171: Price to sell Barrier Scroll
+
+38172 & 38173: Price to sell Blink Scroll
+
+38174 & 38175: Price to sell Safe Scroll
+
+38176 & 38177: Price to sell Shell Scroll
+
+38178 & 38179: Price to sell Wall Scroll
+
+3817A & 3817B: Price to sell Dispel Scroll
+
+3817C & 3817D: Price to sell Mini Scroll
+
+3817E & 3817F: Price to sell Mute Scroll
+
+38180 & 38181: Price to sell Anti Scroll
+
+38182 & 38183: Price to sell Fog Scroll
+
+38184 & 38185: Price to sell Slow Scroll
+
+38186 & 38187: Price to sell Change Scroll
+
+38188 & 38189: Price to sell Fear Scroll
+
+3818A & 3818B: Price to sell Holy Scroll
+
+3818C & 3818D: Price to sell Exit Scroll
+
+3818E & 3818F: Price to sell Ultima Scroll
+
+$3861D - $386F5: every shop in the game, there might be more after, gonna have to test for that
+
+Shops work like this, take the first byte of an item, that is the item ID number, use the chart below. For now, let's use a
+Potion, ID number 10. The second byte is what price it looks at. The format is, take that number, multiply it by 2, then add
+0x38010. As an example, D2. Multiply by 2 is 1A4, add 0x38010. Answer is 381B4, so look at 381B4. The table at the top has
+D0 07 at that byte (381B4 & 381B5), byte swap... 7D0, and you must now fork out 2000 gil to buy that potion. So the first
+slot in your shop would be 10 D2, and for the easy stuff, use Atlea's Weapon shop since it's first in the list. So now in
+your hex editor, head to offset 3861D, you should see 3A ED there, change it to 10 D2. Save, open up your rom, head to
+Altea's Weapon shop. Good work, now you need to pay 2000 gil for a friggin Potion... :)
+
+Altea:
+$3861D - $38624: weapon shop
+3A ED 41 EF 4A F0 53 F1
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  price 4
+|  |  |  |  |  |  item 4
+|  |  |  |  |  price 3
+|  |  |  |  item 3
+|  |  |  price 2
+|  |  item 2 
+|  price 1
+item 1
+Knife, 150, Cane, 250, Javelin, 300, Broad Sword, 400
+
+$38625 - $3862C: armor shop
+31 E9 70 EA 7A E6 8E E9
+Buckler, 50, Leather Helmet, 80, Clothes, 20, Leather Gloves, 50
+
+$3862D - $38634: magic shop
+98 F1 99 F1 9A F1 AC EE
+Fire Scroll, 400, Bolt Scroll, 400, Ice Scroll, 400, Cure Scroll, 200
+
+$38635 - $3863C: mithril weapon shop
+3C F4 43 F6 4C F6 55 F7
+Mithril Dagger, 800, Mithril Cane, 1500, Mithril Spear, 1500, Mithril Sword, 1800
+
+$3863D - $38644: mithril armor shop
+33 F2 72 F0 7D F5 90 F4
+Mithril Shield, 500, Mithril Helmet, 300, Mithril Armor, 1000, Mithril Gloves, 800
+
+Gatea:
+$38645 - $3864C: weapon shop
+4A F0 53 F1 61 F2 68 ED
+Javelin, 300, Broad Sword, 400, Axe, 500, Bow, 150
+
+$3864D - $38654: armor shop
+31 E9 70 EA 7B EB 8E E9
+Buckler, 50, Leather Helmet, 80, Leather Armor, 100, Leahter Gloves, 50
+
+Poft:
+$38655 - $3865C: weapon shop
+3B F1 42 F2 61 F2 68 ED
+Dagger, 400, Mace, 500, Axe, 500, Bow, 150
+
+$3865D - $38664: armor shop
+32 EE 71 EE 85 EE 8F F0
+Bronze Shield, 200, Bronze Helmet, 200, Copper Armor, 200, Broze Gloves, 300
+
+$38665 - $3866C: magic shop
+AC EE B1 F1 B2 F1 B3 F1
+Cure Scroll, 200, Blink Scroll, 400, Safe Scroll, 400, Shell Scroll, 400
+
+Unknown:
+$3866D - $38674: unknown mithril shop (weapons)
+4C F6 55 F7 63 F8 6A F5
+Mithril Spear, 1500, Mithril Sword, 1800, Mithril Axe, 2000, Mithril Bow, 1000
+
+Salamando:
+$38675 - $3867C: weapon shop
+42 F2 54 F3 62 F4 69 EF
+Mace, 500, Long Sword, 600, Battle Axe, 800, Long Bow, 250
+
+$3867D - $38684: armor shop
+32 EE 71 EE 7C F1 8F F0
+Bronze Shield, 200, Bronze Helmet, 200, Bronze Armor, 400, Bronze Gloves, 300
+
+$38685 - $3868C: magic shop
+AD F6 B8 F6 A8 F6 BE F6
+Life Scroll, 1500, Anti Scroll, 1500, Warp Scroll, 1500, Exit Scroll, 1500
+
+Bofsk:
+$3868D - $38694: weapon shop
+3B F1 4B F2 54 F3 69 EF
+Dagger, 400, Spear, 500, Long Sword, 600, Long Bow, 250
+
+$38695 - $3869C: armor shop
+32 EE 71 EE 86 F1 8F F0
+Bronze Shield, 200, Bronze Helmet, 200, Silver Armor, 400, Bronze Gloves, 300
+
+$3869D - $386A4: magic shop
+BC F4 AE 4F AF F4 B7 F4
+Fear Scroll, 800, Peep Scroll, 800, Heal Scroll, 800, Mute Scroll, 800
+
+Phin:
+$386A5 - $386AC: weapon shop
+44 FA 4D FC 58 FC 6C FC
+Were Cane, 3000, Trident, 5000, Winged Sword, 5000, Flame Bow, 5000
+
+$386AD - $387B4: armor shop
+34 F5 73 F3 7E F9 88 F5
+Gold Shield, 1000, Giant Helmet, 600, Gold Armor, 2500, Quartz Armor, 1000
+
+$387B5 - $387BC: magic shop
+B5 FA B6 FA B9 FA BA FA
+Dispel Scroll, 3000, Mini Scroll, 3000, Fog Scroll, 3000, Slow Scroll, 3000
+
+Mysidia:
+$368BD - $369C4: weapon shop
+46 FD 4F E0 65 E0 6D FC
+Power Cane, 8000, Flame Spear, 15,000, Ogre Axe, 15,000, Ice Bow, 5000
+
+$386C5 - $386CC: armor shop
+35 FC 7F FC 91 F5 92 F8
+Ice Shield, 5000, Knight Armor, 5000, Thief Gloves, 1000, Giant Gloves, 2000
+
+$386CD - $386D4: magic shop
+B0 FD B4 FD BB FD BD E1
+Barrier Scroll, 8000, Wall Scroll, 8000, Change Scroll, 8000, Holy Scroll, 20,000
+
+Tropical Island:
+$386D5 - $386DC: Miscellaneous
+64 FE 4E FE 87 F4 1D FD
+Demon Axe, 10,000, Demon Spear, 10,000, Ruby Armor, 800, Earth Drum, 8000
+
+$386DD - $386F4: all three item shops
+10 E9 1A F2 16 EB 11 EE
+Potion, 50, X-Potion, 500, Eye Drop, 100, Antidote, 200
+
+13 F5 15 F8 14 F9 12 F9
+Crucifix, 1000, Echo Screen, 2000, Maiden's Kiss, 2500, Gold Pin, 2500
+
+17 FC 19 F9 1B FC 18 E5
+Phoenix Down, 5000, Ether, 2500, Cottage, 5000, Elixir, 50,000
+
+Jade passage:
+$386F5 - $386FC: magic shop
+A7 FE A9 FE AA E1 9E E4
+Death Scroll, 10,000, Berserk Scroll, 10,000, Haste Scroll, 20,000, Flare Scroll, 40,000
+
+Item ID's:
+00: Nothing
+
+01-0E: Key Items
+01: Ring
+02: Canoe
+03: Pass
+04: Mithril
+05: Ice Sled
+06: Goddess Bell
+07: Egil Torch
+08: Sun Flame
+09: Pendant
+0A: Egg
+0B: White Mask
+0C: Black Mask
+0D: Crystal Rod
+0E: Hiryuu
+
+0F: ???
+
+10-2F: Items
+10: Potion
+11: Antidote
+12: Gold Pin
+13: Crucifix
+14: Maiden's Kiss
+15: Echo Screen
+16: Eye Drop
+17: Phoenix Down
+18: Elixir
+19: Ether
+1A: X Potion
+1B: Cottage
+1C: Wind Flute
+1D: Earth Drum
+1E: Garlic
+1F: Unicorn
+20: Ice Wind
+21: Elder IQ
+22: Heart
+23: Shoes
+24: Thread
+25: SilentB (what the hell is this?)
+26: Egg Timer
+27: Death God
+28: Bacchus' Wine
+29: Dragon Bean
+2A: Valium
+2B: Ice Scythe
+2C: Fang
+2D: Mirror
+2E: Hellfire
+2F: Phin (I'm not entirely convinced this is an item.)
+
+30: "Unarmed"
+
+31-39: Shields
+31: Buckler
+32: Bronze Shield
+33: Mithril Shield
+34: Gold Shield
+35: Ice Shield
+36: Flame Shield
+37: Diamond Shield
+38: Dragon Shield
+39: Aegis Shield
+
+3A-40: Dirks
+3A: Knife
+3B: Dagger
+3C: Mithril Dagger
+3D: Gouche
+3E: Orhacon
+3F: Ripper
+40: CatClaw
+
+41-49: Canes
+41: Cane
+42: Mace
+43: Mithril Cane
+44: Were Cane
+45: Magic Cane
+46: Power Cane
+47: Evil Cane
+48: Greed Cane
+49: Diamond Cane
+
+4A-52: Spears
+4A: Javelin
+4B: Spear
+4C: Mithril Spear
+4D: Trident
+4E: Demon
+4F: Flame Spear
+50: Ice Spear
+51: Bolt Spear
+52: Holy Spear
+
+53-60: Swords
+53: Broad Sword
+54: Long Sword
+55: Mithril Sword
+56: Ancient Sword
+57: Sleep Sword
+58: Winged Sword
+59: Blood Sword
+5A: Earth Sword
+5B: Flame Sword
+5C: Ice Sword
+5D: Defender
+5E: Sun Sword
+5F: Excalibur
+60: Masamune
+
+61-67: Axe's
+61: Axe
+62: Battle Axe
+63: Mithril Axe
+64: Demon Axe
+65: Ogre Axe
+66: Poison Axe
+67: Rune Axe
+
+68-6F: Bow's
+68: Bow
+69: Long bow
+6A: Mithril Bow
+6B: Blind Bow
+6C: Flame Bow
+6D: Ice Bow
+6E: Killer Bow
+6F: Yoichi Bow
+
+70-79: Helmets
+70: Leather Helmet
+71: Bronze Helmet
+72: Mithril Helmet
+73: Giant Helmet
+74: Flame Helmet
+75: Diamond Helmet
+76: Genji Helmet
+77: Spiral Helmet
+78: Goldpin Helmet
+79: Ribbon
+
+7A-8D: Armor
+7A: Clothes
+7B: Leather Armor
+7C: Bronze Armor
+7D: Mithril Armor
+7E: Gold Armor
+7F: Knight Armor
+80: Flame Armor
+81: Ice Armor
+82: Diamond Armor
+83: Dragon Armor
+84: Genji Armor
+85: Copper Armor
+86: Silver Armor
+87: Ruby Armor
+88: Quartz Armor
+89: Diamond Armor
+8A: White Robe
+8B: Black Robe
+8C: Power Armor
+8D: Black Armor
+
+8E-97: Gloves
+8E: Leather Gloves
+8F: Bronze Gloves
+90: Mithril Gloves
+91: Thief Gloves
+92: Giant Gloves
+93: Ice Gloves
+94: Diamond Gloves
+95: Genji Gloves
+96: Defender Gloves
+97: Power Gloves
+
+98-BF: Scrolls
+98: Fire Scroll
+99: Bolt Scroll
+9A: Ice Scroll
+9B: Aero Scroll
+9C: Drain Scroll
+9D: Osmose Scroll
+9E: Flare Scroll
+9F: Sleep Scroll
+A0: Stone Scroll
+A1: Stop Scroll
+A2: Charm Scroll
+A3: Blind Scroll
+A4: Curse Scroll
+A5: Toad Scroll
+A6: Break Scroll
+A7: Death Scroll
+A8: Warp Scroll
+A9: Berserk Scroll
+AA: Haste Scroll
+AB: Aura Scroll
+AC: Cure Scroll
+AD: Life Scroll
+AE: Peep Scroll
+AF: Heal Scroll
+B0: Barrier Scroll
+B1: Blink Scroll
+B2: Safe Scroll
+B3: Shell Scroll
+B4: Wall Scroll
+B5: Dispel Scroll
+B6: Mini Scroll
+B7: Mute Scroll
+B8: Anti Scroll
+B9: Fog Scroll
+BA: Slow Scroll
+BB: Change Scroll
+BC: Fear Scroll
+BD: Holy Scroll
+BE: Exit Scroll
+BF: Ultima Scroll
+
+C0 - E7: Spells (in characters spell menu)
+C0: Fire
+C1: Bolt
+C2: Ice
+C3: Aero
+C4: Drain
+C5: Osmose
+C6: Flare
+C7: Sleep
+C8: Stone
+C9: Stop
+CA: Charm
+CB: Blind
+CC: Curse
+CD: Toad
+CE: Break
+CF: Death
+D0: Warp
+D1: Berserk
+D2: Haste (Fast)
+D3: Aura
+D4: Cure
+D5: Life
+D6: Peep (Basuna)
+D7: Heal (Esuna)
+D8: Barrier
+D9: Blink
+DA: Safe
+DB: Shell
+DC: Wall
+DD: Dispel
+DE: Mini
+DF: Mute
+E0: Anti
+E1: Fog
+E2: Slow
+E3: Change
+E4: Fear
+E5: Holy
+E6: Exit
+E7: Ultima
