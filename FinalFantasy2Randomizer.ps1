@@ -33,7 +33,7 @@ $WeaponByteList = 49..111
 $WeaponTier1 = 49,50,51, 58,59,60, 65,66,67, 74,75,76,    83,84,85,86,    97,98,99, 104,105,106
 $WeaponTier2 = 52,53,54, 61,62,    68,69,70, 77,78,79,    87,88,89,90,91, 100,101,  107,108,109
 $WeaponTier3 = 55,56,57, 63,64,    71,72,73, 80,81,82,    92,93,94,95,96, 102,103,  110,111
-
+ 
 $WeaponTier4 = 57,64,73,82,96,103,111
 
 
@@ -48,7 +48,7 @@ $ArmorTier4 = 120,121,     130,131,132, 140,141,142, 151,152
 
 
 
-$SpellByteList = 192..231
+$SpellByteList = 153..191
 
 
 
@@ -511,7 +511,7 @@ Function TieredShops {
     $HexValue = $RandomByte
     $Romfile[$Address+6] = $HexValue
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     
     
@@ -542,7 +542,7 @@ Function TieredShops {
 
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -571,7 +571,7 @@ Function TieredShops {
 
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -600,7 +600,7 @@ Function TieredShops {
 
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     
 
@@ -628,7 +628,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
         #endregion altea
 
@@ -663,7 +663,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -692,7 +692,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -729,7 +729,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -757,7 +757,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -785,7 +785,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
         #endregion poft
@@ -820,7 +820,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -848,7 +848,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -876,7 +876,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -913,7 +913,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -941,7 +941,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -969,7 +969,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1007,7 +1007,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1035,7 +1035,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1063,7 +1063,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
                  
 
 
@@ -1098,7 +1098,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1126,7 +1126,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1154,7 +1154,7 @@ Function TieredShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
                  
 
 
@@ -1236,7 +1236,7 @@ Function RandomizeShops {
     $HexValue = $RandomByte
     $Romfile[$Address+6] = $HexValue
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     
     
@@ -1267,7 +1267,7 @@ Function RandomizeShops {
 
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -1296,7 +1296,7 @@ Function RandomizeShops {
 
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -1325,7 +1325,7 @@ Function RandomizeShops {
 
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     
 
@@ -1353,7 +1353,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
         #endregion altea
 
@@ -1388,7 +1388,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1417,7 +1417,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1454,7 +1454,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1482,7 +1482,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1510,7 +1510,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
         #endregion poft
@@ -1545,7 +1545,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1573,7 +1573,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1601,7 +1601,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1638,7 +1638,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1666,7 +1666,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1694,7 +1694,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1732,7 +1732,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1760,7 +1760,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1788,7 +1788,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
                  
 
 
@@ -1823,7 +1823,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1851,7 +1851,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -1879,7 +1879,7 @@ Function RandomizeShops {
     $Romfile[$Address+6] = $HexValue
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
                  
 
 
@@ -1915,7 +1915,7 @@ Function RandomizeShops {
     #endregion Jamaica
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
         $main_Window.Controls.Add($Randomize_Shops_Complete)
@@ -1938,7 +1938,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomByte 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -1951,7 +1951,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomByte 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -1964,7 +1964,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomByte 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -1976,7 +1976,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomByte 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -1988,7 +1988,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomByte 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2002,7 +2002,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomByte 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2016,7 +2016,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomByte 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2029,7 +2029,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomByte 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2044,7 +2044,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomByte 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2190,7 +2190,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $FirionSprite 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2203,7 +2203,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $MariaSprite 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2216,7 +2216,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $GuySprite 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2229,7 +2229,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $MinwuSprite 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2242,7 +2242,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $JosefSprite 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2256,7 +2256,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $GordonSprite 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2269,7 +2269,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $LaylaSprite 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2283,7 +2283,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RichardSprite 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2296,7 +2296,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $LeonSprite 
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2330,7 +2330,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseHP
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
  
@@ -2345,7 +2345,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2356,7 +2356,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2367,7 +2367,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2378,7 +2378,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2389,7 +2389,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     $main_Window.controls.Add($Randomize_Base_Stats_Complete)
 
@@ -2414,7 +2414,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseHP
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
  
@@ -2429,7 +2429,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2440,7 +2440,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2451,7 +2451,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2462,7 +2462,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2473,7 +2473,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     $main_Window.controls.Add($Randomize_Base_Stats_Complete)
 
@@ -2498,7 +2498,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseHP
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
  
@@ -2513,7 +2513,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2524,7 +2524,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2535,7 +2535,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2546,7 +2546,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
@@ -2557,7 +2557,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $RandomizedBaseStat
     $Romfile[$Address] = $HexValue
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     $main_Window.controls.Add($Randomize_Base_Stats_Complete)
 
@@ -2583,7 +2583,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $Player1_Textbox.Text
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2597,7 +2597,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $Player2_Textbox.Text
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2611,7 +2611,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $HexValue = $Player3_Textbox.Text
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     $main_window.Controls.Add($Character_Select_Complete)
@@ -2629,10 +2629,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0xFC0    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -2640,10 +2640,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0xFC1    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
                 # # # Maria # # #
@@ -2654,10 +2654,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1040    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -2665,10 +2665,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1041    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
                 # # # Guy # # #
@@ -2679,10 +2679,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x10C0    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -2690,10 +2690,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x10C1    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
                 # # # Minwu # # #
@@ -2704,10 +2704,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1140    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -2715,10 +2715,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1141    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
                 # # # Josef # # #
@@ -2729,10 +2729,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x11C0    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -2740,10 +2740,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x11C1    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2755,10 +2755,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1240    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -2766,10 +2766,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1241    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2781,10 +2781,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x12C0    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -2792,10 +2792,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x12C1    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2807,10 +2807,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1340    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -2818,10 +2818,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1341    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
                # # # Leon # # #
@@ -2832,10 +2832,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x13C0    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
     
@@ -2843,10 +2843,10 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x13C1    # current
-    $HexValue = $SpellByteList | Get-Random
+    $HexValue = $MagicByteList | Get-Random
     $Romfile[$Address] = $HexValue 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " 2S"
@@ -2870,7 +2870,7 @@ $Address = 0x17810    # current
     $Romfile[$Address] = $HexValue 
     $Address++ 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
        
        }
 
@@ -2910,7 +2910,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[$Address+15] = $HexValue 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -2939,7 +2939,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[$Address+15] = $HexValue 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     #Guy
@@ -2967,7 +2967,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[$Address+15] = $HexValue 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     #Minwu
@@ -2995,7 +2995,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[$Address+15] = $HexValue 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -3024,7 +3024,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[$Address+15] = $HexValue 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -3053,7 +3053,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[$Address+15] = $HexValue 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     #Layla
@@ -3081,7 +3081,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[$Address+15] = $HexValue 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     #Richard
 
@@ -3108,7 +3108,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[$Address+15] = $HexValue 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     #Leon Musk
@@ -3136,7 +3136,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[$Address+15] = $HexValue 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -3154,7 +3154,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Address = "0xFD$WeaponAddress"
     $Romfile[$Address] = 4
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
     #Maria
@@ -3166,7 +3166,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Address = "0x105$WeaponAddress"
     $Romfile[$Address] = 4
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)    
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)    
 
     #Guy
 
@@ -3177,7 +3177,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Address = "0x10D$WeaponAddress"
     $Romfile[$Address] = 4
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     #Minwu
 
@@ -3188,7 +3188,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Address = "0x115$WeaponAddress"
     $Romfile[$Address] = 4
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)    
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)    
 
     #Josef
 
@@ -3199,7 +3199,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Address = "0x11D$WeaponAddress"
     $Romfile[$Address] = 4
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     #Gordon
 
@@ -3210,7 +3210,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Address = "0x125$WeaponAddress"
     $Romfile[$Address] = 4
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)    
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)    
 
     #Layla
 
@@ -3221,7 +3221,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Address = "0x12D$WeaponAddress"
     $Romfile[$Address] = 4
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     #Richard
 
@@ -3232,7 +3232,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Address = "0x135$WeaponAddress"
     $Romfile[$Address] = 4
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)    
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)    
 
     #Leon
 
@@ -3243,7 +3243,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Address = "0x13D$WeaponAddress"
     $Romfile[$Address] = 4
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " LW"
@@ -3267,7 +3267,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
         # Guy
         
@@ -3280,7 +3280,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
         # Minh
         
@@ -3292,7 +3292,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
         # Josef
         
@@ -3304,7 +3304,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -3318,7 +3318,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
         # Layla
         
@@ -3330,7 +3330,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
         # Richard
         
@@ -3343,7 +3343,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
         # Leon
         
@@ -3355,7 +3355,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
             # i forgot XDD, something to do with life spell
@@ -3377,7 +3377,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES") 
 $Romfile[0x38685] = 0xE9
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -3388,7 +3388,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[$Address] = 0xE9
 
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
              #Disable life statue
@@ -3404,7 +3404,7 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
     $Romfile[0x38D1A + 1] = $NOP
     $Romfile[0x38D1A + 2] = $NOP
 
-    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     
     Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " SC"
@@ -3456,7 +3456,7 @@ function CustomPlayerColor {
     $HexValue3 = $GuyByte3 | Get-Random
     $Romfile[$Address+2] = $HexValue3
     
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -3486,7 +3486,7 @@ function DoublePlayerSpeed {
     $Romfile[$Address2] = $HexValue
 
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " DW"
 
@@ -3573,7 +3573,7 @@ function MaxOutStats {
     $Romfile[$FSpell] = $LIFE
     $Romfile[$FSpell + 1] = $CURE
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " DW"
 
@@ -3677,7 +3677,7 @@ function Dressup {
     $Romfile[$Address3] = $HexValue
     #$Romfile[$Address4] = $HexValue2
 
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -3728,7 +3728,7 @@ function SetupAirship {
 
 
     
-[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
     Add-Content -Path "$Currentdir\Spoilers.Txt" -Value " DW"
 
@@ -3757,7 +3757,7 @@ function RandomizeDungeonChest {
    
    }
 
-   [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+   [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
 
@@ -3787,7 +3787,7 @@ function NoBloods {
     $romfile[$address3+5] = 0x20
 
 
-   [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_Rando.NES", $Romfile)
+   [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 }
 
