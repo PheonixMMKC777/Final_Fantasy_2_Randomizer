@@ -1,7 +1,7 @@
 ﻿
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
-$VersionNumber = "v1.3"
+$VersionNumber = "v1.3.1"
 
 
 Add-Type -assembly System.Windows.Forms
@@ -61,6 +61,15 @@ $RandomPlayerSprite = 0..8
 
 $RandomWeaponAddress = 0x0,0x2,0x4,0x6,0x8,0xA,0xC,0xE
 
+$RandomPaletteValues1 = 1..12
+$RandomPaletteValues2 = 17..28
+$RandomPaletteValues3 = 33..44
+$RandomPaletteValues4 = 49..60
+$RandomPaletteArrayDark = ($RandomPaletteValues1,$RandomPaletteValues2)
+$RandomPaletteArrayLight = ($RandomPaletteValues3,$RandomPaletteValues4)
+
+$RandomHexValue = 0x00..0xFE
+$RandomPaletteMixup = 0x55,0xaa,0xc3,0xf0,0x0f, 0x66, 0x99, 0xdc, 0x23
 
 #Rest is bs pretty sure
 
@@ -3456,6 +3465,38 @@ function CustomPlayerColor {
     $HexValue3 = $GuyByte3 | Get-Random
     $Romfile[$Address+2] = $HexValue3
     
+
+
+    $BATTLE_PAL_1_1 = $RandomPaletteArrayDark | Get-Random
+    $BATTLE_PAL_1_3 = $RandomPaletteArrayLight | Get-Random
+    $BATTLE_PAL_2_1 = $RandomPaletteArrayDark | Get-Random
+    $BATTLE_PAL_2_3 = $RandomPaletteArrayLight | Get-Random
+
+    $Address  = 0x178F
+    $Romfile[$Address] = $BATTLE_PAL_1_1
+    $Address3 = 0x188F
+    $Romfile[$Address3] = $BATTLE_PAL_1_3
+
+
+    $Address  = 0x178E
+    $Romfile[$Address] = $BATTLE_PAL_2_1
+    $Address3 = 0x188E
+    $Romfile[$Address3] = $BATTLE_PAL_2_3
+
+
+
+
+
+    $Palette_Arrangement = $RandomPaletteMixup | Get-Random
+
+
+    $Address = 0x2D26A
+    $Romfile[$Address] = $Palette_Arrangement
+    $Romfile[$Address+1] = $Palette_Arrangement
+
+
+
+
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
