@@ -1,7 +1,7 @@
 ﻿
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
-$VersionNumber = "v1.3.1"
+$VersionNumber = "v1.3.2"
 
 
 Add-Type -assembly System.Windows.Forms
@@ -9,7 +9,8 @@ Add-Type -assembly System.Windows.Forms
 
 #region Init Variables
 
-
+$PlayWav=New-Object System.Media.SoundPlayer
+$PlayWav.SoundLocation="$CurrentDir\assets\Complete.wav"
 
 $CurrentDir = Get-Location
 $RandomByteList = 0..255
@@ -48,12 +49,12 @@ $ArmorTier4 = 120,121,     130,131,132, 140,141,142, 151,152
 
 
 
-$SpellByteList = 153..191
+$SpellByteList = 153..191 #These are the TOMES OR BOOKS!!!
 
 
 
 
-$MagicByteList = 152..191
+$MagicByteList = 192..231 # These are the SPELLS THEMSELVES
 
 $RandomBaseHp = 32..80
 $RandomBaseStat = 5..15
@@ -111,23 +112,53 @@ function FindRom
 {
 
     #this thing has an eternal hatred for spaces
-    $CheckRom = Test-Path -Path "$CurrentDir\Final_Fantasy_2_(Tr).NES"
+    $CheckRom = Test-Path -Path "$CurrentDir\Final_Fantasy_2_(Tr).nes"
 
     
-    if ($CheckRom -eq $true) {
-    write-Host "===================="
-    Write-Host "Rom found!" -foregroundcolor "green"
-    Main
-    } 
+    if ($CheckRom -eq $false) {
+    NoRom  
+   
+    } Else {
     
-    else {
-    write "===================="
-    write-host "Rom does not exist! `nPlace `"Final_Fantasy_2_(Tr).NES`" `nin this directory and try again." -foregroundcolor "red"
-    pause    
-    FindRom
+    Main
     }
+    
+
 }
 
+Function NoRom {
+
+    #icon but base64-ified
+    $iconBase64      = 'iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAElBMVEUAAAAAAACBUTbw0LA/SMz////WgOHMAAAAAXRSTlMAQObYZgAAAAFiS0dEBfhv6ccAAAAHdElNRQflChwDAgzj5EDnAAAAAW9yTlQBz6J3mgAAAIxJREFUSMfF1d0NgDAIBOCuwAquwArdfya9XBBqqk8C96CNfDHnXxzjjoSMXdKByBGyIelgHXcAjD9JAXiWVK0HPsZItQPYrUJUsa0HPkJBQ4GkA5F5hYTBmseqAEsa4ppsuYpUwHJzGsG+B3DgbLmGdOAvDMva46oF/tqgoNXsBC+/tQIQP6DPc/wPTgRisoEQucWoAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIxLTEwLTI4VDAzOjAyOjExKzAwOjAwCh6BJQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMS0xMC0yOFQwMzowMjoxMSswMDowMHtDOZkAAAAASUVORK5CYII='
+    $iconBytes       = [Convert]::FromBase64String($iconBase64)
+    $stream          = New-Object IO.MemoryStream($iconBytes, 0, $iconBytes.Length)
+    $stream.Write($iconBytes, 0, $iconBytes.Length)
+
+$NoRom_Window = New-Object System.Windows.Forms.Form
+$NoRom_Window.Text = "Rom Not Found"
+$NoRom_Window.Size = "280,200"
+$NoRom_Window.BackColor = "Blue"
+$NoRom_Window.Icon = [System.Drawing.Icon]::FromHandle((New-Object System.Drawing.Bitmap -Argument $stream).GetHIcon())
+
+$NoRom_Label = New-Object System.Windows.Forms.Label
+$NoRom_Label.Text = "Rom does not exist, place`n`"Final_Fantasy_2_(Tr).nes`" `nIn this directory and try again."
+$NoRom_Label.Size = "260,80"
+$NoRom_Label.Location = "20,20"
+$NoRom_Label.ForeColor = "white"
+$NoRom_Label.Font = "Arial, 12"
+
+    $Deathimg = (get-item "$CurrentDir/assets/death.png")
+    $Deathimg = [System.Drawing.Image]::Fromfile($Deathimg)
+    $Death = new-object Windows.Forms.PictureBox
+    $Death.Image = $Deathimg
+    $Death.Size = "80,60"
+    $Death.Location = "90,95"
+
+$NoRom_Window.Controls.Add($NoRom_Label)
+$NoRom_Window.Controls.Add($death)
+$NoRom_Window.ShowDialog()
+
+}
 
 
 
@@ -151,8 +182,9 @@ function Main {
 
     $BraggingRights = New-Object System.Windows.Forms.Label
     $BraggingRights.Text = "Programmed by: PheonixMMKC777"
-    $BraggingRight.size = "300,30"
-    $BraggingRights.Location = "30,10"
+    $BraggingRights.size = "110,46"
+    $BraggingRights.Location = "30,15"
+    $BraggingRights.Font = "Arial, 9"
 
 
     $PartySelectMenu = New-Object System.Windows.Forms.Form
@@ -273,7 +305,18 @@ function Main {
     $NoBloodSwords.Size = "200,30"
     $NoBloodSwords.Location = "20,50"
 
-    # BROKEN Player Select Menu
+    $NoStatDecrease = New-Object System.Windows.Forms.CheckBox
+    $NoStatDecrease.Text = "Stats Never Go Down"
+    $NoStatDecrease.Size = "200,30"
+    $NoStatDecrease.Location = "20,80"
+
+    $SpeedupMagicLV = New-Object System.Windows.Forms.CheckBox
+    $SpeedupMagicLV.Text = "Speed up magic levels"
+    $SpeedupMagicLV.Size = "200,30"
+    $SpeedupMagicLV.Location = "20,110"
+
+
+    # Player Select Menu
 
     $PlayerSelectButton = New-Object System.Windows.Forms.Button
     $PlayerSelectButton.Text = "Party `nSelect"
@@ -323,27 +366,98 @@ function Main {
 
     $Preset_Label = New-Object System.windows.forms.Label
     $Preset_Label.Size = "100,25"
-    $Preset_Label.Location = "50,50"
+    $Preset_Label.Location = "55,60"
     $Preset_Label.Text = "Presets!"
     $Preset_Label.Font = "Arial,10"
 
     $Preset_Standard = New-Object System.Windows.Forms.Button
-    $Preset_Standard.Location = "30,70"
+    $Preset_Standard.Location = "30,80"
     $Preset_Standard.Size = "100,25"
     $Preset_Standard.Text = "Standard"
     $Preset_Standard.add_Click({StandardGame})
 
     $Preset_Beginner = New-Object System.Windows.Forms.Button
-    $Preset_Beginner.Location = "30,100"
+    $Preset_Beginner.Location = "30,110"
     $Preset_Beginner.Size = "100,25"
     $Preset_Beginner.Text = "Beginner"
     $Preset_Beginner.add_Click({BeginnerGame})
 
     $Preset_Balance = New-Object System.Windows.Forms.Button
-    $Preset_Balance.Location = "30,130"
+    $Preset_Balance.Location = "30,140"
     $Preset_Balance.Size = "100,25"
     $Preset_Balance.Text = "Balance"
     $Preset_Balance.add_Click({BalanceGame})
+
+
+
+     #region JOB Select Menu
+
+    $Job_Mode_Button = New-Object System.Windows.Forms.Button
+    $Job_Mode_Button.Text = "Job`nMode"
+    $Job_Mode_Button.Size = "60,40"
+    $Job_Mode_Button.Location = "20,120"
+    $Job_Mode_Button.ADD_CLICK({JobMenu})
+
+    $Job_Mode_Menu = New-object System.Windows.Forms.Form
+    $Job_mode_Menu.Text = "JOB MENU"
+    $Job_Mode_Menu.Size = "400,520"
+
+    $Firion_Label = New-object System.Windows.Forms.Label
+    $Firion_Label.Text = "Firion:"
+    $Firion_Label.Size = "80,20"
+    $Firion_Label.Location = "20,20"
+
+    $Maria_Label = New-object System.Windows.Forms.Label
+    $Maria_Label.Text = "Maria:"
+    $Maria_Label.Size = "80,20"
+    $Maria_Label.Location = "20,50"
+
+    $Guy_Label = New-object System.Windows.Forms.Label
+    $Guy_Label.Text = "Guy:"
+    $Guy_Label.Size = "80,20"
+    $Guy_Label.Location = "180,20"
+
+
+    $Firion_Box = New-Object System.Windows.Forms.Textbox
+    $firion_Box.Size = "60,20"
+    $Firion_Box.Location = "100,20"
+
+    $Maria_Box = New-Object System.Windows.Forms.Textbox
+    $Maria_Box.Size = "60,20"
+    $Maria_Box.Location = "100,50"
+
+    $Guy_Box = New-Object System.Windows.Forms.Textbox
+    $Guy_Box.Size = "60,20"
+    $Guy_Box.Location = "260,20"
+
+
+    $Import_Jobs = New-object System.windows.forms.Button
+    $import_jobs.Text = "Import!"
+    $import_Jobs.size = "60,32"
+    $import_Jobs.Location = "200,50"
+    $import_Jobs.ADD_CLICK({DetermineJobs})
+
+
+
+    $Jobs_Label = New-object System.Windows.Forms.Label
+    $Jobs_Label.Text = "White Mage (WHITE): `nSTR Low, AGI Low, VIT Mid, INT Low, SOL High, Staves Lv3, 2 Spells
+    `nBlack Mage (BLACK): `nSTR Mid, AGI Low, VIT Low, INT High, SOL Low, Dirks Lv3, 2 Spells
+    `nRed Mage (RED): `nSTR Mid, AGI Low, VIT Low, INT Mid, SOL Mid, Swords Lv2, 2 Spells
+    `nBerserker (BSRK): `nSTR High, AGI Low, VIT High, INT Low, SOL Low, Axes Lv4, Haste
+    `nDragoon (DRGN): `nSTR Mid, AGI Mid, VIT Mid, INT Low, SOL Low, Spears Lv3, No Magic
+    `nPaladin (PLDN): `nSTR Mid, AGI Low, VIT Mid, INT Low, SOL Mid, Swords Lv2, 2 Spells
+    `nHunter (HUNT): `nSTR Mid, AGI High, VIT Low, INT Low, SOL Low, Bows Lv3, 1 Spell
+    `nMonk (MONK): `nSTR Mid, AGI Mid, VIT High, INT Low, SOL Low, Fists Lv3, No Magic
+    `nWarrior (WARR): `nSTR Mid, AGI Mid, VIT Mid, INT Low, SOL Low, Swords Lv4, No Magic
+    `nVanilla (VANN): `nStats go completely unaltered
+    "
+    $Jobs_Label.Size = "390,400"
+    $Jobs_Label.Location = "10,100"
+
+    #endregion JOB Select Menu
+
+
+
 
 
     #Kimochiwa
@@ -385,9 +499,12 @@ function Main {
 
     $TabChaosPage.Controls.Add($WeaponLock)
     $TabChaosPage.Controls.Add($SoloChallenge)
+    #$TabChaosPage.Controls.Add($Job_Mode_Button)   Job mode nowhere close to being done
 
     $TabOtherPage.Controls.Add($MaxFirionStat)
     $TabOtherPage.Controls.Add($NoBloodSwords)
+    $TabOtherPage.Controls.Add($NoStatDecrease)
+    $TabOtherPage.Controls.Add($SpeedupMagicLV)
 
     $PartySelectMenu.Controls.Add($Player_Label)
     $PartySelectMenu.Controls.Add($Player1_Textbox)
@@ -396,6 +513,22 @@ function Main {
     $PartySelectMenu.Controls.Add($Character_Import_Button)
     $PartySelectMenu.Controls.Add($Player_Tips)
 
+    $Job_Mode_Menu.controls.Add($Firion_Label)
+    $Job_Mode_Menu.controls.Add($Maria_Label)
+    $Job_Mode_Menu.controls.Add($Guy_Label)
+    $Job_Mode_Menu.controls.Add($Minwu_Label)
+    $Job_Mode_Menu.controls.Add($Josef_Label)
+    $Job_Mode_Menu.controls.Add($Gordon_Label)
+    $Job_Mode_Menu.controls.Add($Layla_Label)
+    $Job_Mode_Menu.controls.Add($Richard_Label)
+    $Job_Mode_Menu.controls.Add($Jobs_Label)
+
+    $Job_Mode_Menu.controls.Add($Firion_Box)
+    $Job_Mode_Menu.controls.Add($Maria_Box)
+    $Job_Mode_Menu.controls.Add($Guy_Box)
+
+    $Job_Mode_Menu.controls.Add($Guy_Box)
+    $Job_Mode_Menu.controls.Add($Import_Jobs)
 
 
     #asdassa
@@ -409,6 +542,9 @@ Function PickParty {
 $PartySelectMenu.ShowDialog()
 }
 
+Function JobMenu {
+$Job_Mode_Menu.ShowDialog()
+}
 
 
 Function EvaluateRandomizer {
@@ -431,14 +567,15 @@ Function EvaluateRandomizer {
     IF ($DoubleWalkSpeed.checked -eq $true) {DoublePlayerSpeed}
     If ($MaxFirionStat.Checked -eq $true) {MaxOutStats}
     If ($NoBloodSwords.Checked -eq $true) {NoBloods}
-
+    If ($NoStatDecrease.Checked -eq $true) {NoStatDown}
+    If ($SpeedupMagicLV.Checked -eq $true) {MagicLVup}
     Write-Host "Imported" #Verify to console
+    $main_Window.Controls.Add($Randocomplete)
+    $PlayWav.playsync()
     
 
 
 
-    #Keep on bottom
-    $main_Window.Controls.Add($Randocomplete)
 
 }
 
@@ -3833,4 +3970,32 @@ function NoBloods {
 }
 
 
+function NoStatDown {
+
+    $Romfile = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
+
+    $Address  = 0x168EB
+    $Address2 = 0x168F3
+    $HexValue = 0x8A
+    $Romfile[$Address] = $HexValue
+    $Romfile[$Address2] = $HexValue
+
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+}
+
+function MagicLVup {
+    
+    $Romfile = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
+
+    $Address  = 0x3ACB8
+    $HexValue = 0x0A
+    $Romfile[$Address] = $HexValue
+
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+    
+
+}
+
+# 4000 holy crap 12/31/2021, last day of 2021
 FindRom
