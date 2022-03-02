@@ -183,7 +183,7 @@ function Main {
     $BraggingRights = New-Object System.Windows.Forms.Label
     $BraggingRights.Text = "Programmed by: PheonixMMKC777"
     $BraggingRights.size = "110,46"
-    $BraggingRights.Location = "30,15"
+    $BraggingRights.Location = "30,195"
     $BraggingRights.Font = "Arial, 9"
 
 
@@ -211,8 +211,8 @@ function Main {
     #region Tabs
 
     $TabControl = new-Object System.Windows.Forms.TabControl
-    $TabControl.Size = "223,200"
-    $TabControl.Location = "170,30"
+    $TabControl.Size = "250,200"
+    $TabControl.Location = "170,40"
     
 
     $TabPlayerPage = New-Object System.Windows.Forms.TabPage
@@ -457,12 +457,32 @@ function Main {
     #endregion JOB Select Menu
 
 
+    <#
+
+    $ToolStrip = New-Object System.Windows.Forms.ToolStrip
+
+    $File_TS = New-Object System.Windows.Forms.ToolStripMenuItem
+    $File_TS.Text = "File"
+
+    $Open_FileTS = New-object System.Windows.Forms.ToolStripButton
+    $Open_FileTS = "Open"
+    $Open_FileTS.Add_click({})
+    
+    $ToolStrip.Items.Add($File_TS)
+    
+    $Main_Window.mainmenustrip = $ToolStrip
+
+    $File_TS.DropDownItems.Add($Open_FileTS)
+    
+    
+    #>
+
 
 
 
     #Kimochiwa
 
-
+    $main_Window.Controls.Add($ToolStrip)
     $main_Window.Controls.Add($RandomizeButton)
     $main_Window.Controls.Add($BraggingRights)
 
