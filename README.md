@@ -2,7 +2,7 @@
 
 Currently can Randomize the following 
 
-**Random Shops, Tiered Shops, Player Party, Base Stats, Main/Offhands, Party Select, and a bunch of fun modes!**
+**Random Shops, Tiered Shops, Player Party, Base Stats, Main/Offhands, Party Select, Treasures, and a bunch of fun modes!**
 
 If your not powershell savvy run the RUNME.bat
 
@@ -20,8 +20,6 @@ If you get an error saying this below
 5. Now the script will run
      
 # Current Bugs
-
-Random player Party crashes sometimes, so if it dont work the first time, give it another try
 
 Using the Offhand Randomizer will overwrite Party Select/Random Party Randomization, so dont use them together.
 
