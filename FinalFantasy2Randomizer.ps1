@@ -1,7 +1,7 @@
 ﻿
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
-$VersionNumber = "v1.3.4"
+$VersionNumber = "v1.3.6"
 
 
 Add-Type -assembly System.Windows.Forms
@@ -27,7 +27,7 @@ $LeonHandList = 08,136
 
 $KeyItemByteList = 0..15
 $ItemByteList = 16..48
-$TreasureByteList = 01..191
+$TreasureByteList = 16..191
 $WeaponByteList = 49..111
 
                #Shields  #Knifes   #Canes    #Spears       #Swords        #Axes     #Bows
