@@ -1,7 +1,7 @@
 ﻿
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
-$VersionNumber = "v1.3.3"
+$VersionNumber = "v1.3.4"
 
 
 Add-Type -assembly System.Windows.Forms
