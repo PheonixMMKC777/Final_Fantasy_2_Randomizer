@@ -2229,6 +2229,9 @@ function RandomizeSprites {
 
     Write-Host "====Players=Sprites===="
 
+
+    $RandomPlayerSprite = 0..8
+
     $FirionSprite = $RandomPlayerSprite | Get-Random
 
     Write-Host "Firion OK"
@@ -2239,110 +2242,47 @@ function RandomizeSprites {
     Write-Host "Maria OK"
 
     $GuySprite = $RandomPlayerSprite | Get-Random
-    While ($GuySprite -eq $FirionSprite) {
-            While ($GuySprite = $MariaSprite) {
-                $GuySprite = $RandomPlayerSprite | Get-Random
-            }
-        }
+    While ($GuySprite -eq $FirionSprite -or $GuySprite -eq $MariaSprite) {$GuySprite = $RandomPlayerSprite | get-random}
 
     Write-Host "Guy OK"
 
     $MinwuSprite = $RandomPlayerSprite | Get-Random
-    While ($MinwuSprite -eq $FirionSprite) {
-        While ($MinwuSprite -eq $MariaSprite) {
-            While ($MinwuSprite -eq $GuySprite) {
-            $MinwuSprite = $RandomPlayerSprite | Get-Random        
-            }        
-        }
-    }
+    While ($MinwuSprite -eq $FirionSprite -or $MinwuSprite -eq $MariaSprite -or $MinwuSprite -eq $GuySprite) {$MinwuSprite = $RandomPlayerSprite | Get-Random}
+
 
     Write-Host "Minwu OK"
 
     $JosefSprite = $RandomPlayerSprite | Get-Random
-    While ($JosefSprite -eq $FirionSprite) {
-        While ($JosefSprite -eq $MariaSprite) {
-            While ($JosefSprite -eq $GuySprite) {
-                While ($JosefSprite -eq $MinwuSprite) {
-                $JosefSprite = $RandomPlayerSprite | Get-Random        
-                }        
-            }
-        }
-    } 
+    While ($JosefSprite -eq $FirionSprite -or $JosefSprite -eq $MariaSprite -or $JosefSprite -eq $GuySprite -or $JosefSprite -eq $MinwuSprite) {$JosefSprite = $RandomPlayerSprite | Get-Random }
 
     Write-Host "Josef OK"
 
+
+
     $GordonSprite = $RandomPlayerSprite | Get-Random
-    While ($GordonSprite -eq $FirionSprite) {
-        While ($GordonSprite -eq $MariaSprite) {
-            While ($GordonSprite -eq $GuySprite) {
-                While ($GordonSprite -eq $MinwuSprite) {
-                    While ($GordonSprite -eq $JosefSprite) {
-                        $GordonSprite = $RandomPlayerSprite | Get-Random  
-                     }      
-                }        
-            }
-        }
-    } 
+    While ($GordonSprite -eq $FirionSprite -or $GordonSprite -eq $MariaSprite -or $GordonSprite -eq $GuySprite -or $GordonSprite -eq $MinwuSprite -or $GordonSprite -eq $JosefSprite) {$GordonSprite = $RandomPlayerSprite | Get-Random  }
 
 
     Write-Host "Gordon OK"
 
     $LaylaSprite = $RandomPlayerSprite | Get-Random
-    While ($LaylaSprite -eq $FirionSprite) {
-        While ($LaylaSprite -eq $MariaSprite) {
-            While ($LaylaSprite -eq $GuySprite) {
-                While ($LaylaSprite -eq $MinwuSprite) {
-                    While ($LaylaSprite -eq $JosefSprite) {
-                        While ($LaylaSprite -eq $GordonSprite) {
-                            $LaylaSprite = $RandomPlayerSprite | Get-Random  
-                        }
-                     }      
-                }        
-            }
-        }
-    } 
-
+    While ($LaylaSprite -eq $FirionSprite -or $LaylaSprite -eq $MariaSprite -or $LaylaSprite -eq $GuySprite -or $LaylaSprite -eq $MinwuSprite -or $LaylaSprite -eq $JosefSprite -or $LaylaSprite -eq $GordonSprite) {$LaylaSprite = $RandomPlayerSprite | Get-Random  }
 
     Write-Host "Layla OK"
 
+
      $RichardSprite = $RandomPlayerSprite | Get-Random
-    While ($RichardSprite -eq $FirionSprite) {
-        While ($RichardSprite -eq $MariaSprite) {
-            While ($RichardSprite -eq $GuySprite) {
-                While ($RichardSprite -eq $MinwuSprite) {
-                    While ($RichardSprite -eq $JosefSprite) {
-                        While ($RichardSprite -eq $GordonSprite) {
-                            While ($RichardSprite -eq $LaylaSprite) {
-                                $RichardSprite = $RandomPlayerSprite | Get-Random  
-                            }
-                        }
-                     }      
-                }        
-            }
-        }
-    } 
+    While ($RichardSprite -eq $FirionSprite -or $RichardSprite -eq $MariaSprite -or $RichardSprite -eq $GuySprite -or $RichardSprite -eq $MinwuSprite -or $RichardSprite -eq $JosefSprite -or $RichardSprite -eq $GordonSprite -or $RichardSprite -eq $LaylaSprite) { $RichardSprite = $RandomPlayerSprite | Get-Random }
+
     
 
     Write-Host "Richard OK"
 
     $LeonSprite = $RandomPlayerSprite | Get-Random
-    While ($LeonSprite -eq $FirionSprite) {
-        While ($LeonSprite -eq $MariaSprite) {
-            While ($LeonSprite -eq $GuySprite) {
-                While ($LeonSprite -eq $MinwuSprite) {
-                    While ($LeonSprite -eq $JosefSprite) {
-                        While ($LeonSprite -eq $GordonSprite) {
-                            While ($LeonSprite -eq $LaylaSprite) {
-                                While ($LeonSprite -eq $RichardSprite) {
-                                    $LeonSprite = $RandomPlayerSprite | Get-Random  
-                                }
-                            }
-                        }
-                     }      
-                }        
-            }
-        }
-    } 
+
+    While ($LeonSprite -eq $FirionSprite -or $LeonSprite -eq $MariaSprite -or $LeonSprite -eq $GuySprite -or $LeonSprite -eq $MinwuSprite -or $LeonSprite -eq $JosefSprite -or $LeonSprite -eq $GordonSprite -or $LeonSprite -eq $LaylaSprite -or $LeonSprite -eq $RichardSprite ) {$LeonSprite = $RandomPlayerSprite | Get-Random }
+
+
 
     Write-Host "Leon OK"
 
