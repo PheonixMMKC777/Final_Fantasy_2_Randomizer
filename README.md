@@ -25,6 +25,8 @@ Using the Offhand Randomizer will overwrite Party Select/Random Party Randomizat
 
 Also you cannot use tiered and randomized shops at the same time :/
 
+Spoiler File doenst work properly, if at all
+
 # Possible Future Features
 
 Randomize Key Items
