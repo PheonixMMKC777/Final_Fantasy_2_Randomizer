@@ -306,7 +306,7 @@ function Main {
     $NoBloodSwords.Location = "20,50"
 
     $NoStatDecrease = New-Object System.Windows.Forms.CheckBox
-    $NoStatDecrease.Text = "Stats Never Go Down"
+    $NoStatDecrease.Text = "Stats Never Go Down *"
     $NoStatDecrease.Size = "200,30"
     $NoStatDecrease.Location = "20,80"
 
