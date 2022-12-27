@@ -1,16 +1,30 @@
 ﻿
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
-$VersionNumber = "v1.3.6"
+$VersionNumber = "v1.4.7"
 
+
+
+<#
+TODO LIST
+
+adjust weapon sell price	...aka sales tax, not working		
+random starting gear slots		    DONE
+random enemy palettes			
+custom random dialgue			
+lower encounter table fill rates	DONE	
+PHIN and UNARMED are in drop table	DONE
+Custom Weapons/Armors
+
+#>
 
 Add-Type -assembly System.Windows.Forms
 
 
 #region Init Variables
 
-$PlayWav=New-Object System.Media.SoundPlayer
-$PlayWav.SoundLocation="$CurrentDir\assets\Complete.wav"
+#$PlayWav=New-Object System.Media.SoundPlayer
+#$PlayWav.SoundLocation="$CurrentDir\assets\Complete.wav"
 
 $CurrentDir = Get-Location
 $RandomByteList = 0..255
@@ -26,9 +40,15 @@ $RichardHandList = 07,135
 $LeonHandList = 08,136
 
 $KeyItemByteList = 0..15
-$ItemByteList = 16..48
-$TreasureByteList = 16..191
-$WeaponByteList = 49..111
+$ItemByteList = 16..46
+[System.Collections.ArrayList] $TreasureByteList = 16..191
+[System.Collections.ArrayList] $WeaponByteList = 49..111
+
+#this will omit items like PHIN and UNARMED from weird spots in ID List 
+while ($TreasureByteList -contains 47) {$TreasureByteList.Remove(47)}
+while ($TreasureByteList -contains 48) {$TreasureByteList.Remove(48)}
+while ($WeaponByteList -contains 47) {$WeaponByteList.Remove(47)}
+while ($WeaponByteList -contains 48) {$WeaponByteList.Remove(48)}
 
                #Shields  #Knifes   #Canes    #Spears       #Swords        #Axes     #Bows
 $WeaponTier1 = 49,50,51, 58,59,60, 65,66,67, 74,75,76,    83,84,85,86,    97,98,99, 104,105,106
@@ -62,15 +82,23 @@ $RandomPlayerSprite = 0..8
 
 $RandomWeaponAddress = 0x0,0x2,0x4,0x6,0x8,0xA,0xC,0xE
 
-$RandomPaletteValues1 = 1..12
-$RandomPaletteValues2 = 17..28
-$RandomPaletteValues3 = 33..44
-$RandomPaletteValues4 = 49..60
-$RandomPaletteArrayDark = ($RandomPaletteValues1,$RandomPaletteValues2)
-$RandomPaletteArrayLight = ($RandomPaletteValues3,$RandomPaletteValues4)
 
 $RandomHexValue = 0x00..0xFE
-$RandomPaletteMixup = 0x55,0xaa,0xc3,0xf0,0x0f, 0x66, 0x99, 0xdc, 0x23
+
+
+# fucntion salestax, sets weapon price value on sale
+$SellPriceLow = 40..249
+$SellPriceMid = 250..999
+$sellPriceHigh = 1000..9999
+$SellPriceMax = 10000..65534
+
+
+
+
+
+
+
+
 
 #Rest is bs pretty sure
 
@@ -107,6 +135,7 @@ $RandomPaletteMixup = 0x55,0xaa,0xc3,0xf0,0x0f, 0x66, 0x99, 0xdc, 0x23
 
 
 #endregion Init Variables
+
 
 function FindRom 
 {
@@ -175,15 +204,15 @@ function Main {
     #Main Gui elements
     
     $main_Window = New-object System.Windows.Forms.Form
-    $main_Window.Size = "440,330"
+    $main_Window.Size = "460,400"
     $main_Window.Text = "Final Fantasy II (NES) Randomizer $versionnumber"
     $Main_Window.Icon = [System.Drawing.Icon]::FromHandle((New-Object System.Drawing.Bitmap -Argument $stream).GetHIcon())
 
 
     $BraggingRights = New-Object System.Windows.Forms.Label
     $BraggingRights.Text = "Programmed by: PheonixMMKC777"
-    $BraggingRights.size = "110,46"
-    $BraggingRights.Location = "30,195"
+    $BraggingRights.size = "110,35"
+    $BraggingRights.Location = "30,25"
     $BraggingRights.Font = "Arial, 9"
 
 
@@ -193,25 +222,25 @@ function Main {
 
     $FlagList = New-Object System.Windows.Forms.Label
     $FlagList.text = "Flags *:  `nAlso if it has this * symbol, it is incomplete :( "
-    $FlagList.Location = "170,248"
+    $FlagList.Location = "170,300"
     $FLaglist.Size = "300, 60"
 
     $RandomizeButton = New-Object System.windows.forms.button
     $RandomizeButton.Text = "Import"
-    $RandomizeButton.Location = "30,240"
+    $RandomizeButton.Location = "30,300"
     $RandomizeButton.Size = "60,35"
     $RandomizeButton.ADD_CLICK({EvaluateRandomizer})
 
     $RandoComplete = New-Object System.Windows.Forms.Label
     $RandoComplete.text = "Done!"
-    $RandoComplete.Location = "100,250"
+    $RandoComplete.Location = "100,310"
     $RandoComplete.Size = "40, 60"
 
 
     #region Tabs
 
     $TabControl = new-Object System.Windows.Forms.TabControl
-    $TabControl.Size = "250,200"
+    $TabControl.Size = "250,250"
     $TabControl.Location = "170,40"
     
 
@@ -306,7 +335,7 @@ function Main {
     $NoBloodSwords.Location = "20,50"
 
     $NoStatDecrease = New-Object System.Windows.Forms.CheckBox
-    $NoStatDecrease.Text = "Stats Never Go Down *"
+    $NoStatDecrease.Text = "Stats Never Go Down"
     $NoStatDecrease.Size = "200,30"
     $NoStatDecrease.Location = "20,80"
 
@@ -314,6 +343,21 @@ function Main {
     $SpeedupMagicLV.Text = "Speed up magic levels"
     $SpeedupMagicLV.Size = "200,30"
     $SpeedupMagicLV.Location = "20,110"
+
+    $BalanceSellPrice = New-Object System.Windows.Forms.CheckBox
+    $BalanceSellPrice.Text = "Balanced Sell Prices*"
+    $BalanceSellPrice.Size = "200,30"
+    $BalanceSellPrice.Location = "20,80"
+
+    $StartingBeltItems = New-Object System.Windows.Forms.CheckBox
+    $StartingBeltItems.Text = "Starting Belt Items"
+    $StartingBeltItems.Size = "200,30"
+    $StartingBeltItems.Location = "20,140"
+
+    $CustomEquipment = New-Object System.Windows.Forms.CheckBox
+    $CustomEquipment.Text = "Custom Equipment*"
+    $CustomEquipment.Size = "200,30"
+    $CustomEquipment.Location = "20,170"
 
 
     # Player Select Menu
@@ -364,26 +408,29 @@ function Main {
     $Character_Select_Complete.Location = "200,78"
     $Character_Select_Complete.Text = "Party Chosen!"
 
+
+    #Presets
+
     $Preset_Label = New-Object System.windows.forms.Label
     $Preset_Label.Size = "100,25"
-    $Preset_Label.Location = "55,60"
+    $Preset_Label.Location = "55,80"
     $Preset_Label.Text = "Presets!"
     $Preset_Label.Font = "Arial,10"
 
     $Preset_Standard = New-Object System.Windows.Forms.Button
-    $Preset_Standard.Location = "30,80"
+    $Preset_Standard.Location = "30,100"
     $Preset_Standard.Size = "100,25"
     $Preset_Standard.Text = "Standard"
     $Preset_Standard.add_Click({StandardGame})
 
     $Preset_Beginner = New-Object System.Windows.Forms.Button
-    $Preset_Beginner.Location = "30,110"
+    $Preset_Beginner.Location = "30,130"
     $Preset_Beginner.Size = "100,25"
     $Preset_Beginner.Text = "Beginner"
     $Preset_Beginner.add_Click({BeginnerGame})
 
     $Preset_Balance = New-Object System.Windows.Forms.Button
-    $Preset_Balance.Location = "30,140"
+    $Preset_Balance.Location = "30,160"
     $Preset_Balance.Size = "100,25"
     $Preset_Balance.Text = "Balance"
     $Preset_Balance.add_Click({BalanceGame})
@@ -510,6 +557,7 @@ function Main {
 
     $TabShopPage.Controls.Add($RandomizeShops)
     $TabShopPage.Controls.Add($TieredShops)
+    $TabShopPage.Controls.Add($BalanceSellPrice)
 
     $TabGamePage.Controls.Add($DoubleWalkSpeed)
     $TabGamePage.Controls.Add($RandomizeLootTable)
@@ -525,6 +573,8 @@ function Main {
     $TabOtherPage.Controls.Add($NoBloodSwords)
     $TabOtherPage.Controls.Add($NoStatDecrease)
     $TabOtherPage.Controls.Add($SpeedupMagicLV)
+    $TabOtherPage.Controls.Add($StartingBeltItems)
+    $TabOtherPage.Controls.Add($CustomEquipment)
 
     $PartySelectMenu.Controls.Add($Player_Label)
     $PartySelectMenu.Controls.Add($Player1_Textbox)
@@ -589,9 +639,14 @@ Function EvaluateRandomizer {
     If ($NoBloodSwords.Checked -eq $true) {NoBloods}
     If ($NoStatDecrease.Checked -eq $true) {NoStatDown}
     If ($SpeedupMagicLV.Checked -eq $true) {MagicLVup}
+    #If ($BalanceSellPrice.Checked -eq $true) {SalesTax} 
+    If ($StartingBeltItems.Checked -eq $true) {BeltItems} 
+    If ($CustomEquipment.Checked -eq $true) {LoadCustomWeapon} #wip
+
+
     Write-Host "Imported" #Verify to console
     $main_Window.Controls.Add($Randocomplete)
-    $PlayWav.playsync()
+    #$PlayWav.playsync()
     
 
 
@@ -609,7 +664,7 @@ CustomPlayerColor
 DoublePlayerSpeed
 RandomizeEnemyLoot
 RandomizeBaseStats
-NoBloods
+BeltItems
     Dressup
     SetupAirship
     $main_Window.Controls.Add($Randocomplete)
@@ -624,6 +679,7 @@ RandomizeShops
 CustomPlayerColor
 DoublePlayerSpeed
 SpellSelect
+BeltItems
 RandomizeEnemyLoot
     Dressup
     SetupAirship
@@ -641,11 +697,39 @@ SpellSelect
 RandomizeEnemyLoot
 CustomPlayerColor
 DoublePlayerSpeed
+BeltItems
     Dressup
     SetupAirship
     $main_Window.Controls.Add($Randocomplete)
 
 }
+
+Function BeltItems {
+    
+
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES") 
+    $loopcounter = 0
+    $Slot1 = 0xFAE
+    $Slot2 = 0xFAF
+
+    While ($loopcounter -le 8) {
+    
+    $RandomItem = $ItemByteList | Get-Random
+    $RandomSpell = $SpellByteList | Get-Random
+
+    $RomFile[$Slot1] = $RandomItem  
+    $RomFile[$Slot2] = $RandomSpell 
+
+    $Slot1 = $Slot1 + 128
+    $Slot2 = $Slot2 + 128
+
+    $loopcounter++
+    }
+
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+}
+
 
 Function TieredShops {
 
@@ -1365,6 +1449,43 @@ Function TieredShops {
 }
 
 
+
+function SalesTax {
+
+
+    #region altea
+
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+
+
+    $SellCounterHi = 0x38030 
+    $SellCounterLo = 0x38031
+    $sellLoop = 0
+    while ($sellLoopHi -lt 174) {
+        if ($Romfile[$SellCounterHi] -lt 200) {
+                $SellHiBit = $SellPriceLow | Get-Random
+                $Romfile[$SellCounterHi] = $SellHiBit
+
+        if ($Romfile[$SellCounterHi] -gt 200 -and $Romfile[$SellCounterHi] -lt 999) {
+                $SellHiBit = $SellPriceMid | Get-Random
+                $Romfile[$SellCounterHi] = $SellHiBit
+                }
+        if ($Romfile[$SellCounterHi] -gt 1000 -and $Romfile[$SellCounterHi] -lt 9999) {
+                $SellHiBit = $SellPriceHigh | Get-Random
+                $Romfile[$SellCounterHi] = $SellHiBit
+                }
+        if ($Romfile[$SellCounterHi] -gt 10000 -and $Romfile[$SellCounterHi] -lt 65534) {
+                $SellHiBit = $SellPriceHigh | Get-Random
+                $Romfile[$SellCounterHi] = $SellHiBit
+                }
+        }
+
+
+    }
+
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+}
 
 
 Function RandomizeShops {
@@ -2970,11 +3091,20 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
    
 
 $Address = 0x17810    # current
+$Address2 = 0x17811   # 1 over mandatory empty
     
-    While ($Address -le 0x179EF) {
+    While ($Address -le 0x179EE) {
     $HexValue = $TreasureByteList | Get-Random
     $Romfile[$Address] = $HexValue 
     $Address++ 
+    $Address++ #increase by 2 instead of 1 for lower tables 
+
+    While ($Address2 -le 0x179EF) {
+    $HexValue = 0x00 # 00 = no item, this is always a 0, lowers amount of drops
+    $Romfile[$Address] = $HexValue 
+    $Address2++ 
+    $Address2++ 
+    }
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
        
@@ -3520,6 +3650,18 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 function CustomPlayerColor {
 
 
+$RandomPaletteValues1 = 1..12
+$RandomPaletteValues2 = 17..28
+$RandomPaletteValues3 = 33..44
+$RandomPaletteValues4 = 49..60
+$RandomPaletteArrayDark = ($RandomPaletteValues1,$RandomPaletteValues2)
+$RandomPaletteArrayLight = ($RandomPaletteValues3,$RandomPaletteValues4)
+
+
+$RandomPaletteMixup = 0x55,0xaa,0xc3,0xf0,0x0f, 0x66, 0x99, 0xdc, 0x23
+
+
+
     
     $FirstByte =  0x05, 0x11,0x12, 0x13,0x14,0x1c,0x17,0x21,0x22,0x23,0x2a,0x2c
     $SecondByte = 0x17,0x27,0x16
@@ -3569,16 +3711,19 @@ function CustomPlayerColor {
     $BATTLE_PAL_2_1 = $RandomPaletteArrayDark | Get-Random
     $BATTLE_PAL_2_3 = $RandomPaletteArrayLight | Get-Random
 
+    $Address  = 0x178E
+    $Romfile[$Address] = $BATTLE_PAL_2_1
+
     $Address  = 0x178F
     $Romfile[$Address] = $BATTLE_PAL_1_1
+
+    $Address3 = 0x188E
+    $Romfile[$Address3] = $BATTLE_PAL_2_3
+
     $Address3 = 0x188F
     $Romfile[$Address3] = $BATTLE_PAL_1_3
 
 
-    $Address  = 0x178E
-    $Romfile[$Address] = $BATTLE_PAL_2_1
-    $Address3 = 0x188E
-    $Romfile[$Address3] = $BATTLE_PAL_2_3
 
 
 
@@ -3959,3 +4104,98 @@ function MagicLVup {
 
 # 4000 holy crap 12/31/2021, last day of 2021
 FindRom
+
+
+function LoadCustomWeapon {
+
+<#-ICON-#
+70 = knife
+71 = staff
+72 = spear
+73 = sword 
+74 = axe
+75 = bow
+#>
+
+                   #TYPE,ACCU,ATTK,EVAD,PNLT,ELEM,WEAK,ATWI,ITEM,ICON #C   #L   #EA  #V   #ER  #    
+$Weapon_Cleaver = (0x05,0x46,0x32,0x10,0x10,0x00,0x00,0x00,0xFF, 0x70, 0x8C,0xAF,0x56,0xB9,0x42,0x00)
+                   #TYPE,ACCU,ATTK,EVAD,PNLT,ELEM,WEAK,ATWI,ITEM,ICON #D   #U   #M   #M   #Y   #
+$Weapon_Dummy   = (0x64,0x64,0x64,0x64,0x64,0x64,0x64,0x64,0x64, 0x74,0x8D,0x9e,0x96,0x96,0xA2,0x00)
+
+
+#$Weapon_Cleaver = (0x05,0x46,0x32,0x10,0x10,0x00,0x00,0x00,0xFF,0x8C,0xAF)
+#$Weapon_Dummy   = (0x64,0x64,0x64,0x64,0x64,0x64,0x64,0x64,0x64,0x8D,0x9e)
+
+
+$WeaponList = ($Weapon_Cleaver,$Weapon_Dummy)
+$WeaponArraySize = (0,1) #needs to have a much elements as $WeaponList
+
+SaveCustomWeapon
+
+}
+
+
+Function SaveCustomWeapon {
+
+$Romfile = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")
+
+$add = 0x30160 #knife stat address rom
+$TextAdd = 0x2A8FF #Knife text address rom
+
+$wt = 0  #weapontotal
+
+
+#6 chars per weapon???
+#remeber special chars like <er>
+
+
+
+while ($WT -lt 56) {
+
+    $Weapon = $WeaponArraySize | Get-Random
+
+    $Romfile[$add] = $WeaponList[$Weapon][0]
+    $add++
+    $Romfile[$add] = $WeaponList[$Weapon][1]
+    $add++
+    $Romfile[$add] = $WeaponList[$Weapon][2]
+    $add++
+    $Romfile[$add] = $WeaponList[$Weapon][3]
+    $add++
+    $Romfile[$add] = $WeaponList[$Weapon][4]
+    $add++
+    $Romfile[$add] = $WeaponList[$Weapon][5]
+    $add++
+    $Romfile[$add] = $WeaponList[$Weapon][6]
+    $add++
+    $Romfile[$add] = $WeaponList[$Weapon][7]
+    $add++
+    $Romfile[$add] = $WeaponList[$Weapon][8]
+    $add++
+
+    $RomFile[$TextAdd] = $weaponList[$Weapon][9]
+    $textadd++
+    $RomFile[$TextAdd] = $weaponList[$Weapon][10]
+    $textadd++
+    $RomFile[$TextAdd] = $weaponList[$Weapon][11]
+    $textadd++
+    $RomFile[$TextAdd] = $weaponList[$Weapon][12]
+    $textadd++
+    $RomFile[$TextAdd] = $weaponList[$Weapon][13]
+    $textadd++
+    $RomFile[$TextAdd] = $weaponList[$Weapon][14]
+    $textadd++
+    $RomFile[$TextAdd] = $weaponList[$Weapon][15]
+    $textadd++
+
+
+    $wt++
+    }
+
+
+[System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+Write-host "Weapons Imported" -ForegroundColor Green
+
+
+}
+
