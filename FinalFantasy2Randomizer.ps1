@@ -1800,7 +1800,39 @@ Function RandomizeShops {
     [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
 
 
+    $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES")    
+
+
+        #Poft Mythril shop
+
+    $Address = 0x3866D
+
+    $RandomByte = $SpellByteList | Get-Random
+    $HexValue = $RandomByte 
+    $Romfile[$Address] = $HexValue
+    
+    $RandomByte = $SpellByteList | Get-Random
+    $HexValue = $RandomByte
+    $Romfile[$Address+2] = $HexValue 
+    
+    $RandomByte = $SpellByteList | Get-Random
+    $HexValue = $RandomByte
+    $Romfile[$Address+4] = $HexValue
+    
+    $RandomByte = $SpellByteList | Get-Random
+    $HexValue = $RandomByte
+    $Romfile[$Address+6] = $HexValue
+
+
+    [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
+
+
         #endregion poft
+
+
+
+        # WHERE IS 0x3866D ????????????
+
 
 
         #region Salamand
