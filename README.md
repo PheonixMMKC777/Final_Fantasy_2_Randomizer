@@ -21,9 +21,7 @@ If you get an error saying this below
      
 # Current Bugs
 
-Using the Offhand Randomizer will overwrite Party Select/Random Party Randomization, so dont use them together.
-
-Also you cannot use tiered and randomized shops at the same time :/
+you cannot use tiered and randomized shops at the same time :/
 
 Spoiler File doenst work properly, if at all
 
