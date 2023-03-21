@@ -1,4 +1,4 @@
-# Final Fantasy II Randomizer 1.3
+# Final Fantasy II Randomizer
 
 Currently can Randomize the following 
 
