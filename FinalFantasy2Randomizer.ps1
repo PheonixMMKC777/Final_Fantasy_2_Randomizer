@@ -1,7 +1,8 @@
 ﻿
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
-$VersionNumber = "v1.4.7"
+#Last Edited 3/20/23
+$VersionNumber = "v1.4.8"
 
 
 
@@ -226,14 +227,14 @@ function Main {
     $FLaglist.Size = "300, 60"
 
     $RandomizeButton = New-Object System.windows.forms.button
-    $RandomizeButton.Text = "Import"
+    $RandomizeButton.Text = "Randomize!"
     $RandomizeButton.Location = "30,300"
-    $RandomizeButton.Size = "60,35"
+    $RandomizeButton.Size = "80,35"
     $RandomizeButton.ADD_CLICK({EvaluateRandomizer})
 
     $RandoComplete = New-Object System.Windows.Forms.Label
     $RandoComplete.text = "Done!"
-    $RandoComplete.Location = "100,310"
+    $RandoComplete.Location = "120,310"
     $RandoComplete.Size = "40, 60"
 
 
@@ -2899,7 +2900,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0xFC1    # current
-    $HexValue = $MagicByteList | Get-Random
+    $HexValue2 = $MagicByteList | Get-Random
+    while ($HexValue2 -eq $HexValue) {$HexValue2 = $MagicByteList | Get-Random}
     $Romfile[$Address] = $HexValue 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -2924,7 +2926,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1041    # current
-    $HexValue = $MagicByteList | Get-Random
+    $HexValue2 = $MagicByteList | Get-Random
+    while ($HexValue2 -eq $HexValue) {$HexValue2 = $MagicByteList | Get-Random}
     $Romfile[$Address] = $HexValue 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -2949,7 +2952,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x10C1    # current
-    $HexValue = $MagicByteList | Get-Random
+    $HexValue2 = $MagicByteList | Get-Random
+    while ($HexValue2 -eq $HexValue) {$HexValue2 = $MagicByteList | Get-Random}
     $Romfile[$Address] = $HexValue 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -2974,7 +2978,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1141    # current
-    $HexValue = $MagicByteList | Get-Random
+    $HexValue2 = $MagicByteList | Get-Random
+    while ($HexValue2 -eq $HexValue) {$HexValue2 = $MagicByteList | Get-Random}
     $Romfile[$Address] = $HexValue 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -2999,7 +3004,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x11C1    # current
-    $HexValue = $MagicByteList | Get-Random
+    $HexValue2 = $MagicByteList | Get-Random
+    while ($HexValue2 -eq $HexValue) {$HexValue2 = $MagicByteList | Get-Random}
     $Romfile[$Address] = $HexValue 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3025,7 +3031,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1241    # current
-    $HexValue = $MagicByteList | Get-Random
+    $HexValue2 = $MagicByteList | Get-Random
+    while ($HexValue2 -eq $HexValue) {$HexValue2 = $MagicByteList | Get-Random}
     $Romfile[$Address] = $HexValue 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3051,7 +3058,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x12C1    # current
-    $HexValue = $MagicByteList | Get-Random
+    $HexValue2 = $MagicByteList | Get-Random
+    while ($HexValue2 -eq $HexValue) {$HexValue2 = $MagicByteList | Get-Random}
     $Romfile[$Address] = $HexValue 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3077,7 +3085,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x1341    # current
-    $HexValue = $MagicByteList | Get-Random
+    $HexValue2 = $MagicByteList | Get-Random
+    while ($HexValue2 -eq $HexValue) {$HexValue2 = $MagicByteList | Get-Random}
     $Romfile[$Address] = $HexValue 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
@@ -3102,7 +3111,8 @@ $Romfile  = [System.IO.File]::ReadAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES
 
 
     $Address = 0x13C1    # current
-    $HexValue = $MagicByteList | Get-Random
+    $HexValue2 = $MagicByteList | Get-Random
+    while ($HexValue2 -eq $HexValue) {$HexValue2 = $MagicByteList | Get-Random}
     $Romfile[$Address] = $HexValue 
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\Final_Fantasy_2_(Tr).NES", $Romfile)
