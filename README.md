@@ -21,7 +21,7 @@ If you get an error saying this below
      
 # Current Bugs
 
-You cannot use tiered and randomized shops at the same time :/
+You cannot use tiered and randomized shops at the same time (Duh.)
 
 Spoiler File doenst work properly, if at all
 
