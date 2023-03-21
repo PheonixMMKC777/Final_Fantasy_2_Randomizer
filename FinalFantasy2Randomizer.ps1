@@ -2,7 +2,7 @@
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
 #Last Edited 3/20/23
-$VersionNumber = "v1.4.8"
+$VersionNumber = "v1.4.9"
 
 
 
@@ -228,14 +228,15 @@ function Main {
 
     $RandomizeButton = New-Object System.windows.forms.button
     $RandomizeButton.Text = "Randomize!"
-    $RandomizeButton.Location = "30,300"
-    $RandomizeButton.Size = "80,35"
+    $RandomizeButton.Location = "30,250"
+    $RandomizeButton.Size = "100,35"
     $RandomizeButton.ADD_CLICK({EvaluateRandomizer})
 
     $RandoComplete = New-Object System.Windows.Forms.Label
     $RandoComplete.text = "Done!"
-    $RandoComplete.Location = "120,310"
-    $RandoComplete.Size = "40, 60"
+    $RandoComplete.Location = "60,300"
+    $RandoComplete.Size = "200, 60"
+    $RandoComplete.Font = "Arial,10"
 
 
     #region Tabs
