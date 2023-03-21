@@ -2,7 +2,7 @@
 #Final Fantasy II Randomizer
 #Programmed by PheonixMMKC777
 #Last Edited 3/20/23
-$VersionNumber = "v1.4.10"
+$VersionNumber = "v1.4.11"
 
 
 $PresetString ="";
@@ -211,7 +211,7 @@ function Main {
     #Main Gui elements
     
     $main_Window = New-object System.Windows.Forms.Form
-    $main_Window.Size = "460,400"
+    $main_Window.Size = "460,375"
     $main_Window.Text = "Final Fantasy II (NES) Randomizer $versionnumber"
     $Main_Window.Icon = [System.Drawing.Icon]::FromHandle((New-Object System.Drawing.Bitmap -Argument $stream).GetHIcon())
 
@@ -239,8 +239,8 @@ function Main {
     $RandomizeButton.ADD_CLICK({EvaluateRandomizer})
 
     $RandoComplete = New-Object System.Windows.Forms.Label
-    $RandoComplete.text = "Done!"
-    $RandoComplete.Location = "60,300"
+    $RandoComplete.text = "           Done! `n" + "$BuildName" 
+    $RandoComplete.Location = "22,295"
     $RandoComplete.Size = "200, 60"
     $RandoComplete.Font = "Arial,10"
 
@@ -333,7 +333,7 @@ function Main {
     $SoloChallenge.Location = "20,20"
 
     $MaxFirionStat = New-Object System.Windows.Forms.CheckBox
-    $MaxFirionStat.Text = "Max Firion's Stats (Debug)"
+    $MaxFirionStat.Text = "Max Out Party's Stats (Debug)"
     $MaxFirionStat.Size = "200,30"
     $MaxFirionStat.Location = "20,20"
 
@@ -3864,7 +3864,7 @@ function MaxOutStats {
     $LIFE = 0xD5
     $CURE = 0xD4
 
-       #Process
+       #Process Firion
 
     $Romfile[$HPC1] = $MaxHP1 
     $Romfile[$HPC2] = $MaxHP2
@@ -3892,6 +3892,67 @@ function MaxOutStats {
     $Romfile[$WBow] = $Nine
     $Romfile[$FSpell] = $LIFE
     $Romfile[$FSpell + 1] = $CURE
+
+
+
+                #Maria
+
+    $Romfile[$HPC1+128] = $MaxHP1 
+    $Romfile[$HPC2+128] = $MaxHP2
+    $Romfile[$HPM1+128] = $MaxHP1 
+    $Romfile[$HPM2+128] = $MaxHP2
+    $Romfile[$MPC1+128] = $MaxMP1 
+    $Romfile[$MPC2+128] = $MaxMP2
+    $Romfile[$MPM1+128] = $MaxMP1 
+    $Romfile[$MPM2+128] = $MaxMP2
+    $Romfile[$Str+128] = $MaxStat
+    $Romfile[$Agi+128] = $MaxStat
+    $Romfile[$Vit+128] = $MaxStat
+    $Romfile[$Int+128] = $MaxStat
+    $Romfile[$Soul+128] = $MaxStat
+    $Romfile[$Weapon+128] = $Masamune
+    $Romfile[$Shield+128] = $Masamune
+    $Romfile[$MagPow+128] = $MaxStat
+    $Romfile[$WFist+128] = $Nine
+    $Romfile[$WShield+128] = $Nine
+    $Romfile[$WKnife+128] = $Nine
+    $Romfile[$WCane+128] = $Nine
+    $Romfile[$WRod+128] = $Nine
+    $Romfile[$WSword+128] = $Nine
+    $Romfile[$WAxe+128] = $Nine
+    $Romfile[$WBow+128] = $Nine
+    $Romfile[$FSpell+128] = $LIFE
+    $Romfile[$FSpell + +129] = $CURE
+
+               #Guy
+
+    $Romfile[$HPC1+256] = $MaxHP1 
+    $Romfile[$HPC2+256] = $MaxHP2
+    $Romfile[$HPM1+256] = $MaxHP1 
+    $Romfile[$HPM2+256] = $MaxHP2
+    $Romfile[$MPC1+256] = $MaxMP1 
+    $Romfile[$MPC2+256] = $MaxMP2
+    $Romfile[$MPM1+256] = $MaxMP1 
+    $Romfile[$MPM2+256] = $MaxMP2
+    $Romfile[$Str+256] = $MaxStat
+    $Romfile[$Agi+256] = $MaxStat
+    $Romfile[$Vit+256] = $MaxStat
+    $Romfile[$Int+256] = $MaxStat
+    $Romfile[$Soul+256] = $MaxStat
+    $Romfile[$Weapon+256] = $Masamune
+    $Romfile[$Shield+256] = $Masamune
+    $Romfile[$MagPow+128] = $MaxStat
+    $Romfile[$WFist+256] = $Nine
+    $Romfile[$WShield+256] = $Nine
+    $Romfile[$WKnife+256] = $Nine
+    $Romfile[$WCane+256] = $Nine
+    $Romfile[$WRod+256] = $Nine
+    $Romfile[$WSword+256] = $Nine
+    $Romfile[$WAxe+256] = $Nine
+    $Romfile[$WBow+256] = $Nine
+    $Romfile[$FSpell+256] = $LIFE
+    $Romfile[$FSpell + +257] = $CURE
+
 
 [System.IO.File]::WriteAllBytes("$CurrentDir\$buildname", $Romfile)
 
