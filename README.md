@@ -1,4 +1,4 @@
-# 𝔽𝕚𝕟𝕒𝕝 𝔽𝕒𝕟𝕥𝕒𝕤𝕪 𝕀𝕀 ℝ𝕒𝕟𝕕𝕠𝕞𝕚𝕫𝕖𝕣
+# Final Fantasy 2 Randomizer
 
 Currently can Randomize the following 
 
@@ -37,4 +37,4 @@ Increase Battle Speed??
 
 Major shoutout to Lenophis and the fine people at Slickproductions.com for their ff2 documents and utilities
              
-
+𝔽𝕚𝕟𝕒𝕝 𝔽𝕒𝕟𝕥𝕒𝕤𝕪 𝕀𝕀 ℝ𝕒𝕟𝕕𝕠𝕞𝕚𝕫𝕖𝕣
