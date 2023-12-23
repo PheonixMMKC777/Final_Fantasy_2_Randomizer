@@ -4,9 +4,9 @@ Currently can Randomize the following
 
 **Random Shops, Tiered Shops, Player Party, Base Stats, Main/Offhands, Party Select, Treasures, and a bunch of fun modes!**
 
-**The airship will despawn once you collect the sunfire. It will return when you get Cid's Airship at phin. Route carefully!!**
+*The airship will despawn once you collect the sunfire. It will return when you get Cid's Airship at phin. Route carefully!!*
 
-#RUNNNING VIA POWERSHELL
+# RUNNNING VIA POWERSHELL
 
 If your not powershell savvy run the RUNME.bat
 
